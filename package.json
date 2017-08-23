@@ -1,7 +1,7 @@
 {
-  "name": "html-sketchapp-example",
+  "name": "html-sketchapp-style-guide",
   "version": "1.0.0",
-  "description": "Example use of brainly/html-sketchapp",
+  "description": "Brainly style guide to Sketch",
   "scripts": {
     "test": "eslint src/",
     "build": "webpack",

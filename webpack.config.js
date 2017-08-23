@@ -1,7 +1,7 @@
 module.exports = {
-  entry: './src/page2layers.js',
+  entry: './src/styleguide2asketch.js',
   output: {
-    filename: './build/page2layers.bundle.js',
-    library: 'page2layers'
+    filename: './build/styleguide2asketch.bundle.js',
+    library: 'styleguide2asketch'
   }
 };
