@@ -11,16 +11,28 @@ puppeteer.launch().then(async browser => {
 
   await page.setViewport({width: 800, height: 600});
   await page.goto('file://' + path.resolve(styleGuidePath), {
-    waitUntil: 'networkidle',
-    networkIdleInflight: 5
+    waitUntil: 'networkidle0'
   });
 
-  await page.injectFile('./build/styleguide2asketch.bundle.js');
-  const asketchDocumentJSON = await page.evaluate('styleguide2asketch.getASketchDocument()');
-  const asketchPageJSON = await page.evaluate('styleguide2asketch.getASketchPage()');
+  await page.addScriptTag({
+    path: './build/styleguide2asketch.bundle.js'
+  });
 
-  fs.writeFileSync(path.resolve(__dirname, outputDocumentFile), JSON.stringify(asketchDocumentJSON));
-  fs.writeFileSync(path.resolve(__dirname, outputPageFile), JSON.stringify(asketchPageJSON));
+  // JSON.parse + JSON.stringify hack is only needed until
+  // https://github.com/GoogleChrome/puppeteer/issues/1510 is fixed
+  const asketchDocumentJSONString = await page.evaluate(`
+    styleguide2asketch
+      .getASketchDocument()
+      .then(result => JSON.stringify(result))
+  `);
+  const asketchPageJSONString = await page.evaluate(`
+    styleguide2asketch
+      .getASketchPage()
+      .then(result => JSON.stringify(result))
+  `);
+
+  fs.writeFileSync(path.resolve(__dirname, outputDocumentFile), asketchDocumentJSONString);
+  fs.writeFileSync(path.resolve(__dirname, outputPageFile), asketchPageJSONString);
 
   browser.close();
 });
