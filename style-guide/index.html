@@ -632,40 +632,6 @@
   </div>
 
   <script src="https://styleguide.brainly.com/images/icons-46b3efd164.js"></script>
-
-  <!-- Bunch of JS fixes to overcome html-sketchapp limitations -->
-  <script type="text/javascript" src="http://canvg.github.io/canvg/rgbcolor.js"></script>
-  <script type="text/javascript" src="http://canvg.github.io/canvg/StackBlur.js"></script>
-  <script type="text/javascript" src="http://canvg.github.io/canvg/canvg.js"></script>
-  <script>
-    Array.from(document.querySelectorAll('svg > use')).forEach(use => {
-      // replace SVG using 'use' with an inline SVG
-      const svg = use.parentNode;
-      const href = use.attributes['xlink:href'].value;
-      const symbol = document.querySelector(href);
-
-      const style = getComputedStyle(svg);
-
-      svg.setAttribute('viewBox', '0 0 32 32');
-      svg.setAttribute('fill', style.fill);
-      svg.setAttribute('stroke', style.stroke);
-      svg.innerHTML = symbol.innerHTML;
-
-      // draw that SVG on the canvas
-      const canvas = document.createElement('canvas');
-      canvas.width = 32;
-      canvas.height = 32;
-
-      canvg(canvas, svg.outerHTML);
-
-      // replace original SVG with an image
-      const img = new Image();
-      img.src = canvas.toDataURL();
-      img.classList = svg.classList;
-
-      svg.parentNode.replaceChild(img, svg);
-    });
-  </script>
 </body>
 
 </html>

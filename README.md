@@ -2,7 +2,7 @@
 
 Script that uses [brainly/html-sketchapp](https://github.com/brainly/html-sketchapp) to import [brainly/style-guide](https://github.com/brainly/style-guide) into Sketch.
 
-This script produces a `page.asketch.json` and `document.asketch.json` file that can be loaded to Sketch via [brainly/html-sketchapp](https://github.com/brainly/html-sketchapp) plugin.
+This script produces a `page.asketch.json` and `document.asketch.json` files that can be loaded to Sketch via [brainly/html-sketchapp](https://github.com/brainly/html-sketchapp) plugin.
 
 <img src="http://i.imgur.com/9UvPu1u.gif" width="100%" />
 
