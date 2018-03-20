@@ -11,7 +11,7 @@ function bemClassToText(bemClass) {
 function buildSymbolNameFromBEM(classes) {
   const mainClass = classes.shift();
   const subClasses = Array.from(classes)
-    .map(clsName => clsName.replace(mainClass, '').replace('--', ''))
+    .map(clsName => clsName.replace(mainClass, '').replace('--', '').replace(/_/g, ' '))
     .join(' ');
 
   return bemClassToText(mainClass) + '/' + (subClasses || '_default_');
