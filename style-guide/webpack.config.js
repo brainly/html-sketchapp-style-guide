@@ -7,9 +7,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /(\.json|\.jsx|\.json)/,
+        test: /\.jsx?$/,
         loader: 'babel-loader'
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 };

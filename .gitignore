@@ -4,3 +4,4 @@
 .editorconfig
 plugin.sketchplugin
 *.asketch.json
+.DS_Store
