@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Brainly style guide to Sketch",
   "scripts": {
-    "test": "eslint src/",
+    "test": "eslint src/ style-guide/components/ style-guide/partials/",
     "build": "webpack && cd style-guide && webpack && node build/buildHTML.bundle.js",
     "inject": "node ./src/inject.js"
   },
