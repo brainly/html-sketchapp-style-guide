@@ -10,7 +10,7 @@ This script produces a `page.asketch.json` and `document.asketch.json` files tha
 
 ```sh
 npm i # installs dependencies
-npm run build # builds src/styleguide2asketch.js script that gets injected into a page
+npm run build # builds script that gets injected into a page and the page itself with all style gudie elements
 npm run inject # produces document.asketch.json and page.asketch.json files
 ```
 

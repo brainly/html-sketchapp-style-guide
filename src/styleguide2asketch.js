@@ -1,20 +1,11 @@
-import Document from '@brainly/html-sketchapp/html2asketch/document.js';
-import Page from '@brainly/html-sketchapp/html2asketch/page.js';
-import Text from '@brainly/html-sketchapp/html2asketch/text.js';
-import SymbolMaster from '@brainly/html-sketchapp/html2asketch/symbolMaster.js';
-import nodeToSketchLayers from '@brainly/html-sketchapp/html2asketch/nodeToSketchLayers.js';
+import Document from '@brainly/html-sketchapp/html2asketch/document';
+import Page from '@brainly/html-sketchapp/html2asketch/page';
+import Text from '@brainly/html-sketchapp/html2asketch/text';
+import SymbolMaster from '@brainly/html-sketchapp/html2asketch/symbolMaster';
+import nodeToSketchLayers from '@brainly/html-sketchapp/html2asketch/nodeToSketchLayers';
 
 function bemClassToText(bemClass) {
   return bemClass.replace('sg-', '').replace('-', ' ');
-}
-
-function buildSymbolNameFromBEM(classes) {
-  const mainClass = classes.shift();
-  const subClasses = Array.from(classes)
-    .map(clsName => clsName.replace(mainClass, '').replace('--', ''))
-    .join(' ');
-
-  return bemClassToText(mainClass) + '/' + (subClasses || '_default_');
 }
 
 function buildLayerNameFromBEM(classes) {
@@ -47,15 +38,18 @@ export async function getASketchPage() {
 
   page.setName(`Brainly Style Guide ${styleGuideVersion}`);
 
-  const symbolPromises = Array.from(document.querySelectorAll('section > *'))
-    .map(async item => {
-      const name = buildSymbolNameFromBEM(Array.from(item.classList));
-      const {left: x, top: y} = item.getBoundingClientRect();
+  // SYMBOLS
+  const symbolPromises = Array.from(document.querySelectorAll('section > .item, section > .inline-item'))
+    .map(async metaNode => {
+      const node = metaNode.firstChild;
+      const name = metaNode.title;
+
+      const {left: x, top: y} = node.getBoundingClientRect();
       const symbol = new SymbolMaster({x, y});
 
       symbol.setName(name);
 
-      const parentAndChildren = [item, ...item.querySelectorAll('*')];
+      const parentAndChildren = [node, ...node.querySelectorAll('*')];
 
       const layerPromises = Array.from(parentAndChildren)
         .map(async node => {
@@ -91,6 +85,7 @@ export async function getASketchPage() {
 export async function getASketchDocument() {
   const doc = new Document();
 
+  // DOCUMENT COLORS
   Array.from(document.querySelectorAll('.colors-list > .color-box'))
     .forEach(box => {
       const color = getComputedStyle(box).backgroundColor;
@@ -98,9 +93,11 @@ export async function getASketchDocument() {
       doc.addColor(color);
     });
 
+  // TEXT STYLES
   await Array.from(document.querySelectorAll('.text-styles > *'))
     .forEach(async node => {
-      const layers = await nodeToSketchLayers(node);
+      const styleName = node.title;
+      const layers = await nodeToSketchLayers(node.firstChild);
 
       layers
         .filter(layer => layer instanceof Text)
@@ -109,8 +106,6 @@ export async function getASketchDocument() {
           if (layer._style._fontFamily === 'ProximaNova') {
             layer._style._fontFamily = 'Proxima Nova';
           }
-
-          const styleName = buildSymbolNameFromBEM(Array.from(node.classList));
 
           layer.setName(styleName);
           doc.addTextStyle(layer);

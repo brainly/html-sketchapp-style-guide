@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Brainly style guide to Sketch",
   "scripts": {
-    "test": "eslint src/",
-    "build": "webpack",
+    "test": "eslint src/ style-guide/components/ style-guide/partials/",
+    "build": "webpack && cd style-guide && webpack && node build/buildHTML.bundle.js",
     "inject": "node ./src/inject.js"
   },
   "repository": "brainly/html-sketchapp-example",
@@ -20,7 +20,17 @@
   },
   "dependencies": {
     "@brainly/html-sketchapp": "^2.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "puppeteer": "^0.13.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "style-guide": "git+https://github.com/brainly/style-guide.git#v132.3.0",
     "webpack": "^3.0.0"
   }
 }

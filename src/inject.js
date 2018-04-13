@@ -4,7 +4,7 @@ const path = require('path');
 
 const outputPageFile = '../page.asketch.json';
 const outputDocumentFile = '../document.asketch.json';
-const styleGuidePath = './style-guide/index.html';
+const styleGuidePath = './style-guide/build/index.html';
 
 puppeteer.launch().then(async browser => {
   const page = await browser.newPage();
