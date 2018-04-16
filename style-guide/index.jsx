@@ -3,6 +3,13 @@ import Head from './partials/Head.jsx';
 import packageJSON from 'style-guide/package.json';
 import TextPage from './components/Text.jsx';
 import AvatarsPage from './components/Avatar.jsx';
+import BadgesPage from './components/Badge.jsx';
+import BreadcrumbsPage from './components/Breadcrumb.jsx';
+import ButtonsPrimaryPage from './components/ButtonPrimary.jsx';
+import ButtonsSecondaryPage from './components/ButtonSecondary.jsx';
+import InputsPage from './components/Input.jsx';
+import SelectsPage from './components/Select.jsx';
+import TextareasPage from './components/Textarea.jsx';
 import ColorsPage from './components/Color.jsx';
 import IconsPage from './components/Icon.jsx';
 import SubjectIconsPage from './components/SubjectIcon.jsx';
@@ -19,6 +26,27 @@ const IndexPage = () =>
       <SubjectIconsPage />
       <MathSymbolsPage />
 
+      {/* badges */}
+      <BadgesPage />
+
+      {/* breadcrumb */}
+      <BreadcrumbsPage />
+
+      {/* button primary */}
+      <ButtonsPrimaryPage />
+
+      {/* button secondary */}
+      <ButtonsSecondaryPage />
+
+      {/* inputs */}
+      <InputsPage />
+
+      {/* selects */}
+      <SelectsPage />
+
+      {/* textarea */}
+      <TextareasPage />
+
       {/* text styles */}
       <TextPage />
 
@@ -26,7 +54,6 @@ const IndexPage = () =>
       <ColorsPage />
 
     </body>
-  </html>
-;
+  </html>;
 
 export default IndexPage;
