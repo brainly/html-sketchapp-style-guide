@@ -9,7 +9,7 @@ const styleGuidePath = './style-guide/build/index.html';
 puppeteer.launch().then(async browser => {
   const page = await browser.newPage();
 
-  await page.setViewport({width: 800, height: 600});
+  await page.setViewport({width: 1024, height: 600});
   await page.goto('file://' + path.resolve(styleGuidePath), {
     waitUntil: 'networkidle0'
   });
