@@ -1,6 +1,5 @@
 import React from 'react';
 import Badge, {SIZE, COLOR} from 'style-guide/src/components/badges/Badge';
-import Text from 'style-guide/src/components/text/Text.jsx';
 
 function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
