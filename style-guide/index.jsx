@@ -10,6 +10,8 @@ import ButtonsSecondaryPage from './components/ButtonSecondary.jsx';
 import InputsPage from './components/Input.jsx';
 import SelectsPage from './components/Select.jsx';
 import TextareasPage from './components/Textarea.jsx';
+import CheckboxesPage from './components/Checkbox.jsx';
+import RadioPage from './components/Radio.jsx';
 import ColorsPage from './components/Color.jsx';
 import IconsPage from './components/Icon.jsx';
 import SubjectIconsPage from './components/SubjectIcon.jsx';
@@ -46,6 +48,12 @@ const IndexPage = () =>
 
       {/* textarea */}
       <TextareasPage />
+
+      {/* checkboxes */}
+      <CheckboxesPage />
+
+      {/* radio */}
+      <RadioPage />
 
       {/* text styles */}
       <TextPage />
