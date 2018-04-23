@@ -11,7 +11,7 @@ const ButtonsPrimaryPage = () => {
   getValues(BUTTON_SECONDARY_TYPE, false).forEach(buttonType => {
     [false, true].forEach(disabled => {
       const name =
-      `ButtonSecondary/${buttonType}/${disabled ? 'disabled' : 'normal'}`;
+      `ButtonSecondary/${buttonType}/${disabled ? 'disabled' : '_default_'}`;
 
       buttonsSecondaryVariations.push(<div title={name} className='inline-item'>
         <ButtonSecondary buttonType={buttonType} disabled={disabled}>Secondary button</ButtonSecondary>

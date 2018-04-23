@@ -8,18 +8,12 @@ function getValues(object, addUndefined = true) {
 const BreadcrumbsPage = () => {
   const breadcrumbVariations = [];
 
-  [false, true].forEach(adaptive => {
-    [false, true].forEach(short => {
-      const name =
-        `Breadcrumb/${adaptive ? 'adaptive' : 'normal'}/${short ? 'short' : 'normal'}`;
-      const elements = ['Comments (9)', 'Report', 'Follow'];
+  const name = 'Breadcrumb';
+  const elements = ['Comments (9)', 'Report', 'Follow'];
 
-      breadcrumbVariations.push(<div title={name} className='inline-item'>
-        <Breadcrumb adaptive={adaptive} short={short} elements={elements}></Breadcrumb>
-      </div>);
-    });
-    breadcrumbVariations.push(<br/>);
-  });
+  breadcrumbVariations.push(<div title={name} className='inline-item'>
+    <Breadcrumb elements={elements}></Breadcrumb>
+  </div>);
 
   return <section>
     {breadcrumbVariations}

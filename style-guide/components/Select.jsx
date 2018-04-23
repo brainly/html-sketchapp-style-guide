@@ -9,12 +9,19 @@ function getValues(object, addUndefined = true) {
 const SelectsPage = () => {
   const SelectVariations = [];
 
-  [false, true].forEach(valid => {
-    const name =
-    `Select/${valid ? 'valid' : 'default'}`;
+  [false, true, null].forEach(valid => {
+    let name = 'Select/';
+
+    if (valid === true) {
+      name += 'valid';
+    } else if (valid === false) {
+      name += 'invalid';
+    } else {
+      name += '_default_';
+    }
 
     SelectVariations.push(<div title={name} className='inline-item'>
-      <Select valid={valid} options={[{'value': 'option1', 'text': 'Option 1'}, {'value': 'option2', 'text': 'Option 2'}]} />
+      <Select valid={valid === true} invalid={valid === false} options={[{'value': 'option1', 'text': 'Option 1'}, {'value': 'option2', 'text': 'Option 2'}]} />
     </div>);
     SelectVariations.push(<br/>);
   });
