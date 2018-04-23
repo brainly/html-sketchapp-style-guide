@@ -7,3 +7,4 @@ plugin.sketchplugin
 .DS_Store
 yarn-error.log
 *.sketch
+yarn.lock

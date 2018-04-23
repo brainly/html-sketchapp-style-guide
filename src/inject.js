@@ -18,21 +18,11 @@ puppeteer.launch().then(async browser => {
     path: './build/styleguide2asketch.bundle.js'
   });
 
-  // JSON.parse + JSON.stringify hack is only needed until
-  // https://github.com/GoogleChrome/puppeteer/issues/1510 is fixed
-  const asketchDocumentJSONString = await page.evaluate(`
-    styleguide2asketch
-      .getASketchDocument()
-      .then(result => JSON.stringify(result))
-  `);
-  const asketchPageJSONString = await page.evaluate(`
-    styleguide2asketch
-      .getASketchPage()
-      .then(result => JSON.stringify(result))
-  `);
+  const asketchDocumentJSONString = await page.evaluate('styleguide2asketch.getASketchDocument()');
+  const asketchPageJSONString = await page.evaluate('styleguide2asketch.getASketchPage()');
 
-  fs.writeFileSync(path.resolve(__dirname, outputDocumentFile), asketchDocumentJSONString);
-  fs.writeFileSync(path.resolve(__dirname, outputPageFile), asketchPageJSONString);
+  fs.writeFileSync(path.resolve(__dirname, outputDocumentFile), JSON.stringify(asketchDocumentJSONString));
+  fs.writeFileSync(path.resolve(__dirname, outputPageFile), JSON.stringify(asketchPageJSONString));
 
   browser.close();
 });
