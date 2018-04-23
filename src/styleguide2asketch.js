@@ -1,8 +1,4 @@
-import Document from '@brainly/html-sketchapp/html2asketch/document';
-import Page from '@brainly/html-sketchapp/html2asketch/page';
-import Text from '@brainly/html-sketchapp/html2asketch/text';
-import SymbolMaster from '@brainly/html-sketchapp/html2asketch/symbolMaster';
-import nodeToSketchLayers from '@brainly/html-sketchapp/html2asketch/nodeToSketchLayers';
+import {Document, Page, Text, SymbolMaster, nodeToSketchLayers} from '@brainly/html-sketchapp';
 
 function bemClassToText(bemClass) {
   return bemClass.replace('sg-', '').replace('-', ' ');
@@ -23,7 +19,7 @@ function buildLayerNameFromBEM(classes) {
   return 'text';
 }
 
-export async function getASketchPage() {
+export function getASketchPage() {
   const stylesheet = document.querySelector('head > link');
   let styleGuideVersion = '';
 
@@ -39,8 +35,8 @@ export async function getASketchPage() {
   page.setName(`Brainly Style Guide ${styleGuideVersion}`);
 
   // SYMBOLS
-  const symbolPromises = Array.from(document.querySelectorAll('section > .item, section > .inline-item'))
-    .map(async metaNode => {
+  Array.from(document.querySelectorAll('section > .item, section > .inline-item'))
+    .map(metaNode => {
       const node = metaNode.firstChild;
       const name = metaNode.title;
 
@@ -51,9 +47,9 @@ export async function getASketchPage() {
 
       const parentAndChildren = [node, ...node.querySelectorAll('*')];
 
-      const layerPromises = Array.from(parentAndChildren)
-        .map(async node => {
-          const layers = await nodeToSketchLayers(node);
+      Array.from(parentAndChildren)
+        .map(node => {
+          const layers = nodeToSketchLayers(node);
 
           return layers.map(layer => {
             // fix font name so the name matches locally installed font
@@ -64,25 +60,19 @@ export async function getASketchPage() {
             layer.setName(buildLayerNameFromBEM(node.classList));
             return layer;
           });
-        });
-
-      const layers = await Promise.all(layerPromises);
-
-      layers.reduce((prev, current) => prev.concat(current), [])
+        })
+        .reduce((prev, current) => prev.concat(current), [])
         .filter(layer => layer !== null)
         .forEach(layer => symbol.addLayer(layer));
 
       return symbol;
-    });
-
-  const symbols = await Promise.all(symbolPromises);
-
-  symbols.forEach(obj => page.addLayer(obj));
+    })
+    .forEach(obj => page.addLayer(obj));
 
   return page.toJSON();
 }
 
-export async function getASketchDocument() {
+export function getASketchDocument() {
   const doc = new Document();
 
   // DOCUMENT COLORS
@@ -94,10 +84,10 @@ export async function getASketchDocument() {
     });
 
   // TEXT STYLES
-  await Array.from(document.querySelectorAll('.text-styles > *'))
-    .forEach(async node => {
+  Array.from(document.querySelectorAll('.text-styles > *'))
+    .forEach(node => {
       const styleName = node.title;
-      const layers = await nodeToSketchLayers(node.firstChild);
+      const layers = nodeToSketchLayers(node.firstChild);
 
       layers
         .filter(layer => layer instanceof Text)
