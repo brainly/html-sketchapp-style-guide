@@ -13,8 +13,6 @@ const TextareasPage = () => {
 
     variations.push(<div title={name} className='inline-item'>
       <Textarea size={size} placeholder="textarea example" />
-      <Textarea size={size} invalid placeholder="textarea example" value="invalid"/>
-      <Textarea size={size} valid placeholder="textarea example" value="valid "/>
     </div>);
   });
 
