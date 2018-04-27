@@ -5,8 +5,28 @@ function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
 }
 
-const RadioPage = () => <section>
-  <div title='checkbox' className='inline-item'><Radio /></div>
-</section>;
+const RadioPage = () => {
+
+  const RadioVariations = [];
+
+  [false, true].forEach(checked => {
+    let name = 'Checkbox/';
+
+    if (checked === false) {
+      name += '_default_';
+    } else {
+      name += 'checked';
+    }
+
+    RadioVariations.push(<div title={name} className='inline-item'>
+      <Radio checked={checked} />
+    </div>);
+    RadioVariations.push(<br/>);
+  });
+
+  return <section>
+    {RadioVariations}
+  </section>;
+};
 
 export default RadioPage;
