@@ -14,6 +14,7 @@ import CheckboxesPage from './components/Checkbox.jsx';
 import RadioPage from './components/Radio.jsx';
 import ColorsPage from './components/Color.jsx';
 import IconsPage from './components/Icon.jsx';
+import IconsAsButtonPage from './components/IconAsButton.jsx';
 import SubjectIconsPage from './components/SubjectIcon.jsx';
 import MathSymbolsPage from './components/MathSymbol.jsx';
 
@@ -54,6 +55,9 @@ const IndexPage = () =>
 
       {/* radio */}
       <RadioPage />
+
+      {/* icon as button */}
+      <IconsAsButtonPage />
 
       {/* text styles */}
       <TextPage />
