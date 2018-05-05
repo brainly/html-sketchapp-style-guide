@@ -21,6 +21,7 @@ import SubjectIconsPage from './components/SubjectIcon.jsx';
 import MathSymbolsPage from './components/MathSymbol.jsx';
 import ListsPage from './components/List';
 import MenuPage from './components/MenuList';
+import FlashMessagesPage from './components/FlashMessage';
 
 const IndexPage = () =>
   <html>
@@ -74,6 +75,9 @@ const IndexPage = () =>
 
       {/* menu list */}
       <MenuPage />
+
+      {/* flash messages */}
+      <FlashMessagesPage />
 
       {/* text styles */}
       <TextPage />
