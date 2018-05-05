@@ -19,6 +19,8 @@ import LabelsPage from './components/Label.jsx';
 import StickersPage from './components/Sticker.jsx';
 import SubjectIconsPage from './components/SubjectIcon.jsx';
 import MathSymbolsPage from './components/MathSymbol.jsx';
+import ListsPage from './components/List';
+import MenuPage from './components/MenuList';
 
 const IndexPage = () =>
   <html>
@@ -66,6 +68,12 @@ const IndexPage = () =>
 
       {/* stickers */}
       <StickersPage />
+
+      {/* list */}
+      <ListsPage />
+
+      {/* menu list */}
+      <MenuPage />
 
       {/* text styles */}
       <TextPage />
