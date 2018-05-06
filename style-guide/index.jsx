@@ -20,6 +20,7 @@ import StickersPage from './components/Sticker.jsx';
 import SubjectIconsPage from './components/SubjectIcon.jsx';
 import MathSymbolsPage from './components/MathSymbol.jsx';
 import ListsPage from './components/List';
+import DropdownsPage from './components/Dropdown';
 import MenuPage from './components/MenuList';
 import FlashMessagesPage from './components/FlashMessage';
 
@@ -75,6 +76,9 @@ const IndexPage = () =>
 
       {/* menu list */}
       <MenuPage />
+
+      {/* Dropdown */}
+      <DropdownsPage />
 
       {/* flash messages */}
       <FlashMessagesPage />

@@ -9,36 +9,35 @@ function getValues(object, addUndefined = true) {
 const IconsAsButtonPage = () => {
   const variations = [];
 
-  getValues(TYPE, false).forEach(type => {
-    getValues(ICON_COLOR, false).forEach(color => {
-      getValues(SIZE, false).forEach(size => {
-        [false, true].forEach(border => {
-          [false, true].forEach(action => {
-            [false, true].forEach(active => {
-              [false, true].forEach(transparent => {
-                if (color === ICON_COLOR.ADAPTIVE) {
-                  return;
-                }
+  // Sketch crash when all icon are exported
+  getValues(ICON_COLOR, false).forEach(color => {
+    getValues(SIZE, false).forEach(size => {
+      [false, true].forEach(border => {
+        [false, true].forEach(action => {
+          [false, true].forEach(active => {
+            [false, true].forEach(transparent => {
+              if (color === ICON_COLOR.ADAPTIVE) {
+                return;
+              }
 
-                if (border && active ||
+              if (border && active ||
                   !border && !active ||
                   action && active && transparent ||
                   border && !active && transparent ||
                   action && !active) {
-                  return;
-                }
+                return;
+              }
 
-                const name = `IconAsButton/${type}/${color}/${size.className}/${border ? 'border' : 'no-border'}/${active ? 'active' : 'not-active'}/${transparent ? 'transparent' : 'not-transparent'}`;
+              const name = `IconAsButton/${TYPE.ANSWER}/${color}/${size.className}/${border ? 'border' : 'no-border'}/${active ? 'active' : 'not-active'}/${transparent ? 'transparent' : 'not-transparent'}`;
 
-                variations.push(<div title={name} className='inline-item'>
-                  <IconAsButton type={type} size={size} color={color} border={border} action={action} active={active} transparent={transparent} />
-                </div>);
-              });
+              variations.push(<div title={name} className='inline-item'>
+                <IconAsButton type={TYPE.ANSWER} size={size} color={color} border={border} action={action} active={active} transparent={transparent} />
+              </div>);
             });
           });
         });
-        variations.push(<br />);
       });
+      variations.push(<br />);
     });
   });
 
