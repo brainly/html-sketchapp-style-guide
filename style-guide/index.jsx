@@ -24,6 +24,8 @@ import DropdownsPage from './components/Dropdown';
 import MenuPage from './components/MenuList';
 import FlashMessagesPage from './components/FlashMessage';
 import SearchPage from './components/Search';
+import BoxesPage from './components/Box';
+import CardsPage from './components/Card';
 
 const IndexPage = () =>
   <html>
@@ -86,6 +88,12 @@ const IndexPage = () =>
 
       {/* Search */}
       <SearchPage />
+
+      {/* Boxes */}
+      <BoxesPage />
+
+      {/* Boxes */}
+      <CardsPage />
 
       {/* text styles */}
       <TextPage />
