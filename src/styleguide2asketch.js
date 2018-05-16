@@ -40,10 +40,11 @@ export function getASketchPage() {
       const node = metaNode.firstChild;
       const name = metaNode.title;
 
-      const {left: x, top: y} = node.getBoundingClientRect();
-      const symbol = new SymbolMaster({x, y});
+      const {left: x, top: y, width, height} = node.getBoundingClientRect();
+      const symbol = new SymbolMaster({x, y, width, height});
 
       symbol.setName(name);
+      //symbol.setUserInfo('code', node.innerHTML);
 
       const parentAndChildren = [node, ...node.querySelectorAll('*')];
 
