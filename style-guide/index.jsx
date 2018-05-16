@@ -26,6 +26,7 @@ import FlashMessagesPage from './components/FlashMessage';
 import SearchPage from './components/Search';
 import BoxesPage from './components/Box';
 import CardsPage from './components/Card';
+import BubblesPage from './components/Bubble';
 
 const IndexPage = () =>
   <html>
@@ -94,6 +95,9 @@ const IndexPage = () =>
 
       {/* Boxes */}
       <CardsPage />
+
+      {/* Bubbles */}
+      <BubblesPage />
 
       {/* text styles */}
       <TextPage />
