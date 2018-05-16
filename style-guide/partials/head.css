@@ -1,0 +1,22 @@
+.color-box {
+    width: 25px;
+    height: 25px;
+}
+
+section {
+    margin-top: 50px;
+}
+
+.inline-item {
+    display: inline-block;
+}
+
+.sg-flash{
+    width: 400px;
+}
+
+/* CSS fixes to overcome html-sketchapp limitations */
+img.sg-avatar__image,
+div.sg-avatar__image {
+    border-radius: 100%;
+}

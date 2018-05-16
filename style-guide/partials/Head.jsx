@@ -11,29 +11,7 @@ const Head = props =>
     <script src="https://styleguide.brainly.com/images/subjects-icons-0676dae371.js" defer></script>
     <script src="https://styleguide.brainly.com/images/subjects-mono-icons-d9de3cd626.js" defer></script>
     <script src="https://styleguide.brainly.com/images/math-symbols-icons-2936684655.js" defer></script>
-
-    <style>
-      .color-box {'{'}
-        width: 25px;
-        height: 25px;
-      {'}'}
-
-      section {'{'}
-        margin-top: 50px;
-      {'}'}
-
-      .inline-item {'{'}
-        display: inline-block;
-      {'}'}
-
-      /* CSS fixes to overcome html-sketchapp limitations */
-      img.sg-avatar__image,
-      div.sg-avatar__image {'{'}
-        border-radius: 100%;
-      {'}'}
-    </style>
-
-  </head>
-;
+    <link href="../partials/head.css" rel="stylesheet" />
+  </head>;
 
 export default Head;

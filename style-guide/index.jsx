@@ -23,6 +23,7 @@ import ListsPage from './components/List';
 import DropdownsPage from './components/Dropdown';
 import MenuPage from './components/MenuList';
 import FlashMessagesPage from './components/FlashMessage';
+import SearchPage from './components/Search';
 
 const IndexPage = () =>
   <html>
@@ -82,6 +83,9 @@ const IndexPage = () =>
 
       {/* flash messages */}
       <FlashMessagesPage />
+
+      {/* Search */}
+      <SearchPage />
 
       {/* text styles */}
       <TextPage />
