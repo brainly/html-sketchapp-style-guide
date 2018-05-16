@@ -15,7 +15,7 @@ const InputsPage = () => {
         `Input/${color}/${size}/${noBorder ? 'no-border' : 'border'}`;
 
         InputVariations.push(<div title={name} className='inline-item'>
-          <Input size={size} color={color} value="input" noBorder={noBorder}/>
+          <Input onChange={() => {}} size={size} color={color} value="input" noBorder={noBorder}/>
         </div>);
 
       });

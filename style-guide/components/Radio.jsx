@@ -10,7 +10,7 @@ const RadioPage = () => {
   const RadioVariations = [];
 
   [false, true].forEach(checked => {
-    let name = 'Checkbox/';
+    let name = 'Radio/';
 
     if (checked === false) {
       name += '_default_';
@@ -19,7 +19,7 @@ const RadioPage = () => {
     }
 
     RadioVariations.push(<div title={name} className='inline-item'>
-      <Radio checked={checked} />
+      <Radio onChange={() => {}} checked={checked} />
     </div>);
     RadioVariations.push(<br/>);
   });

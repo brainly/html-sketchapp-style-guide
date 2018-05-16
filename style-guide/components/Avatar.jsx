@@ -14,7 +14,7 @@ const AvatarsPage = () => {
         const name =
         `Avatar/${size.className}/${border ? 'border' : 'no-border'}/${src ? 'with image' : 'without image'}`;
 
-        avatarVariations.push(<div title={name} className='inline-item'>
+        avatarVariations.push(<div key={name} title={name} className='inline-item'>
           <Avatar size={size} border={border} imgSrc={src} />
         </div>);
       });

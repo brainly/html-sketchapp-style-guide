@@ -18,7 +18,7 @@ const CheckboxesPage = () => {
     }
 
     CheckboxVariations.push(<div title={name} className='inline-item'>
-      <Checkbox checked={checked} />
+      <Checkbox onChange={() => {}} checked={checked} />
     </div>);
     CheckboxVariations.push(<br/>);
   });
