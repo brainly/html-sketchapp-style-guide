@@ -15,3 +15,8 @@ npm run inject # produces document.asketch.json and page.asketch.json files
 ```
 
 Created `*.asketch.json` files can then be loaded into Sketch using the [brainly/html-sketchapp](https://github.com/brainly/html-sketchapp) plugin.
+
+# Updating Style Guide
+
+- `package.json` - jsx components
+- `Head.jsx` - styles and icons
