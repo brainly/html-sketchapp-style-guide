@@ -19,7 +19,7 @@
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git"
   },
   "dependencies": {
-    "@brainly/html-sketchapp": "^3.0.2",
+    "@brainly/html-sketchapp": "git+https://github.com/brainly/html-sketchapp.git#3-2-0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -30,7 +30,7 @@
     "puppeteer": "^0.13.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
-    "style-guide": "git+https://github.com/brainly/style-guide.git#v132.3.0",
+    "style-guide": "git+https://github.com/brainly/style-guide.git#v134.2.1",
     "webpack": "^3.0.0"
   }
 }

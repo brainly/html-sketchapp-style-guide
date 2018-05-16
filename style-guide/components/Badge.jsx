@@ -1,5 +1,5 @@
 import React from 'react';
-import Badge, {SIZE, COLOR} from 'style-guide/src/components/badges/Badge';
+import TextBadge, {TEXT_BADGE_SIZE as SIZE, TEXT_BADGE_COLOR as COLOR} from 'style-guide/src/components/badges/TextBadge';
 
 function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
@@ -15,7 +15,7 @@ const BadgesPage = () => {
         `Badge/${size}/${color.BADGE}/${rounded ? 'rounded' : '_default_'}`;
 
         badgesVariations.push(<div title={name} className='inline-item'>
-          <Badge size={size} color={color} rounded={rounded}>3 / 5</Badge>
+          <TextBadge size={size} color={color} rounded={rounded}>3 / 5</TextBadge>
         </div>);
       });
     });
