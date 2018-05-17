@@ -16,7 +16,7 @@ puppeteer.launch().then(async browser => {
 
   page.on('console', msg => {
     for (let i = 0; i < msg.args.length; ++i) {
-      console.log(`${i}: ${msg.args[i]}`);
+      console.log(msg.args[i]);
     }
   });
 
