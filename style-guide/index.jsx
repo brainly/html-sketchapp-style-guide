@@ -27,6 +27,7 @@ import SearchPage from './components/Search';
 import BoxesPage from './components/Box';
 import CardsPage from './components/Card';
 import BubblesPage from './components/Bubble';
+import RatingPage from './components/Rating';
 
 const IndexPage = () =>
   <html>
@@ -98,6 +99,9 @@ const IndexPage = () =>
 
       {/* Bubbles */}
       <BubblesPage />
+
+      {/* text styles */}
+      <RatingPage />
 
       {/* text styles */}
       <TextPage />
