@@ -20,7 +20,6 @@ const MenuPage = () => {
     const name = `MenuList/${size}`;
 
     variant.push(<div title={name} className='inline-item'>
-      <MenuList />
       <MenuList size={size} items={menuItems} />
     </div>);
   });
