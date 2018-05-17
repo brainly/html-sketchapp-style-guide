@@ -14,7 +14,7 @@ const RatingPage = () => {
     `Rating/${size}`;
 
     variations.push(<div title={name} className='inline-item'>
-      <Rating size={size} counter={34} active counterText="Hover to rate" />
+      <Rating size={size} counter={34} rate={3} active counterText="Hover to rate" />
     </div>);
   });
 

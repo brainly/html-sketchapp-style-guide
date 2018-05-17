@@ -18,7 +18,8 @@ const BubblesPage = () => {
         <Bubble direction={direction} alignment={alignment}>
           Hi there!
           Just wondering if you have any problems with your school work.
-        </Bubble><br/>
+        </Bubble>
+        <br/>
       </div>);
     });
   });

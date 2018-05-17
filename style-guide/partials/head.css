@@ -5,6 +5,7 @@
 
 section {
     margin-top: 50px;
+    margin-left: 50px;
 }
 
 .inline-item {
@@ -19,4 +20,20 @@ section {
 img.sg-avatar__image,
 div.sg-avatar__image {
     border-radius: 100%;
+}
+
+.sg-card {
+    width: 200px;
+}
+
+.sg-card__hole {
+    height: 50px 
+}
+
+.sg-card__hole:nth-child(2) {
+    border-radius: 0 0 8px 8px;
+}
+
+.sg-flash .sg-text {
+    text-align: center;
 }

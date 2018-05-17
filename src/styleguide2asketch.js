@@ -1,4 +1,4 @@
-import {Document, Page, Text, SymbolMaster, nodeToSketchLayers} from '@brainly/html-sketchapp';
+import {Document, Page, Text, SVG, SymbolMaster, nodeToSketchLayers} from '@brainly/html-sketchapp';
 import {RESIZING_CONSTRAINTS} from '@brainly/html-sketchapp/html2asketch/helpers/utils';
 
 function bemClassToText(bemClass) {
@@ -60,8 +60,12 @@ export function getASketchPage() {
               layer._style._fontFamily = 'Proxima Nova';
             }
 
-            if (node.classList.contains('sg-flash') && layer instanceof Text) {
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT, RESIZING_CONSTRAINTS.RIGHT);
+            if (layer instanceof SVG && node.parentElement.classList.contains('sg-list__icon')) {
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
+            }
+
+            if (layer instanceof Text && node.parentElement.classList.contains('sg-list__element')) {
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
             }
 
             // generate better layer name from node classes

@@ -11,6 +11,7 @@ const Head = props =>
     <script src="https://styleguide.brainly.com/images/subjects-icons-0676dae371.js" defer></script>
     <script src="https://styleguide.brainly.com/images/subjects-mono-icons-d9de3cd626.js" defer></script>
     <script src="https://styleguide.brainly.com/images/math-symbols-icons-2936684655.js" defer></script>
+    <script src="../partials/pseudo-elements-hack.js" defer></script>
     <link href="../partials/head.css" rel="stylesheet" />
   </head>;
 

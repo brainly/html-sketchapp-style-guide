@@ -19,10 +19,8 @@ const CardsPage = () => {
         variations.push(<div title={name} className='inline-item'>
           <Card noBorder={noBorder} shadow={shadow}>
             <CardHole>
-              This is card content top
             </CardHole>
             <CardHole color={color}>
-              This is card content bottom
             </CardHole>
           </Card>
         </div>);
