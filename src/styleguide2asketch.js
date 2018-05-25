@@ -35,26 +35,30 @@ export function getASketchPage() {
 
   page.setName(`Brainly Style Guide ${styleGuideVersion}`);
 
+  const icons = [];
+
   // SYMBOLS
   Array.from(document.querySelectorAll('section > .item, section > .inline-item'))
     .map(metaNode => {
-      const node = metaNode.firstChild;
+      const symbolNode = metaNode.firstChild;
       const name = metaNode.title;
 
-      const {left: x, top: y, width, height} = node.getBoundingClientRect();
+      const {left: x, top: y, width, height} = symbolNode.getBoundingClientRect();
       const symbol = new SymbolMaster({x, y, width, height});
 
       symbol.setId(name);
       symbol.setName(name);
+
       //symbol.setUserInfo('code', node.innerHTML);
 
-      const parentAndChildren = [node, ...node.querySelectorAll('*')];
+      const parentAndChildren = [symbolNode, ...symbolNode.querySelectorAll('*')];
 
       Array.from(parentAndChildren)
         .map(node => {
           const layers = nodeToSketchLayers(node);
 
           return layers.map(layer => {
+
             // fix font name so the name matches locally installed font
             if (layer instanceof Text && layer._style._fontFamily === 'ProximaNova') {
               layer._style._fontFamily = 'Proxima Nova';
@@ -62,6 +66,20 @@ export function getASketchPage() {
 
             if (layer instanceof SVG && node.parentElement.classList.contains('sg-list__icon')) {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
+            }
+
+            if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/')) {
+              const type = node.children[0].id;
+              const color = getComputedStyle(node).fill;
+
+              const size = node.clientHeight;
+              const icon = icons.find(icon => icon.type === type && icon.size === size && icon.color === color);
+
+              if (icon) {
+                layer = icon.symbol.getSymbolInstance({x: layer._x, y: layer._y, width: size, height: size});
+              } else {
+                console.log(`no no no ${type}/${color}/${size}`);
+              }
             }
 
             if (layer instanceof Text && node.parentElement.classList.contains('sg-list__element')) {
@@ -76,6 +94,17 @@ export function getASketchPage() {
         .reduce((prev, current) => prev.concat(current), [])
         .filter(layer => layer !== null)
         .forEach(layer => symbol.addLayer(layer));
+
+      if (symbol._name.startsWith('Icon/')) {
+        const [, type, color, size] = symbol._name.split('/');
+
+        icons.push({
+          type: `icon-${type}`,
+          color: getComputedStyle(symbolNode).fill,
+          size: parseInt(size, 10),
+          symbol
+        });
+      }
 
       return symbol;
     })

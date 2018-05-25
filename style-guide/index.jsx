@@ -35,8 +35,8 @@ const IndexPage = () =>
     <body>
 
       {/* symbols */}
-      <AvatarsPage />
       <IconsPage />
+      <AvatarsPage />
       <SubjectIconsPage />
       <MathSymbolsPage />
 

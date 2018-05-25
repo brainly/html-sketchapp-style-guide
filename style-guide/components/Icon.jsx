@@ -1,22 +1,34 @@
 import React from 'react';
-import Icon, { TYPE, ICON_COLOR, SIZE } from 'style-guide/src/components/icons/Icon';
+import Icon, {TYPE, ICON_COLOR, SIZE} from 'style-guide/src/components/icons/Icon';
 
 function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
 }
 
+const LIMITED_ICON_COLOR = {
+  BLUE: 'blue',
+  DARK: 'dark',
+  GRAY: 'gray',
+  MINT: 'mint',
+  MUSTARD: 'mustard',
+  PEACH: 'peach'
+};
+
+const LIMITED_SIZE = [10, 14, 16, 18, 24, 26];
 const IconsPage = () => {
   const variations = [];
 
   getValues(TYPE, false).forEach(type => {
-    getValues(SIZE, false).forEach(size => {
-      const name = `Icon/${type}/${size}`;
+    getValues(LIMITED_ICON_COLOR, false).forEach(color => {
+      getValues(LIMITED_SIZE, false).forEach(size => {
+        const name = `Icon/${type}/${color}/${size}`;
 
-      variations.push(<div title={name} className='inline-item'>
-        <Icon type={type} size={size} color={ICON_COLOR.DARK} />
-      </div>);
+        variations.push(<div title={name} className='inline-item'>
+          <Icon type={type} size={size} color={color} />
+        </div>);
+      });
+      variations.push(<br />);
     });
-    variations.push(<br />);
   });
 
   return <section>

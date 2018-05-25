@@ -23,17 +23,57 @@ div.sg-avatar__image {
 }
 
 .sg-card {
-    width: 200px;
+    width: 400px;
 }
 
-.sg-card__hole {
-    height: 50px 
+.sg-card__hole:nth-child(2) {
+    height: 60px;
+    text-align: right;
 }
-
 .sg-card__hole:nth-child(2) {
     border-radius: 0 0 8px 8px;
 }
 
 .sg-flash .sg-text {
     text-align: center;
+}
+
+.sg-rate-box .sg-rate-box__background-stars .sg-rate-box__star:nth-child(1n) {
+    visibility: hidden;
+}
+
+.sg-rate-box .sg-rate-box__background-stars .sg-rate-box__star:nth-child(2n) {
+    visibility: hidden;
+}
+
+.sg-rate-box .sg-rate-box__background-stars .sg-rate-box__star:nth-child(3n) {
+    visibility: hidden;
+}
+
+.sg-rate-box .sg-rate-box__background-stars .sg-rate-box__star:nth-child(4n) {
+    visibility: visible;
+}
+
+.sg-rate-box .sg-rate-box__background-stars .sg-rate-box__star:nth-child(5n) {
+    visibility: visible;
+}
+
+.sg-rate-box .sg-rate-box__filled-stars .sg-rate-box__star:nth-child(1n) {
+    visibility: visible;
+}
+
+.sg-rate-box .sg-rate-box__filled-stars .sg-rate-box__star:nth-child(2n) {
+    visibility: visible;
+}
+
+.sg-rate-box .sg-rate-box__filled-stars .sg-rate-box__star:nth-child(3n) {
+    visibility: visible;
+}
+
+.sg-rate-box .sg-rate-box__filled-stars .sg-rate-box__star:nth-child(4n) {
+    visibility: hidden;
+}
+
+.sg-rate-box .sg-rate-box__filled-stars .sg-rate-box__star:nth-child(5n) {
+    visibility: hidden;
 }

@@ -7,13 +7,17 @@ function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
 }
 
+const LIMITED_ICON_COLOR = {
+  BLUE: 'blue'
+};
+
 // TODO check if unstyled, elementsToTop is needed
 // Sketch crash when all icon are exported
 const LabelsPage = () => {
   const variations = [];
 
   getValues(SIZE, false).forEach(size => {
-    getValues(ICON_COLOR, false).forEach(color => {
+    getValues(LIMITED_ICON_COLOR, false).forEach(color => {
       [false, true].forEach(emphasised => {
         [false, true].forEach(elementsToTop => {
           [false, true].forEach(secondary => {
