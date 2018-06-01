@@ -64,10 +64,6 @@ export function getASketchPage() {
               layer._style._fontFamily = 'Proxima Nova';
             }
 
-            if (layer instanceof SVG && node.parentElement.classList.contains('sg-list__icon')) {
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
-            }
-
             if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/')) {
               const type = node.children[0].id;
               const color = getComputedStyle(node).fill;
@@ -77,13 +73,20 @@ export function getASketchPage() {
 
               if (icon) {
                 layer = icon.symbol.getSymbolInstance({x: layer._x, y: layer._y, width: size, height: size});
+
+                // CONSTRAINTS FOR ICON IN LIST
+                if (node.parentElement.classList.contains('sg-list__icon')) {
+                  layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.LEFT);
+                }
+
               } else {
                 console.log(`no no no ${type}/${color}/${size}`);
               }
             }
-
-            if (layer instanceof Text && node.parentElement.classList.contains('sg-list__element')) {
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
+            
+            // CONSTRAINTS FOR TEXT IN LIST
+            if (layer instanceof Text && node.parentElement.classList.contains('sg-list__element')) {       
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.LEFT);
             }
 
             // generate better layer name from node classes
