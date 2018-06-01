@@ -33,7 +33,7 @@ export function getASketchPage() {
     height: document.body.offsetHeight
   });
 
-  page.setName(`Brainly Style Guide ${styleGuideVersion}`);
+  page.setName(`Brainly Pencil - Style Guide ${styleGuideVersion}`);
 
   const icons = [];
 
