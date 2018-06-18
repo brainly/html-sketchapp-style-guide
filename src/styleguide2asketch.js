@@ -36,6 +36,7 @@ export function getASketchPage() {
   page.setName(`Brainly Pencil - Style Guide ${styleGuideVersion}`);
 
   const icons = [];
+  const maskColors = [];
 
   // SYMBOLS
   Array.from(document.querySelectorAll('section > .item, section > .inline-item'))
@@ -58,37 +59,51 @@ export function getASketchPage() {
           const layers = nodeToSketchLayers(node);
 
           return layers.map(layer => {
-
+            
             // fix font name so the name matches locally installed font
             if (layer instanceof Text && layer._style._fontFamily === 'ProximaNova') {
               layer._style._fontFamily = 'Proxima Nova';
             }
 
+            if (layer instanceof SVG && node.classList.contains('sg-icon') && symbol._name.startsWith('Icon/')) {
+              layer.setHasClippingMask(true);
+            }
+            
             if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/')) {
               const type = node.children[0].id;
               const color = getComputedStyle(node).fill;
 
               const size = node.clientHeight;
-              const icon = icons.find(icon => icon.type === type && icon.size === size && icon.color === color);
-
+              const icon = icons.find(icon => icon.type === type && icon.size === size);
+              
               if (icon) {
                 layer = icon.symbol.getSymbolInstance({x: layer._x, y: layer._y, width: size, height: size});
 
                 // CONSTRAINTS FOR ICON IN LIST
                 if (node.parentElement.classList.contains('sg-list__icon')) {
                   layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.LEFT);
-                }
+                };
 
+                // CONSTRAINTS FOR ICON IN LABEL
+                if (node.parentElement.classList.contains('sg-label__icon')) {
+                  layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.LEFT);
+                };
+                
               } else {
                 console.log(`no no no ${type}/${color}/${size}`);
               }
             }
             
+            // CONSTRAINTS FOR TEXT IN LABEL
+            if (layer instanceof Text && node.classList.contains('sg-label__text')) {
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
+            }
+
             // CONSTRAINTS FOR TEXT IN LIST
             if (layer instanceof Text && node.parentElement.classList.contains('sg-list__element')) {       
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.LEFT);
             }
-
+            
             // generate better layer name from node classes
             layer.setName(buildLayerNameFromBEM(node.classList));
             return layer;
@@ -97,10 +112,19 @@ export function getASketchPage() {
         .reduce((prev, current) => prev.concat(current), [])
         .filter(layer => layer !== null)
         .forEach(layer => symbol.addLayer(layer));
+      
+      if (symbol._name.startsWith('ColorMask/')) {
+        maskColors.push(symbol);
+      }
 
       if (symbol._name.startsWith('Icon/')) {
         const [, type, color, size] = symbol._name.split('/');
+        const layerSize = parseInt(size, 10);
 
+        const mask = maskColors[0];
+        const maskSymbolInstance = mask.getSymbolInstance({x: symbol._x, y: symbol._y, width: layerSize, height: layerSize});
+        symbol.addLayer(maskSymbolInstance);
+        
         icons.push({
           type: `icon-${type}`,
           color: getComputedStyle(symbolNode).fill,

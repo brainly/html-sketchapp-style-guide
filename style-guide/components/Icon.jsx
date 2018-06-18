@@ -19,14 +19,12 @@ const IconsPage = () => {
   const variations = [];
 
   getValues(TYPE, false).forEach(type => {
-    getValues(LIMITED_ICON_COLOR, false).forEach(color => {
-      getValues(LIMITED_SIZE, false).forEach(size => {
-        const name = `Icon/${type}/${color}/${size}`;
+    getValues(LIMITED_SIZE, false).forEach(size => {
+      const name = `Icon/${type}/${LIMITED_ICON_COLOR.BLUE}/${size}`;
 
-        variations.push(<div title={name} className='inline-item'>
-          <Icon type={type} size={size} color={color} />
-        </div>);
-      });
+      variations.push(<div title={name} className='inline-item'>
+        <Icon type={type} size={size} color={LIMITED_ICON_COLOR.BLUE} />
+      </div>);
       variations.push(<br />);
     });
   });

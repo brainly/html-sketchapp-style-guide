@@ -6,7 +6,7 @@ const outputPageFile = '../page.asketch.json';
 const outputDocumentFile = '../document.asketch.json';
 const styleGuidePath = './style-guide/build/index.html';
 
-puppeteer.launch().then(async browser => {
+puppeteer.launch({headless: false, devtools: true}).then(async browser => {
   const page = await browser.newPage();
 
   await page.setViewport({width: 1024, height: 600});
@@ -14,20 +14,21 @@ puppeteer.launch().then(async browser => {
     waitUntil: 'networkidle0'
   });
 
+  // await page.on('console', msg => console.log('PAGE LOG:', msg.text()));
+
   page.on('console', msg => {
-    for (let i = 0; i < msg.args.length; ++i) {
-      console.log(msg.args[i]);
-    }
+    for (let i = 0; i < msg.args.length; ++i)
+      console.log(`${i}: ${msg.args[i]}`);
   });
 
   await page.addScriptTag({
     path: './build/styleguide2asketch.bundle.js'
   });
 
-  const asketchDocumentJSONString = await page.evaluate('styleguide2asketch.getASketchDocument()');
+  // const asketchDocumentJSONString = await page.evaluate('styleguide2asketch.getASketchDocument()');
   const asketchPageJSONString = await page.evaluate('styleguide2asketch.getASketchPage()');
 
-  fs.writeFileSync(path.resolve(__dirname, outputDocumentFile), JSON.stringify(asketchDocumentJSONString));
+  // fs.writeFileSync(path.resolve(__dirname, outputDocumentFile), JSON.stringify(asketchDocumentJSONString));
   fs.writeFileSync(path.resolve(__dirname, outputPageFile), JSON.stringify(asketchPageJSONString));
 
   browser.close();

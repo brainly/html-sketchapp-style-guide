@@ -9,16 +9,11 @@ function getValues(object, addUndefined = true) {
 const IconsAsButtonPage = () => {
   const variations = [];
 
-  // Sketch crash when all icon are exported
-  // getValues(TYPE, false).forEach(type => {
   getValues(SIZE, false).forEach(size => {
     [false, true].forEach(border => {
       [false, true].forEach(action => {
         [false, true].forEach(active => {
           [false, true].forEach(transparent => {
-            // if (color === ICON_COLOR.ADAPTIVE) {
-            //   return;
-            // }
 
             if (border && active ||
                   !border && !active ||
@@ -28,10 +23,10 @@ const IconsAsButtonPage = () => {
               return;
             }
 
-            const name = `IconAsButton/${TYPE.ANSWER}/${size.className}/${border ? 'border' : 'no-border'}/${active ? 'active' : 'not-active'}/${transparent ? 'transparent' : 'not-transparent'}`;
+            const name = `IconAsButton/${size.className}/${border ? 'border' : 'no-border'}/${active ? 'active' : 'not-active'}/${transparent ? 'transparent' : 'not-transparent'}`;
 
             variations.push(<div title={name} className='inline-item'>
-              <IconAsButton type={TYPE.ANSWER} size={size} border={border} action={action} active={active} transparent={transparent} />
+              <IconAsButton type={TYPE.COMMENT} size={size} border={border} action={action} active={active} transparent={transparent} />
             </div>);
           });
         });
@@ -39,7 +34,6 @@ const IconsAsButtonPage = () => {
     });
     variations.push(<br />);
   });
-  // });
 
   return <section>
     {variations}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from './partials/Head.jsx';
 import packageJSON from 'style-guide/package.json';
+import ColorMasksPage from './components/ColorMasks.jsx';
 import TextPage from './components/Text.jsx';
 import AvatarsPage from './components/Avatar.jsx';
 import BadgesPage from './components/Badge.jsx';
@@ -28,12 +29,15 @@ import BoxesPage from './components/Box';
 import CardsPage from './components/Card';
 import BubblesPage from './components/Bubble';
 import RatingPage from './components/Rating';
+import ColorMasks from './components/ColorMasks.jsx';
 
 const IndexPage = () =>
   <html>
     <Head version={packageJSON.version}/>
     <body>
 
+      <ColorMasksPage />
+      
       {/* symbols */}
       <IconsPage />
       <AvatarsPage />
