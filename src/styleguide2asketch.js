@@ -72,7 +72,6 @@ export function getASketchPage() {
             if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/')) {
               const type = node.children[0].id;
               const color = getComputedStyle(node).fill;
-
               const size = node.clientHeight;
               const icon = icons.find(icon => icon.type === type && icon.size === size);
               
@@ -93,9 +92,29 @@ export function getASketchPage() {
                 console.log(`no no no ${type}/${color}/${size}`);
               }
             }
+
+            // CONSTRAINTS FOR TEXT IN BUBBLE
+            if (layer instanceof Text && node.parentElement.classList.contains('sg-bubble')) {       
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
+            }
+
+            // CONSTRAINTS FOR SVG IN SEARCH
+            if (node.parentElement.classList.contains('sg-search__icon')) {
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.HEIGHT);
+            }
             
-            // CONSTRAINTS FOR TEXT IN LABEL
-            if (layer instanceof Text && node.classList.contains('sg-label__text')) {
+            // CONSTRAINTS FOR SVG IN SELECT AND DROPDOWN
+            if (node.parentElement.classList.contains('custom__icon') || node.classList.contains('sg-dropdown__icon')) {
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.RIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.HEIGHT);
+            }
+
+            // CONSTRAINTS FOR TEXT IN INPUT
+            if (layer instanceof Text && node.parentElement.classList.contains('sg-input')) {
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
+            }
+            
+            // CONSTRAINTS FOR TEXT IN LABEL. SELECT, TEXTAREA
+            if (layer instanceof Text && node.classList.contains('custom__placeholder') || node.classList.contains('sg-label__text')) {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
             }
 

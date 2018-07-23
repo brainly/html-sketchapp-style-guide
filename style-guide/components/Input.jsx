@@ -14,8 +14,13 @@ const InputsPage = () => {
         const name =
         `Input/${color}/${size}/${noBorder ? 'no-border' : 'border'}`;
 
+        const classNamespace = 
+          `sg-input sg-input--${size} sg-input--${color} ${noBorder ? 'sg-input--no-border' : ''} `;
+
         InputVariations.push(<div title={name} className='inline-item'>
-          <Input onChange={() => {}} size={size} color={color} value="input" noBorder={noBorder}/>
+          <div className={classNamespace}>
+            <div className="custom__placeholder sg-text sg-text--gray-secondary">input text</div>
+          </div>
         </div>);
 
       });

@@ -9,11 +9,30 @@ const TextareasPage = () => {
   const variations = [];
 
   getValues(SIZE, false).forEach(size => {
-    const name = `Textarea/${size}`;
+    [false, true, null].forEach(valid => {
 
-    variations.push(<div title={name} className='inline-item'>
-      <Textarea size={size} placeholder="textarea example" />
-    </div>);
+      let name = `Textarea/${size}/`;
+      let classNameSet;
+    
+      if (valid === true) {
+        name += 'valid';
+        classNameSet = 'custom__placeholder sg-text sg-text--mint';
+      } else if (valid === false) {
+        name += 'invalid';
+        classNameSet = 'custom__placeholder sg-text sg-text--peach';
+      } else {
+        name += '_default_';
+        classNameSet = 'custom__placeholder sg-text sg-text--gray-secondary';
+      }
+
+      const textareaClassName = `sg-textarea sg-textarea--${size}`;
+
+      variations.push(<div title={name} className='inline-item'>
+        <div className={textareaClassName}>
+          <div className={classNameSet}>textarea example</div>
+        </div>
+      </div>);
+    });
   });
 
   variations.push(<br />);

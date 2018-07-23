@@ -34,8 +34,6 @@ div.sg-avatar__image {
 .sg-card__hole:nth-child(2) {
     height: 60px;
     text-align: right;
-}
-.sg-card__hole:nth-child(2) {
     border-radius: 0 0 8px 8px;
 }
 
@@ -81,4 +79,64 @@ div.sg-avatar__image {
 
 .sg-rate-box .sg-rate-box__filled-stars .sg-rate-box__star:nth-child(5n) {
     visibility: hidden;
+}
+
+.sg-input {
+    display: flex;
+    min-width: 237px;
+    align-items: center;
+}
+
+.sg-select {  
+    padding-left: 0;  
+}
+
+.sg-select,
+.sg-dropdown {
+    min-width: 150px;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+.sg-select__element,
+.sg-dropdown__hole {
+    display: flex;
+    align-items: center;
+}
+
+.custom__icon svg{
+    color: #9FA6B5;
+}
+
+.sg-select__icon,
+.sg-dropdown__icon {
+    position: relative;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    color: #9FA6B5;
+    top: 0;
+    right: 0;
+}
+
+.custom__placeholder {
+    font-weight: 700;
+    font-size: .9375rem;
+    position: relative;
+}
+
+.sg-search__input .custom__placeholder {
+    color: #9FA6B5;
+}
+
+.sg-input--large .custom__placeholder {
+    font-size: 1.125rem;
+}
+
+.sg-box {
+    min-width: 250px;
 }

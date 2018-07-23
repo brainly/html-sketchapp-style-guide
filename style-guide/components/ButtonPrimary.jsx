@@ -10,12 +10,13 @@ const ButtonsPrimaryPage = () => {
 
   getValues(BUTTON_PRIMARY_TYPE, false).forEach(buttonType => {
     [false, true].forEach(disabled => {
-      const name =
-      `ButtonPrimary/${buttonType}/${disabled ? 'disabled' : '_default_'}`;
 
-      buttonsPrimaryVariations.push(<div title={name} className='inline-item'>
-        <ButtonPrimary buttonType={buttonType} disabled={disabled}>Primary button</ButtonPrimary>
-      </div>);
+        const name =
+        `ButtonPrimary/${buttonType}/${disabled ? 'disabled' : '_default_'}`;
+        
+        buttonsPrimaryVariations.push(<div title={name} className='inline-item'>
+          <ButtonPrimary buttonType={buttonType} disabled={disabled}>Primary button</ButtonPrimary>
+        </div>);
     });
 
     buttonsPrimaryVariations.push(<br/>);

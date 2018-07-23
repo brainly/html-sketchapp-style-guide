@@ -37,13 +37,13 @@ const IndexPage = () =>
     <body>
 
       <ColorMasksPage />
-      
+
       {/* symbols */}
       <IconsPage />
       <AvatarsPage />
       <SubjectIconsPage />
       <MathSymbolsPage />
-
+      
       {/* badges */}
       <BadgesPage />
 
