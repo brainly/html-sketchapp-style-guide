@@ -4,6 +4,8 @@ import Bubble, {DIRECTION, ALIGNMENT} from 'style-guide/src/components/bubble/Bu
 function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
 }
+const ORDERD_DIRECTION = [DIRECTION.TOP, DIRECTION.RIGHT, DIRECTION.BOTTOM, DIRECTION.LEFT];
+const ORDERD_ALIGNMENT = [ALIGNMENT.START, ALIGNMENT.CENTER, ALIGNMENT.END];
 
 // TODO check if padding is needed
 const BubblesPage = () => {
@@ -11,8 +13,29 @@ const BubblesPage = () => {
 
   getValues(DIRECTION, false).forEach(direction => {
     getValues(ALIGNMENT, false).forEach(alignment => {
-      const name =
-      `Bubble/${direction}/${alignment}`;
+      let directionSorted;
+      
+      if(direction === 'top') {
+        directionSorted = `___${direction}`;
+      } else if (direction === 'right') {
+        directionSorted = `__${direction}`;
+      }else if (direction === 'bottom') {
+        directionSorted = `_${direction}`;
+      }else {
+        directionSorted = `${direction}`;
+      }
+      let alignmentSorted;
+
+      if(alignment === 'start') {
+        alignmentSorted = `__${alignment}`;
+      } else if (alignment === 'center') {
+        alignmentSorted = `_${alignment}`;
+      } else {
+        alignmentSorted = `${alignment}`;
+      };
+
+      let name =
+      `Bubble/${directionSorted}/${alignmentSorted}`;
 
       variations.push(<div title={name} className='inline-item'>
         <Bubble direction={direction} alignment={alignment}>

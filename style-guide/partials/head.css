@@ -140,3 +140,23 @@ div.sg-avatar__image {
 .sg-box {
     min-width: 250px;
 }
+
+.sg-bubble.sg-bubble--left.sg-bubble--column-start span,
+.sg-bubble.sg-bubble--left span,
+.sg-bubble.sg-bubble--left.sg-bubble--column-end span{
+    left: -13px !important;
+    right: auto !important;
+}
+
+.sg-bubble.sg-bubble--right.sg-bubble--column-start span,
+.sg-bubble.sg-bubble--right span,
+.sg-bubble.sg-bubble--right.sg-bubble--column-end span{
+    left: auto !important;
+    right: -5px !important;
+}
+
+.sg-bubble.sg-bubble--bottom.sg-bubble--row-start span,
+.sg-bubble.sg-bubble--bottom span,
+.sg-bubble.sg-bubble--bottom.sg-bubble--row-end span {
+    top: 34px !important;
+}

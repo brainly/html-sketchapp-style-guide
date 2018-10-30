@@ -64,8 +64,8 @@ export function getASketchPage() {
             if (layer instanceof Text && layer._style._fontFamily === 'ProximaNova') {
               layer._style._fontFamily = 'Proxima Nova';
             }
-
-            if (layer instanceof SVG && node.classList.contains('sg-icon') && symbol._name.startsWith('Icon/')) {
+            
+            if (layer instanceof SVG && node.classList.contains('sg-icon__svg') && symbol._name.startsWith('Icon/')) {
               layer.setHasClippingMask(true);
             }
             
@@ -161,7 +161,8 @@ export function getASketchPage() {
 
 export function getASketchDocument() {
   const doc = new Document();
-
+  doc.setName('BrainlyPencilTextSystem}');
+  
   // DOCUMENT COLORS
   Array.from(document.querySelectorAll('.colors-list > .color-box'))
     .forEach(box => {
