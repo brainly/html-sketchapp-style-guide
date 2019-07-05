@@ -33,7 +33,7 @@
     "puppeteer": "^0.13.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
-    "style-guide": "git+https://github.com/brainly/style-guide.git#v143.0.1",
+    "style-guide": "git+https://github.com/brainly/style-guide.git#v145.1.0",
     "webpack": "^3.12.0"
   }
 }
