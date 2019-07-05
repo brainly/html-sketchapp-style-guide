@@ -6,32 +6,12 @@ function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
 }
 
-const getIconColor = type => {
-  if (
-    type === 'primary-inverted' ||
-    type === 'secondary' ||
-    type === 'destructive' ||
-    type === 'link-button' ||
-    type === 'warning'
-  ) {
-    return 'dark';
-  } else if (type === 'link-button-peach') {
-    return 'peach';
-  } else if (type === 'link-button-mustard') {
-    return 'mustard';
-  } else {
-    return 'light';
-  }
-};
-
 const ButtonsPage = () => {
   const buttonsVariations = [];
-  // const buttonsWithIcon = [];
 
   getValues(BUTTON_TYPE, false).forEach(buttonType => {
     getValues(BUTTON_SIZE, false).forEach(size => {
       [false, true].forEach(disabled => {
-        // [false, true].forEach(icon => {
           const iconColor = getIconColor(buttonType);
           
           const name =
@@ -48,7 +28,6 @@ const ButtonsPage = () => {
           </div>);
         });
         buttonsVariations.push(<br/>);
-      // });
     });
   });
 
