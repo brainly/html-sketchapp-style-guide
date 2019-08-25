@@ -19,7 +19,6 @@ import SubjectIconsPage from './components/SubjectIcon.jsx';
 import MathSymbolsPage from './components/MathSymbol.jsx';
 import ListsPage from './components/List';
 import DropdownsPage from './components/Dropdown';
-import MenuPage from './components/MenuList';
 import FlashMessagesPage from './components/FlashMessage';
 import SearchPage from './components/Search';
 import BoxesPage from './components/Box';
@@ -73,10 +72,7 @@ const IndexPage = () =>
 
       {/* list */}
       <ListsPage />
-
-      {/* menu list */}
-      <MenuPage />
-
+      
       {/* Dropdown */}
       <DropdownsPage />
 
