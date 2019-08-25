@@ -12,7 +12,7 @@ const AvatarsPage = () => {
     [false, true].forEach(border => {
       [null, 'https://source.unsplash.com/240x240/?cat'].forEach(src => {
         const name =
-        `Avatar/${size.className}/${border ? 'border' : 'no-border'}/${src ? 'with image' : 'without image'}`;
+        `Avatar/${size}/${border ? 'border' : 'no-border'}/${src ? 'with image' : 'without image'}`;
 
         avatarVariations.push(<div key={name} title={name} className='inline-item'>
           <Avatar size={size} border={border} imgSrc={src} />

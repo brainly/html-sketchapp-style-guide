@@ -21,7 +21,7 @@ const LabelsPage = () => {
             }
 
             const name =
-          `Label/${size.CLASS_NAME}/${TYPE.ANSWER}/${secondary ? 'secondary' : 'primary'}/${emphasised ? 'emphasised' : 'standard'}/${elementsToTop ? 'elementsToTop' : 'middle'}`;
+          `Label/${size}/${TYPE.ANSWER}/${secondary ? 'secondary' : 'primary'}/${emphasised ? 'emphasised' : 'standard'}/${elementsToTop ? 'elementsToTop' : 'middle'}`;
 
             variations.push(<div title={name} className='inline-item'>
               <Label text='label' size={size} iconType={TYPE.ANSWER} iconColor={ICON_COLOR.BLUE} emphasised={emphasised} elementsToTop={elementsToTop} secondary={secondary} />

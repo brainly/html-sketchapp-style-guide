@@ -12,7 +12,7 @@ const BadgesPage = () => {
     getValues(COLOR, false).forEach(color => {
       [false, true].forEach(rounded => {
         const name =
-        `Badge/${size}/${color.BADGE}/${rounded ? 'rounded' : '_default_'}`;
+        `Badge/${size}/${color}/${rounded ? 'rounded' : '_default_'}`;
 
         badgesVariations.push(<div title={name} className='inline-item'>
           <TextBadge size={size} color={color} rounded={rounded}>3 / 5</TextBadge>
