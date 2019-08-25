@@ -4,7 +4,6 @@ import packageJSON from 'style-guide/package.json';
 import ColorMasksPage from './components/ColorMasks.jsx';
 import TextPage from './components/Text.jsx';
 import AvatarsPage from './components/Avatar.jsx';
-import BadgesPage from './components/Badge.jsx';
 import ButtonsPage from './components/Button.jsx';
 import InputsPage from './components/Input.jsx';
 import SelectsPage from './components/Select.jsx';
@@ -14,7 +13,6 @@ import RadioPage from './components/Radio.jsx';
 import ColorsPage from './components/Color.jsx';
 import IconsPage from './components/Icon.jsx';
 import IconsAsButtonPage from './components/IconAsButton.jsx';
-import LabelsPage from './components/Label.jsx';
 import SubjectIconsPage from './components/SubjectIcon.jsx';
 import MathSymbolsPage from './components/MathSymbol.jsx';
 import ListsPage from './components/List';
@@ -38,9 +36,6 @@ const IndexPage = () =>
       <AvatarsPage />
       <SubjectIconsPage />
       <MathSymbolsPage />
-      
-      {/* badges */}
-      <BadgesPage />
 
       {/* Removed temporary */}
       {/* breadcrumb */}
@@ -66,9 +61,6 @@ const IndexPage = () =>
 
       {/* icon as button */}
       <IconsAsButtonPage />
-
-      {/* labels */}
-      <LabelsPage />
 
       {/* list */}
       <ListsPage />
