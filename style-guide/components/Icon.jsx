@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon, {TYPE, ICON_COLOR, SIZE} from 'style-guide/src/components/icons/Icon';
+import Icon, {STD_TYPE, ICON_COLOR, SIZE} from 'style-guide/src/components/icons/Icon';
 
 function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
@@ -18,7 +18,7 @@ const LIMITED_SIZE = [10, 14, 16, 18, 24, 26];
 const IconsPage = () => {
   const variations = [];
 
-  getValues(TYPE, false).forEach(type => {
+  getValues(STD_TYPE, false).forEach(type => {
     getValues(LIMITED_SIZE, false).forEach(size => {
       const name = `Icon/${type}/${LIMITED_ICON_COLOR.BLUE}/${size}`;
 
