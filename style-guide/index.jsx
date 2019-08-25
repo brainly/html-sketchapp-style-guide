@@ -5,8 +5,7 @@ import ColorMasksPage from './components/ColorMasks.jsx';
 import TextPage from './components/Text.jsx';
 import AvatarsPage from './components/Avatar.jsx';
 import BadgesPage from './components/Badge.jsx';
-import ButtonsPrimaryPage from './components/ButtonPrimary.jsx';
-import ButtonsSecondaryPage from './components/ButtonSecondary.jsx';
+import ButtonsPage from './components/Button.jsx';
 import InputsPage from './components/Input.jsx';
 import SelectsPage from './components/Select.jsx';
 import TextareasPage from './components/Textarea.jsx';
@@ -49,10 +48,7 @@ const IndexPage = () =>
       {/* <BreadcrumbsPage /> */}
 
       {/* button primary */}
-      <ButtonsPrimaryPage />
-
-      {/* button secondary */}
-      <ButtonsSecondaryPage />
+      <ButtonsPage />
 
       {/* inputs */}
       <InputsPage />
