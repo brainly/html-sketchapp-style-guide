@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Brainly style guide to Sketch",
   "scripts": {
-    "test": "eslint src/ style-guide/components/ style-guide/partials/",
+    "test": "eslint style-guide/*.jsx",
     "build": "webpack && cd style-guide && webpack && node build/buildHTML.bundle.js",
     "inject": "node ./src/inject.js"
   },
@@ -15,9 +15,9 @@
   },
   "homepage": "https://github.com/brainly/html-sketchapp-example#readme",
   "devDependencies": {
-    "eslint": "^4.4.1",
-    "eslint-plugin-import": "^2.16.0",
-    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git"
+    "eslint": "^6.2.1",
+    "eslint-config-brainly": "^2.4.0",
+    "eslint-plugin-import": "^2.16.0"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
@@ -30,10 +30,11 @@
     "@babel/preset-react": "^7.0.0",
     "@brainly/html-sketchapp": "git+https://github.com/brainly/html-sketchapp.git#master",
     "babel-loader": "^8.0.5",
-    "puppeteer": "^0.13.0",
+    "puppeteer": "^1.19.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "style-guide": "git+https://github.com/brainly/style-guide.git#v143.0.1",
-    "webpack": "^3.12.0"
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2"
   }
 }

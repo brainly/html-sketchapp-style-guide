@@ -1,5 +1,5 @@
 {
   "extends": [
-    "./node_modules/frontend-tools-configs/eslint/main.js"
+    "./node_modules/eslint-config-brainly/rules/main.js"
   ]
 }

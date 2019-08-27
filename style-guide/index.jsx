@@ -43,7 +43,7 @@ const IndexPage = () =>
       <AvatarsPage />
       <SubjectIconsPage />
       <MathSymbolsPage />
-      
+
       {/* badges */}
       <BadgesPage />
 
