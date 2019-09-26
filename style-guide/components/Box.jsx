@@ -10,18 +10,14 @@ const BoxesPage = () => {
   const variations = [];
 
   getValues(COLOR, false).forEach(color => {
-    [false, true].forEach(border => {
-      [false, true].forEach(shadow => {
-        const name =
-        `Box/${color}/${shadow ? 'shadow' : 'no-shadow'}/${border ? 'border' : 'no-border'}`;
+    const name =
+    `Box/${color}`;
 
-        variations.push(<div title={name} className='inline-item'>
-          <Box color={color} border={border} shadow={shadow} />
-        </div>);
+    variations.push(<div title={name} className='inline-item'>
+      <Box color={color} border={false} />
+    </div>);
 
-        variations.push(<br/>);
-      });
-    });
+    variations.push(<br/>);
   });
 
   return <section>
