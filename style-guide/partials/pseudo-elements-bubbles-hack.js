@@ -18,7 +18,8 @@ for (let i = 0; i < allElements.length; i++) {
     left: parseInt(elementBeforeStyles.left, 10) / 2,
     right: parseInt(elementBeforeStyles.right, 10) / 2,
     top: parseInt(elementBeforeStyles.top, 10) / 2,
-    bottom: parseInt(elementBeforeStyles.bottom, 10) / 2,
+    // eslint-disable-next-line comma-dangle
+    bottom: parseInt(elementBeforeStyles.bottom, 10) / 2
   };
   /* eslint-disable max-len */
   const rectPositionStyles = `left: ${values.left}px; top: ${values.top}px; right: ${values.right}px; bottom: ${values.bottom}px; position: absolute`;

@@ -30,7 +30,8 @@ export function getASketchPage() {
 
   const page = new Page({
     width: document.body.offsetWidth,
-    height: document.body.offsetHeight,
+    // eslint-disable-next-line comma-dangle
+    height: document.body.offsetHeight
   });
 
   page.setName(`Brainly Pencil - Style Guide ${styleGuideVersion}`);
@@ -174,7 +175,8 @@ export function getASketchPage() {
           type: `icon-${type}`,
           color: getComputedStyle(symbolNode).fill,
           size: parseInt(size, 10),
-          symbol,
+          // eslint-disable-next-line comma-dangle
+          symbol
         });
       }
 
