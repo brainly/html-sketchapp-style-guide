@@ -28,7 +28,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "@brainly/html-sketchapp": "git+https://github.com/brainly/html-sketchapp.git#master",
+    "@brainly/html-sketchapp": "git+https://github.com/html-sketchapp/html-sketchapp.git#master",
     "babel-loader": "^8.0.5",
     "puppeteer": "^0.13.0",
     "react": "^16.3.0",
