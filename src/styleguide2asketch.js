@@ -37,6 +37,7 @@ export function getASketchPage() {
   page.setName(`Brainly Pencil - Style Guide ${styleGuideVersion}`);
 
   const icons = [];
+  const buttonIcons = [];
   const maskColors = [];
 
   // SYMBOLS
@@ -68,6 +69,23 @@ export function getASketchPage() {
 
             if (layer instanceof SVG && node.classList.contains('sg-icon__svg') && symbol._name.startsWith('Icon/')) {
               layer.setHasClippingMask(true);
+            }
+
+            if (symbol._name.startsWith('Button/') && layer instanceof SVG) {
+              const type = node.children[0].id;
+              const color = getComputedStyle(node).fill;
+              const size = node.clientHeight;
+              const icon = icons.find(icon => icon.type === type);
+
+              layer = icon.symbol.getSymbolInstance({
+                x: layer._x,
+                y: layer._y,
+                width: size,
+                height: size,
+                color: getComputedStyle(node).fill,
+              });
+
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH);
             }
 
             if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/')) {

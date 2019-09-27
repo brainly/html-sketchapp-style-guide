@@ -160,3 +160,13 @@ div.sg-avatar__image {
 .sg-bubble.sg-bubble--bottom.sg-bubble--row-end span {
     top: 34px !important;
 }
+
+.sg-button svg {
+    position: relative;
+    bottom: 5px;
+}
+
+.sg-button.sg-button--small svg {
+    position: relative;
+    bottom: 3px;
+}

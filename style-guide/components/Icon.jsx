@@ -11,7 +11,7 @@ const LIMITED_ICON_COLOR = {
   GRAY: 'gray',
   MINT: 'mint',
   MUSTARD: 'mustard',
-  PEACH: 'peach'
+  PEACH: 'peach',
 };
 
 const LIMITED_SIZE = [10, 14, 16, 18, 24, 26];
