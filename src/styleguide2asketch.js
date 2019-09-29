@@ -73,7 +73,6 @@ export function getASketchPage() {
 
             if (symbol._name.startsWith('Button/') && layer instanceof SVG) {
               const type = node.children[0].id;
-              const color = getComputedStyle(node).fill;
               const size = node.clientHeight;
               const icon = icons.find(icon => icon.type === type);
 
@@ -82,7 +81,6 @@ export function getASketchPage() {
                 y: layer._y,
                 width: size,
                 height: size,
-                color: getComputedStyle(node).fill,
               });
 
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH);
