@@ -30,15 +30,16 @@ const IndexPage = () =>
   <html>
     <Head version={packageJSON.version}/>
     <body>
+      <ColorMasksPage />
+      <IconsPage />
+
       <AvatarsPage />
       <BoxesPage />
       <BubblesPage />
       <ButtonsPage />
       <CheckboxesPage />
-      <ColorMasksPage />
       <DropdownsPage />
       <FlashMessagesPage />
-      <IconsPage />
       <IconsAsButtonPage />
       <InputsPage />
       <ListsPage />

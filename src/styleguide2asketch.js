@@ -70,6 +70,22 @@ export function getASketchPage() {
               layer.setHasClippingMask(true);
             }
 
+            if (symbol._name.startsWith('Button/') && layer instanceof SVG) {
+              const type = node.children[0].id;
+              const size = node.clientHeight;
+              const icon = icons.find(icon => icon.type === type);
+
+              layer = icon.symbol.getSymbolInstance({
+                x: layer._x,
+                y: layer._y,
+                width: size,
+                // eslint-disable-next-line comma-dangle
+                height: size
+              });
+
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH);
+            }
+
             if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/')) {
               const type = node.children[0].id;
               const color = getComputedStyle(node).fill;
