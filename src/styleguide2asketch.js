@@ -37,7 +37,6 @@ export function getASketchPage() {
   page.setName(`Brainly Pencil - Style Guide ${styleGuideVersion}`);
 
   const icons = [];
-  const buttonIcons = [];
   const maskColors = [];
 
   // SYMBOLS
@@ -80,7 +79,8 @@ export function getASketchPage() {
                 x: layer._x,
                 y: layer._y,
                 width: size,
-                height: size,
+                // eslint-disable-next-line comma-dangle
+                height: size
               });
 
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH);
