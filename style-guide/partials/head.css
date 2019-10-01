@@ -164,14 +164,17 @@ div.sg-avatar__image {
 .sg-button svg {
     position: relative;
     bottom: 4px;
+    right: 4px;
 }
 
 .sg-button--large svg {
     position: relative;
     bottom: 5px;
+    right: 5px;
 }
 
 .sg-button.sg-button--small svg {
     position: relative;
     bottom: 3px;
+    right: 3px;
 }
