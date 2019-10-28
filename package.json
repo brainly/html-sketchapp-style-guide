@@ -28,12 +28,12 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.6.3",
-    "@brainly/html-sketchapp": "git+https://github.com/html-sketchapp/html-sketchapp.git#master",
+    "@brainly/html-sketchapp": "git+https://github.com/html-sketchapp/html-sketchapp.git#Handle-Smart-Layout-in-Symbols",
     "babel-loader": "^8.0.6",
     "puppeteer": "1.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "style-guide": "git+https://github.com/brainly/style-guide.git#v149.0.3",
+    "style-guide": "git+https://github.com/brainly/style-guide.git#v150.0.0",
     "webpack": "^3.12.0"
   }
 }

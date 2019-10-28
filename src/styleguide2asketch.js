@@ -1,5 +1,5 @@
 import {Document, Page, Text, SVG, SymbolMaster, nodeToSketchLayers} from '@brainly/html-sketchapp';
-import {RESIZING_CONSTRAINTS} from '@brainly/html-sketchapp/html2asketch/helpers/utils';
+import {RESIZING_CONSTRAINTS, SMART_LAYOUT} from '@brainly/html-sketchapp/html2asketch/helpers/utils';
 
 function bemClassToText(bemClass) {
   return bemClass.replace('sg-', '').replace('-', ' ');
@@ -70,7 +70,7 @@ export function getASketchPage() {
               layer.setHasClippingMask(true);
             }
 
-            if (symbol._name.startsWith('Button/') && layer instanceof SVG) {
+            if (symbol._name.startsWith('Button/') && layer instanceof SVG || symbol._name.startsWith('Label/') && layer instanceof SVG) {
               const type = node.children[0].id;
               const size = node.clientHeight;
               const icon = icons.find(icon => icon.type === type);
@@ -83,7 +83,7 @@ export function getASketchPage() {
                 height: size
               });
 
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH);
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
             }
 
             if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/')) {
@@ -123,6 +123,11 @@ export function getASketchPage() {
             // CONSTRAINTS FOR TEXT IN BUBBLE
             if (layer instanceof Text && node.parentElement.classList.contains('sg-bubble')) {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
+            }
+
+            // CONSTRAINTS FOR TEXT IN BUTTON
+            if (layer instanceof Text && node.parentElement.classList.contains('sg-button')) {
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.HEIGHT);
             }
 
             // CONSTRAINTS FOR SVG IN SEARCH
@@ -172,6 +177,10 @@ export function getASketchPage() {
 
       if (symbol._name.startsWith('ColorMask/')) {
         maskColors.push(symbol);
+      }
+
+      if (symbol._name.startsWith('Button/')) {
+        symbol.setGroupLayout(SMART_LAYOUT.HORIZONTALLY_CENTER);
       }
 
       if (symbol._name.startsWith('Icon/')) {

@@ -10,8 +10,16 @@ const BoxesPage = () => {
   const variations = [];
 
   getValues(COLOR, false).forEach(color => {
+    let colorName;
+
+    if (color === 'navyblue-secondary') {
+      colorName = 'white';
+    } else {
+      colorName = `${color}`;
+    }
+
     const name =
-    `Box/${color}`;
+    `Box/${colorName}`;
 
     variations.push(<div title={name} className='inline-item'>
       <Box color={color} border={false} />

@@ -11,7 +11,17 @@ const SubjectIconsPage = () => {
   getValues(TYPE, false).forEach(type => {
     getValues(SIZE, false).forEach(size => {
       [true, false].forEach(mono => {
-        const name = `SubjectIcon/${type}/${size}/${mono ? 'mono' : 'color'}`;
+        let subjectIconSize;
+
+        if (size === 'small') {
+          subjectIconSize = '24';
+        } else if (size === 'medium') {
+          subjectIconSize = '32';
+        } else {
+          subjectIconSize = '64';
+        }
+
+        const name = `SubjectIcon/${type}/${subjectIconSize}/${mono ? 'mono' : 'color'}`;
 
         variations.push(<div title={name} className='inline-item'>
           <SubjectIcon type={type} size={size} monoColor={mono ? ICON_COLOR.LIGHT : undefined} />

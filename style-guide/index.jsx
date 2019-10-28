@@ -50,6 +50,7 @@ const IndexPage = () =>
       <SelectsPage />
       <SubjectIconsPage />
       <TextareasPage />
+      <LabelsPage />
 
       {/* document */}
       <TextPage />

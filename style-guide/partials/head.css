@@ -178,3 +178,14 @@ div.sg-avatar__image {
     bottom: 3px;
     right: 3px;
 }
+
+.sg-button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.sg-button .sg-button__text{
+    width: 100%;
+    justify-content: center;
+}
