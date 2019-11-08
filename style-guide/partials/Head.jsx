@@ -6,8 +6,8 @@ const Head = props =>
     <title>Brainly Style Guide - {props.version}</title>
     <meta name="description" content="Brainly Style Guide - Sketch export file" />
 
-    <link href="https://styleguide.brainly.com/149.0.3/style-guide.css" rel="stylesheet" />
-    <script src="https://styleguide.brainly.com/images/icons-36daf88c55.js" defer></script>
+    <link href="https://styleguide.brainly.com/149.1.5/style-guide.css" rel="stylesheet" />
+    <script src="https://styleguide.brainly.com/images/icons-dbb19c2ba8.js" defer></script>
     <script src="https://styleguide.brainly.com/images/subjects-icons-0676dae371.js" defer></script>
     <script src="https://styleguide.brainly.com/images/subjects-mono-icons-d9de3cd626.js" defer></script>
     <script src="https://styleguide.brainly.com/images/math-symbols-icons-2936684655.js" defer></script>
