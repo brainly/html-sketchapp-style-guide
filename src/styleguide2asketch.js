@@ -1,5 +1,5 @@
 import {Document, Page, Text, SVG, SymbolMaster, nodeToSketchLayers} from '@brainly/html-sketchapp';
-import {RESIZING_CONSTRAINTS} from '@brainly/html-sketchapp/html2asketch/helpers/utils';
+import {RESIZING_CONSTRAINTS, SMART_LAYOUT} from '@brainly/html-sketchapp/html2asketch/helpers/utils';
 
 function bemClassToText(bemClass) {
   return bemClass.replace('sg-', '').replace('-', ' ');
@@ -70,7 +70,8 @@ export function getASketchPage() {
               layer.setHasClippingMask(true);
             }
 
-            if (symbol._name.startsWith('Button/') && layer instanceof SVG) {
+            // eslint-disable-next-line max-len
+            if (symbol._name.startsWith('Button/') && layer instanceof SVG || symbol._name.startsWith('Label/') && layer instanceof SVG) {
               const type = node.children[0].id;
               const size = node.clientHeight;
               const icon = icons.find(icon => icon.type === type);
@@ -82,8 +83,8 @@ export function getASketchPage() {
                 // eslint-disable-next-line comma-dangle
                 height: size
               });
-
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH);
+              // eslint-disable-next-line max-len
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
             }
 
             if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/')) {
@@ -123,6 +124,11 @@ export function getASketchPage() {
             // CONSTRAINTS FOR TEXT IN BUBBLE
             if (layer instanceof Text && node.parentElement.classList.contains('sg-bubble')) {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
+            }
+
+            // CONSTRAINTS FOR TEXT IN BUTTON
+            if (layer instanceof Text && node.parentElement.classList.contains('sg-button')) {
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.HEIGHT);
             }
 
             // CONSTRAINTS FOR SVG IN SEARCH
@@ -174,9 +180,13 @@ export function getASketchPage() {
         maskColors.push(symbol);
       }
 
+      if (symbol._name.startsWith('Button/')) {
+        symbol.setGroupLayout(SMART_LAYOUT.HORIZONTALLY_CENTER);
+      }
+
       if (symbol._name.startsWith('Icon/')) {
         /* eslint-disable no-unused-vars */
-        const [, type, color, size] = symbol._name.split('/');
+        const [, type, size] = symbol._name.split('/');
         /* eslint-enable no-unused-vars */
         const layerSize = parseInt(size, 10);
 

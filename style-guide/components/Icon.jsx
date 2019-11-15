@@ -20,10 +20,10 @@ const IconsPage = () => {
 
   getValues(TYPE, false).forEach(type => {
     getValues(LIMITED_SIZE, false).forEach(size => {
-      const name = `Icon/${type}/${LIMITED_ICON_COLOR.BLUE}/${size}`;
+      const name = `Icon/${type}/${size}`;
 
       variations.push(<div title={name} className='inline-item'>
-        <Icon type={type} size={size} color={LIMITED_ICON_COLOR.BLUE} />
+        <Icon type={type} size={size} color={LIMITED_ICON_COLOR.DARK} />
       </div>);
       variations.push(<br />);
     });

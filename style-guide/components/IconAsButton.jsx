@@ -23,7 +23,7 @@ const IconsAsButtonPage = () => {
               return;
             }
 
-            const name = `IconAsButton/${size.className}/${border ? 'border' : 'no-border'}/${active ? 'active' : 'not-active'}/${transparent ? 'transparent' : 'not-transparent'}`;
+            const name = `IconAsButton/${size}/${border ? 'border' : 'no-border'}/${active ? 'active' : 'not-active'}/${transparent ? 'transparent' : 'not-transparent'}`;
 
             variations.push(<div title={name} className='inline-item'>
               <IconAsButton type={TYPE.COMMENT} size={size} border={border} action={action} active={active} transparent={transparent} />
