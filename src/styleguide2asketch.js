@@ -70,6 +70,7 @@ export function getASketchPage() {
               layer.setHasClippingMask(true);
             }
 
+            // eslint-disable-next-line max-len
             if (symbol._name.startsWith('Button/') && layer instanceof SVG || symbol._name.startsWith('Label/') && layer instanceof SVG) {
               const type = node.children[0].id;
               const size = node.clientHeight;
@@ -82,7 +83,7 @@ export function getASketchPage() {
                 // eslint-disable-next-line comma-dangle
                 height: size
               });
-
+              // eslint-disable-next-line max-len
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
             }
 
