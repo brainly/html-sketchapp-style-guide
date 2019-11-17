@@ -24,7 +24,7 @@ const SubjectIconsPage = () => {
         const name = `SubjectIcon/${type}/${subjectIconSize}/${mono ? 'mono' : 'color'}`;
 
         variations.push(<div title={name} className='inline-item'>
-          <SubjectIcon type={type} size={size} monoColor={mono ? ICON_COLOR.LIGHT : undefined} />
+          <SubjectIcon type={type} size={size} monoColor={mono ? ICON_COLOR.GRAY : undefined} />
         </div>);
       });
     });
