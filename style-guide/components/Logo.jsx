@@ -1,10 +1,10 @@
 import React from 'react';
-import Logo, {TYPE as LOGO_TYPE} from 'style-guide/src/components/logo/Logo';
+import Logo, {TYPE} from 'style-guide/src/components/logo/Logo';
 
 const LogoPage = () => {
   const variations = [];
 
-  Object.values(LOGO_TYPE).forEach(type => {
+  Object.values(TYPE).forEach(type => {
     const name =
     `Logo/${type}`;
 
