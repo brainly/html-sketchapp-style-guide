@@ -126,11 +126,6 @@ export function getASketchPage() {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
             }
 
-            // CONSTRAINTS FOR TEXT IN BUTTON
-            if (layer instanceof Text && node.parentElement.classList.contains('sg-button')) {
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.HEIGHT);
-            }
-
             // CONSTRAINTS FOR SVG IN SEARCH
             if (node.parentElement.classList.contains('sg-search__icon')) {
               layer.setResizingConstraint(
@@ -144,6 +139,14 @@ export function getASketchPage() {
             if (node.parentElement.classList.contains('custom__icon') || node.classList.contains('sg-dropdown__icon')) {
               layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.RIGHT,
+                RESIZING_CONSTRAINTS.WIDTH,
+                RESIZING_CONSTRAINTS.HEIGHT
+              );
+            }
+
+            // CONSTRAINTS FOR SVG IN SELECT AND COUNTER
+            if (node.parentElement.classList.contains('sg-counter')) {
+              layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.WIDTH,
                 RESIZING_CONSTRAINTS.HEIGHT
               );
@@ -181,6 +184,10 @@ export function getASketchPage() {
       }
 
       if (symbol._name.startsWith('Button/')) {
+        symbol.setGroupLayout(SMART_LAYOUT.HORIZONTALLY_CENTER);
+      }
+
+      if (symbol._name.startsWith('Counter/')) {
         symbol.setGroupLayout(SMART_LAYOUT.HORIZONTALLY_CENTER);
       }
 
