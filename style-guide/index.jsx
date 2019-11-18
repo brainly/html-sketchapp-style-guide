@@ -24,6 +24,7 @@ import SearchPage from './components/Search';
 import BoxesPage from './components/Box';
 import BubblesPage from './components/Bubble';
 import RatingPage from './components/Rating';
+import LogoPage from './components/Logo';
 import ColorMasks from './components/ColorMasks.jsx';
 
 const IndexPage = () =>
@@ -32,7 +33,7 @@ const IndexPage = () =>
     <body>
       <ColorMasksPage />
       <IconsPage />
-
+      <LogoPage />
       <AvatarsPage />
       <BoxesPage />
       <BubblesPage />
