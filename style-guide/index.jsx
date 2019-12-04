@@ -13,9 +13,7 @@ import CountersPage from './components/Counter.jsx';
 import RadioPage from './components/Radio.jsx';
 import ColorsPage from './components/Color.jsx';
 import IconsPage from './components/Icon.jsx';
-import IconsAsButtonPage from './components/IconAsButton.jsx';
 import LabelsPage from './components/Label.jsx';
-import StickersPage from './components/Sticker.jsx';
 import SubjectIconsPage from './components/SubjectIcon.jsx';
 import MathSymbolsPage from './components/MathSymbol.jsx';
 import ListsPage from './components/List';
@@ -26,8 +24,6 @@ import BoxesPage from './components/Box';
 import BubblesPage from './components/Bubble';
 import RatingPage from './components/Rating';
 import LogoPage from './components/Logo';
-import ColorMasks from './components/ColorMasks.jsx';
-// import BadgesPage from './components/Badge.jsx';
 
 const IndexPage = () =>
   <html>
@@ -37,7 +33,6 @@ const IndexPage = () =>
       <IconsPage />
       <LogoPage />
       <AvatarsPage />
-      {/* <BadgesPage /> */}
       <BoxesPage />
       <BubblesPage />
       <ButtonsPage />
@@ -45,7 +40,6 @@ const IndexPage = () =>
       <CountersPage />
       <DropdownsPage />
       <FlashMessagesPage />
-      {/* <IconsAsButtonPage /> */}
       <InputsPage />
       <ListsPage />
       <MathSymbolsPage />
