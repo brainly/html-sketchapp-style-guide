@@ -1,10 +1,7 @@
 import React from 'react';
-import { ICON_COLOR } from 'style-guide/src/components/icons/Icon';
-import MathSymbol, { MATH_SYMBOL_TYPE, SIZE } from 'style-guide/src/components/math-symbols/MathSymbol';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {ICON_COLOR} from 'style-guide/src/components/icons/Icon';
+import MathSymbol, {MATH_SYMBOL_TYPE, SIZE} from 'style-guide/src/components/math-symbols/MathSymbol';
+import {getValues} from '../utils/getValues';
 
 const MathSymbolsPage = () => {
   const variations = [];

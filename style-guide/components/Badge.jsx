@@ -1,10 +1,7 @@
 import React from 'react';
 
 import TextBadge, {TEXT_BADGE_COLOR, TEXT_BADGE_SIZE} from 'style-guide/src/components/badges/TextBadge';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const BadgesPage = () => {
   const variations = [];

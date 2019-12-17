@@ -1,9 +1,6 @@
 import React from 'react';
 import SubjectIcon, {TYPE, SIZE, ICON_COLOR} from 'style-guide/src/components/subject-icons/SubjectIcon';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const SubjectIconsPage = () => {
   const variations = [];

@@ -2,10 +2,7 @@ import React from 'react';
 
 import Counter, {COUNTER_SIZE} from 'style-guide/src/components/counters/Counter';
 import Text from 'style-guide/src/components/text/Text';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const CountersPage = () => {
   const variations = [];

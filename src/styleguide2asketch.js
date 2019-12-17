@@ -127,16 +127,9 @@ export function getASketchPage() {
             }
 
             // CONSTRAINTS FOR SVG IN SEARCH
-            if (node.parentElement.classList.contains('sg-search__icon')) {
-              layer.setResizingConstraint(
-                RESIZING_CONSTRAINTS.LEFT,
-                RESIZING_CONSTRAINTS.WIDTH,
-                RESIZING_CONSTRAINTS.HEIGHT
-              );
-            }
-
-            // CONSTRAINTS FOR SVG IN SELECT AND DROPDOWN
-            if (node.parentElement.classList.contains('custom__icon') || node.classList.contains('sg-dropdown__icon')) {
+            if (node.parentElement.classList.contains('sg-search__icon') ||
+            layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-round-button__hole') ||
+            layer instanceof SVG && node.parentElement.parentElement.classList.contains('custom-select__icon')) {
               layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.RIGHT,
                 RESIZING_CONSTRAINTS.WIDTH,

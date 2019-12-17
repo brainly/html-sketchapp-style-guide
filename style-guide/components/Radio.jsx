@@ -1,9 +1,6 @@
 import React from 'react';
 import Radio from 'style-guide/src/components/form-elements/Radio';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const RadioPage = () => {
 

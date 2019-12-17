@@ -1,44 +1,47 @@
 import React from 'react';
-import Select from 'style-guide/src/components/form-elements/Select';
+import {getValues} from '../utils/getValues';
 
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import Select, {SIZE, COLOR} from 'style-guide/src/components/form-elements/Select';
+import Icon from 'style-guide/src/components/icons/Icon';
 
 // TODO export invalid also?
 const SelectsPage = () => {
   const SelectVariations = [];
 
-  [false, true, null].forEach(valid => {
-    let name = 'Select/';
-    let classNameSet;
+  getValues(SIZE, false).forEach(size => {
+    getValues(COLOR, false).forEach(color => {
+      [false, true, null].forEach(valid => {
+        let name = `Select/${size}/${color}/`;
+        let selectValidationClass;
 
-    if (valid === true) {
-      name += 'valid';
-      classNameSet = 'custom__placeholder sg-text sg-text--mint';
-    } else if (valid === false) {
-      name += 'invalid';
-      classNameSet = 'custom__placeholder sg-text sg-text--peach';
-    } else {
-      name += '_default_';
-      classNameSet = 'custom__placeholder sg-text sg-text--gray';
-    }
+        const selectSizeClass = size === 'large' ? `sg-select--${size}` : '';
+        const selectColorClass = color === 'white' ? `sg-select--${color}` : '';
 
-    SelectVariations.push(<div title={name} className='inline-item'>
-      <div className="sg-select">
-        <div className={classNameSet}>Option 1</div>
+        if (valid === true) {
+          name += 'valid';
+          selectValidationClass = 'sg-select--valid';
+        } else if (valid === false) {
+          name += 'invalid';
+          selectValidationClass = 'sg-select--invalid';
+        } else {
+          name += '_default';
+          selectValidationClass = '';
+        }
 
-        <div className="custom__icon">
-          <svg width="8px" height="6px" viewBox="0 0 8 6" version="1.1">
-            <g transform="translate(-82.000000, -12.000000)" fill="#687B8C">
-              <polygon transform="translate(86.000000, 15.000000) scale(1, -1) translate(-86.000000, -15.000000) " points="86 12 90 18 82 18"></polygon>
-            </g>
-          </svg>
-        </div>
+        SelectVariations.push(<div title={name} className='inline-item'>
+          <div className={`sg-select ${selectSizeClass} ${selectColorClass} ${selectValidationClass}`}>
+            <div className="sg-select__element">
+              <div className="custom__placeholder sg-text">Option 1</div>
 
-      </div>
-    </div>);
-    SelectVariations.push(<br/>);
+              <div className="custom__icon custom-select__icon">
+                <Icon type="arrow_down" size={size === 'large' ? 24 : 16} color="gray-secondary" />
+              </div>
+            </div>
+          </div>
+        </div>);
+        SelectVariations.push(<br/>);
+      });
+    });
   });
 
   return <section>

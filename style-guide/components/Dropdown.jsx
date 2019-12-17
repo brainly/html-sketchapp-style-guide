@@ -1,10 +1,7 @@
 import React from 'react';
 import {ICON_COLOR, TYPE} from 'style-guide/src/components/icons/Icon';
 import DropdownContainer from 'style-guide/src/components/dropdowns/DropdownContainer';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const DropdownsPage = () => {
   const variations = [];
@@ -34,18 +31,18 @@ const DropdownsPage = () => {
             </svg>
           }
         </div>
-        {opened ? 
-        <div className="sg-dropdown__items">
-          <div className="sg-dropdown__item-hole">
-            <div className="sg-dropdown__item-text">1st item</div>
-          </div>
-          <div className="sg-dropdown__item-hole">
-            <div className="sg-dropdown__item-text">2nd item</div>
-          </div>
-          <div className="sg-dropdown__item-hole">
-            <div className="sg-dropdown__item-text">3rd item</div>
-          </div>
-        </div> : null
+        {opened ?
+          <div className="sg-dropdown__items">
+            <div className="sg-dropdown__item-hole">
+              <div className="sg-dropdown__item-text">1st item</div>
+            </div>
+            <div className="sg-dropdown__item-hole">
+              <div className="sg-dropdown__item-text">2nd item</div>
+            </div>
+            <div className="sg-dropdown__item-hole">
+              <div className="sg-dropdown__item-text">3rd item</div>
+            </div>
+          </div> : null
         }
       </div>
     </div>);

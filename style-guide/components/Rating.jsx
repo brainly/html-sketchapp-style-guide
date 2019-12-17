@@ -1,9 +1,6 @@
 import React from 'react';
 import Rating, {RATING_SIZE} from 'style-guide/src/components/rating/Rating';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 // TODO check if padding is needed
 const RatingPage = () => {

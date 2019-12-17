@@ -1,10 +1,7 @@
 import React from 'react';
 import Icon, {TYPE, ICON_COLOR} from 'style-guide/src/components/icons/Icon';
 import IconAsButton, {SIZE} from 'style-guide/src/components/icon-as-button/IconAsButton';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const IconsAsButtonPage = () => {
   const variations = [];
