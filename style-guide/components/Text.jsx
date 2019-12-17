@@ -6,13 +6,13 @@ import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from 'style-guide/src/components
 
 // setup for texts will be removed as soon as we cleanup SG
 const textWeight = {
-  bold: "bold",
-  regular: 'regular'
+  bold: 'bold',
+  regular: 'regular',
 };
 
 const linkWeight = {
   REGULAR: 'regular',
-  BOLD: 'bold'
+  BOLD: 'bold',
 };
 
 const textSizes = {
@@ -21,15 +21,14 @@ const textSizes = {
   NORMAL: 'normal',
   LARGE: 'large',
   XLARGE: 'xlarge',
-  XXLARGE: 'xxlarge'
-}
+  XXLARGE: 'xxlarge',
+};
 
 function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
 }
 
 const TextPage = () => {
-  
 
   const linkVariations = [];
 
@@ -73,8 +72,8 @@ const TextPage = () => {
 
   getValues(TEXT_BIT_SIZE).forEach(size => {
     getValues(TEXT_BIT_COLOR).forEach(color => {
-      if(size === TEXT_BIT_SIZE.NORMAL) {
-        return
+      if (size === TEXT_BIT_SIZE.NORMAL) {
+        return;
       }
       textBitVariations.push(<div title={`TextBit/${size || 'normal'}/${color || 'normal'}`}>
         <TextBit color={color} size={size}>TextBit: {size} {color}</TextBit>

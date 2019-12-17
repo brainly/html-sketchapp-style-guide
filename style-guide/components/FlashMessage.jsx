@@ -1,9 +1,6 @@
 import React from 'react';
 import FlashMessage, {TYPE} from 'style-guide/src/components/flash-messages/FlashMessage';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const FlashMessagesPage = () => {
   const variations = [];

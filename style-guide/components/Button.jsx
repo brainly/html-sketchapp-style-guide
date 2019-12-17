@@ -1,10 +1,7 @@
 import React from 'react';
 import Button, {BUTTON_TYPE, BUTTON_SIZE} from 'style-guide/src/components/buttons/Button';
 import Icon from 'style-guide/src/components/icons/Icon';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const ButtonsPage = () => {
   const buttonsVariations = [];

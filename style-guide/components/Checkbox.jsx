@@ -1,9 +1,6 @@
 import React from 'react';
 import Checkbox from 'style-guide/src/components/form-elements/Checkbox';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const CheckboxesPage = () => {
   const CheckboxVariations = [];

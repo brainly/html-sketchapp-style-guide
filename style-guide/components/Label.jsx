@@ -2,10 +2,7 @@ import React from 'react';
 import {ICON_COLOR, TYPE} from 'style-guide/src/components/icons/Icon';
 import Label, {SIZE} from 'style-guide/src/components/labels/Label';
 import LabelIcon from 'style-guide/src/components/labels/subcomponents/LabelIcon';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 // TODO check if unstyled, elementsToTop is needed
 

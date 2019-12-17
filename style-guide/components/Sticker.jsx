@@ -1,10 +1,7 @@
 import React from 'react';
 import Sticker from 'style-guide/src/components/stickers/Sticker';
 import {TYPE} from 'style-guide/src/components/icons/Icon';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const StickersPage = () => {
   const variations = [];

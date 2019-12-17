@@ -1,20 +1,8 @@
 import React from 'react';
-import Icon, {TYPE, ICON_COLOR, SIZE} from 'style-guide/src/components/icons/Icon';
+import Icon, {TYPE, ICON_COLOR} from 'style-guide/src/components/icons/Icon';
+import {getValues} from '../utils/getValues';
 
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
-
-const LIMITED_ICON_COLOR = {
-  BLUE: 'blue',
-  DARK: 'dark',
-  GRAY: 'gray',
-  MINT: 'mint',
-  MUSTARD: 'mustard',
-  PEACH: 'peach',
-};
-
-const LIMITED_SIZE = [10, 14, 16, 18, 24, 26];
+const LIMITED_SIZE = [16, 24, 32, 56, 80, 104]; // This is the final (or no) set of size for icons
 const IconsPage = () => {
   const variations = [];
 
@@ -23,7 +11,7 @@ const IconsPage = () => {
       const name = `Icon/${type}/${size}`;
 
       variations.push(<div title={name} className='inline-item'>
-        <Icon type={type} size={size} color={LIMITED_ICON_COLOR.DARK} />
+        <Icon type={type} size={size} color={ICON_COLOR.DARK} />
       </div>);
       variations.push(<br />);
     });

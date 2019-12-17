@@ -1,15 +1,7 @@
 import React from 'react';
 import Avatar, {SIZE} from 'style-guide/src/components/avatar/Avatar';
+import {getValues} from '../utils/getValues';
 
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
-
-// small 24
-// medium 32
-// large 56
-// xlarge 80
-// xxlarge 84
 const AvatarsPage = () => {
   const avatarVariations = [];
 

@@ -1,9 +1,6 @@
 import React from 'react';
 import Textarea, {SIZE} from 'style-guide/src/components/form-elements/Textarea.jsx';
-
-function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
-}
+import {getValues} from '../utils/getValues';
 
 const TextareasPage = () => {
   const variations = [];
@@ -12,24 +9,24 @@ const TextareasPage = () => {
     [false, true, null].forEach(valid => {
 
       let name = `Textarea/${size}/`;
-      let classNameSet;
-    
+      let validationClassNameSet;
+
       if (valid === true) {
         name += 'valid';
-        classNameSet = 'custom__placeholder sg-text sg-text--mint';
+        validationClassNameSet = 'sg-textarea--valid';
       } else if (valid === false) {
         name += 'invalid';
-        classNameSet = 'custom__placeholder sg-text sg-text--peach';
+        validationClassNameSet = 'sg-textarea--invalid';
       } else {
         name += '_default_';
-        classNameSet = 'custom__placeholder sg-text sg-text--gray-secondary';
+        validationClassNameSet = '';
       }
 
-      const textareaClassName = `sg-textarea sg-textarea--${size}`;
+      const textareaClassName = `sg-textarea sg-textarea--${size} ${validationClassNameSet}`;
 
       variations.push(<div title={name} className='inline-item'>
         <div className={textareaClassName}>
-          <div className={classNameSet}>textarea example</div>
+          <div className="sg-text custom__placeholder">textarea example</div>
         </div>
       </div>);
     });
@@ -41,6 +38,5 @@ const TextareasPage = () => {
     {variations}
   </section>;
 };
-
 
 export default TextareasPage;
