@@ -1,8 +1,8 @@
 import React from 'react';
-import Icon, {TYPE, ICON_COLOR, SIZE} from 'style-guide/src/components/icons/Icon';
+import Icon, {TYPE, ICON_COLOR} from 'style-guide/src/components/icons/Icon';
 import {getValues} from '../utils/getValues';
 
-const LIMITED_SIZE = [10, 14, 16, 18, 24, 26];
+const LIMITED_SIZE = [16, 24, 32, 56, 80, 104]; // This is the final (or no) set of size for icons
 const IconsPage = () => {
   const variations = [];
 
