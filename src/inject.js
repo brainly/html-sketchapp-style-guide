@@ -11,19 +11,21 @@ puppeteer.launch({headless: false, devtools: true}).then(async browser => {
 
   await page.setViewport({width: 1024, height: 600});
   await page.goto(`file://${path.resolve(styleGuidePath)}`, {
-    waitUntil: 'networkidle0'
+    waitUntil: 'networkidle0',
   });
 
-  // await page.on('console', msg => console.log('PAGE LOG:', msg.text()));
+  // await page.on('console', msg => console.log('PAGE LOG:', msg.args()));
 
   /* eslint-disable no-console */
   page.on('console', msg => {
-    for (let i = 0; i < msg.args.length; ++i) {console.log(`${i}: ${msg.args[i]}`);}
+    for (let i = 0; i < msg.args().length; ++i) {
+      console.log(msg.args()[i]); // TODO print output into console in some better way
+    }
   });
   /* eslint-enable no-console */
 
   await page.addScriptTag({
-    path: './build/styleguide2asketch.bundle.js'
+    path: './build/styleguide2asketch.bundle.js',
   });
 
   const asketchDocumentJSONString = await page.evaluate('styleguide2asketch.getASketchDocument()');
