@@ -11,6 +11,7 @@ puppeteer.launch({headless: false, devtools: true}).then(async browser => {
 
   await page.setViewport({width: 1024, height: 600});
   await page.goto(`file://${path.resolve(styleGuidePath)}`, {
+    // eslint-disable-next-line comma-dangle
     waitUntil: 'networkidle0',
   });
 
@@ -25,6 +26,7 @@ puppeteer.launch({headless: false, devtools: true}).then(async browser => {
   /* eslint-enable no-console */
 
   await page.addScriptTag({
+    // eslint-disable-next-line comma-dangle
     path: './build/styleguide2asketch.bundle.js',
   });
 
