@@ -83,7 +83,6 @@ div.sg-avatar__image {
 
 .sg-input,
 .sg-select,
-.sg-select__element,
 .sg-dropdown {
     display: flex;
     min-width: 300px;
@@ -91,24 +90,20 @@ div.sg-avatar__image {
     justify-content: space-between;
 }
 
-.sg-select--large .sg-select__element,
-.sg-select .sg-select__element {
-    padding-right: 16px;
-    top: 0px;
+.sg-select {
+    padding: 0 16px;
 }
 
-.sg-select--large .sg-select__element {
-    height: 52px;
-    border-radius: 28px;
+.sg-select--large {
+    padding: 0 24px;
 }
 
-.sg-select__element {
-    height: 36px;
-    border-radius: 20px;
+.sg-select {
+    background-color: #ebf2f7;
 }
 
-.custom__placeholder {
-    font-size: 16px;
+.sg-select--white {
+    background-color: #ffffff;
 }
 
 .sg-box {

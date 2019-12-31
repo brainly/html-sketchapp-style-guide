@@ -26,7 +26,7 @@ const TextareasPage = () => {
 
       variations.push(<div title={name} className='inline-item'>
         <div className={textareaClassName}>
-          <div className="sg-text custom__placeholder">textarea example</div>
+          <div className="sg-text">textarea example</div>
         </div>
       </div>);
     });

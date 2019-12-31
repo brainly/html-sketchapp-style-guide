@@ -1,7 +1,8 @@
 import React from 'react';
 import {ICON_COLOR, TYPE} from 'style-guide/src/components/icons/Icon';
-import Label, {SIZE} from 'style-guide/src/components/labels/Label';
-import LabelIcon from 'style-guide/src/components/labels/subcomponents/LabelIcon';
+import Label, {LABEL_TYPE, LABEL_COLORS_SET} from 'style-guide/src/components/labels/Label';
+import Icon from 'style-guide/src/components/icons/Icon';
+
 import {getValues} from '../utils/getValues';
 
 // TODO check if unstyled, elementsToTop is needed
@@ -9,19 +10,23 @@ import {getValues} from '../utils/getValues';
 const LabelsPage = () => {
   const variations = [];
 
-  getValues(SIZE, false).forEach(size => {
-    [false, true].forEach(emphasised => {
-      [false, true].forEach(elementsToTop => {
-        [false, true].forEach(secondary => {
-          if (emphasised && elementsToTop) {
-            return;
-          }
+  getValues(LABEL_TYPE, false).forEach(type => {
+    getValues(LABEL_COLORS_SET, false).forEach(color => {
+      [false, true].forEach(iconType => {
+        [false, true].forEach(onClose => {
 
           const name =
-          `Label/${size}/${TYPE.ANSWER}/${secondary ? 'secondary' : 'primary'}/${emphasised ? 'emphasised' : 'standard'}/${elementsToTop ? 'elementsToTop' : 'middle'}`;
+              `Label/${type}/${color}/${iconType ? 'with icon' : '_default'}/${onClose ? 'with close' : '_default'}`;
 
           variations.push(<div title={name} className='inline-item'>
-            <Label text='label' size={size} iconType={TYPE.ANSWER} iconColor={ICON_COLOR.BLUE} emphasised={emphasised} elementsToTop={elementsToTop} secondary={secondary} />
+            <Label
+              color={color}
+              type={type}
+              iconType={iconType ? 'answer' : null}
+              onClose={onClose}
+            >
+              label
+            </Label>
           </div>);
 
         });

@@ -71,7 +71,25 @@ export function getASketchPage() {
             }
 
             // eslint-disable-next-line max-len
-            if (symbol._name.startsWith('Button/') && layer instanceof SVG || symbol._name.startsWith('Label/') && layer instanceof SVG) {
+            if (symbol._name.startsWith('Label/') && layer instanceof SVG) {
+              const type = node.children[0].id;
+              const size = node.clientHeight;
+              const icon = icons.find(icon => icon.type === type);
+
+              layer = icon.symbol.getSymbolInstance({
+                x: layer._x - 2.5,
+                y: layer._y - 2.5,
+                width: size,
+                // eslint-disable-next-line comma-dangle
+                height: size,
+              });
+
+              // eslint-disable-next-line max-len
+              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
+            }
+
+            // eslint-disable-next-line max-len
+            if (symbol._name.startsWith('Button/') && layer instanceof SVG) {
               const type = node.children[0].id;
               const size = node.clientHeight;
               const icon = icons.find(icon => icon.type === type);
@@ -105,15 +123,6 @@ export function getASketchPage() {
                   );
                 }
 
-                // CONSTRAINTS FOR ICON IN LABEL
-                if (node.parentElement.classList.contains('sg-label__icon')) {
-                  layer.setResizingConstraint(
-                    RESIZING_CONSTRAINTS.WIDTH,
-                    RESIZING_CONSTRAINTS.HEIGHT,
-                    RESIZING_CONSTRAINTS.LEFT
-                  );
-                }
-
               /* eslint-disable no-console */
               } else {
                 console.log(`no no no ${type}/${color}/${size}`);
@@ -129,6 +138,7 @@ export function getASketchPage() {
             // CONSTRAINTS FOR SVG IN SEARCH
             if (node.parentElement.classList.contains('sg-search__icon') ||
             layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-round-button__hole') ||
+            layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-search__icon') ||
             layer instanceof SVG && node.parentElement.parentElement.classList.contains('custom-select__icon')) {
               layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.RIGHT,
@@ -152,7 +162,6 @@ export function getASketchPage() {
 
             // CONSTRAINTS FOR TEXT IN LABEL. SELECT, TEXTAREA
             if (layer instanceof Text &&
-                node.classList.contains('custom__placeholder') ||
                 node.classList.contains('sg-label__text')
             ) {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
