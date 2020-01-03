@@ -43,7 +43,6 @@ export function getASketchPage() {
 
   const page = new Page({
     width: document.body.offsetWidth,
-    // eslint-disable-next-line comma-dangle
     height: document.body.offsetHeight,
   });
 
@@ -99,7 +98,6 @@ export function getASketchPage() {
               layer.setHasClippingMask(true);
             }
 
-            // eslint-disable-next-line max-len
             if (symbol._name.startsWith('Label/') && layer instanceof SVG) {
               const type = node.children[0].id;
               const size = node.clientHeight;
@@ -109,11 +107,9 @@ export function getASketchPage() {
                 x: layer._x - 2.5,
                 y: layer._y - 2.5,
                 width: size,
-                // eslint-disable-next-line comma-dangle
                 height: size,
               });
 
-              // eslint-disable-next-line max-len
               layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.HEIGHT,
                 RESIZING_CONSTRAINTS.WIDTH,
@@ -121,7 +117,6 @@ export function getASketchPage() {
               );
             }
 
-            // eslint-disable-next-line max-len
             if (symbol._name.startsWith('Button/') && layer instanceof SVG) {
               const type = node.children[0].id;
               const size = node.clientHeight;
@@ -131,10 +126,8 @@ export function getASketchPage() {
                 x: layer._x,
                 y: layer._y,
                 width: size,
-                // eslint-disable-next-line comma-dangle
                 height: size,
               });
-              // eslint-disable-next-line max-len
               layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.HEIGHT,
                 RESIZING_CONSTRAINTS.WIDTH,
@@ -266,9 +259,7 @@ export function getASketchPage() {
       }
 
       if (symbol._name.startsWith('Icon/')) {
-        /* eslint-disable no-unused-vars */
         const [, type, size] = symbol._name.split('/');
-        /* eslint-enable no-unused-vars */
         const layerSize = parseInt(size, 10);
 
         const mask = maskColors[0];
@@ -285,7 +276,6 @@ export function getASketchPage() {
           type: `icon-${type}`,
           color: getComputedStyle(symbolNode).fill,
           size: parseInt(size, 10),
-          // eslint-disable-next-line comma-dangle
           symbol,
         });
       }
