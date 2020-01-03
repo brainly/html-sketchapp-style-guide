@@ -1,5 +1,9 @@
 import React from 'react';
-import SubjectIcon, {TYPE, SIZE, ICON_COLOR} from 'style-guide/src/components/subject-icons/SubjectIcon';
+import SubjectIcon, {
+  TYPE,
+  SIZE,
+  ICON_COLOR,
+} from 'style-guide/src/components/subject-icons/SubjectIcon';
 import {getValues} from '../utils/getValues';
 
 const SubjectIconsPage = () => {
@@ -18,19 +22,25 @@ const SubjectIconsPage = () => {
           subjectIconSize = '64';
         }
 
-        const name = `SubjectIcon/${type}/${subjectIconSize}/${mono ? 'mono' : 'color'}`;
+        const name = `SubjectIcon/${type}/${subjectIconSize}/${
+          mono ? 'mono' : 'color'
+        }`;
 
-        variations.push(<div title={name} className='inline-item'>
-          <SubjectIcon type={type} size={size} monoColor={mono ? ICON_COLOR.GRAY : undefined} />
-        </div>);
+        variations.push(
+          <div title={name} className="inline-item">
+            <SubjectIcon
+              type={type}
+              size={size}
+              monoColor={mono ? ICON_COLOR.GRAY : undefined}
+            />
+          </div>
+        );
       });
     });
     variations.push(<br />);
   });
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default SubjectIconsPage;

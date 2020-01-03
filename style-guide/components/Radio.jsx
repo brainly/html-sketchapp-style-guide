@@ -3,7 +3,6 @@ import Radio from 'style-guide/src/components/form-elements/Radio';
 import {getValues} from '../utils/getValues';
 
 const RadioPage = () => {
-
   const RadioVariations = [];
 
   [false, true].forEach(checked => {
@@ -15,15 +14,15 @@ const RadioPage = () => {
       name += 'checked';
     }
 
-    RadioVariations.push(<div title={name} className='inline-item'>
-      <Radio onChange={() => {}} checked={checked} />
-    </div>);
-    RadioVariations.push(<br/>);
+    RadioVariations.push(
+      <div title={name} className="inline-item">
+        <Radio onChange={() => {}} checked={checked} />
+      </div>
+    );
+    RadioVariations.push(<br />);
   });
 
-  return <section>
-    {RadioVariations}
-  </section>;
+  return <section>{RadioVariations}</section>;
 };
 
 export default RadioPage;

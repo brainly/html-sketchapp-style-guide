@@ -13,22 +13,28 @@ const RoundButtonsPage = () => {
     getValues(ROUND_BUTTON_ICON_TYPE, false).forEach(type => {
       getValues(ROUND_BUTTON_COLOR, false).forEach(color => {
         [false, true].forEach(filled => {
-          const name =
-            `RoundButton/${type}/${size}/${color}/${filled ? 'filled' : '_default'}`;
+          const name = `RoundButton/${type}/${size}/${color}/${
+            filled ? 'filled' : '_default'
+          }`;
 
-          variations.push(<div title={name} className='inline-item'>
-            <RoundButton size={size} iconType={type} color={color} filled={filled} />
-          </div>);
+          variations.push(
+            <div title={name} className="inline-item">
+              <RoundButton
+                size={size}
+                iconType={type}
+                color={color}
+                filled={filled}
+              />
+            </div>
+          );
 
-          variations.push(<br/>);
+          variations.push(<br />);
         });
       });
     });
   });
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default RoundButtonsPage;

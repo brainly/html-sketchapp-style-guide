@@ -22,20 +22,21 @@ const AvatarsPage = () => {
           avatarSize = '104';
         }
 
-        const name =
-        `Avatar/${avatarSize}/${border ? 'border' : 'no-border'}/${src ? 'with image' : 'without image'}`;
+        const name = `Avatar/${avatarSize}/${border ? 'border' : 'no-border'}/${
+          src ? 'with image' : 'without image'
+        }`;
 
-        avatarVariations.push(<div key={name} title={name} className='inline-item'>
-          <Avatar size={size} border={border} imgSrc={src} />
-        </div>);
+        avatarVariations.push(
+          <div key={name} title={name} className="inline-item">
+            <Avatar size={size} border={border} imgSrc={src} />
+          </div>
+        );
       });
     });
-    avatarVariations.push(<br/>);
+    avatarVariations.push(<br />);
   });
 
-  return <section>
-    {avatarVariations}
-  </section>;
+  return <section>{avatarVariations}</section>;
 };
 
 export default AvatarsPage;

@@ -1,8 +1,16 @@
 import React from 'react';
-import Bubble, {DIRECTION, ALIGNMENT} from 'style-guide/src/components/bubble/Bubble';
+import Bubble, {
+  DIRECTION,
+  ALIGNMENT,
+} from 'style-guide/src/components/bubble/Bubble';
 import {getValues} from '../utils/getValues';
 
-const ORDERD_DIRECTION = [DIRECTION.TOP, DIRECTION.RIGHT, DIRECTION.BOTTOM, DIRECTION.LEFT];
+const ORDERD_DIRECTION = [
+  DIRECTION.TOP,
+  DIRECTION.RIGHT,
+  DIRECTION.BOTTOM,
+  DIRECTION.LEFT,
+];
 const ORDERD_ALIGNMENT = [ALIGNMENT.START, ALIGNMENT.CENTER, ALIGNMENT.END];
 
 // TODO check if padding is needed
@@ -32,22 +40,21 @@ const BubblesPage = () => {
         alignmentSorted = `${alignment}`;
       }
 
-      let name =
-      `Bubble/${directionSorted}/${alignmentSorted}`;
+      let name = `Bubble/${directionSorted}/${alignmentSorted}`;
 
-      variations.push(<div title={name} className='inline-item'>
-        <Bubble direction={direction} alignment={alignment}>
-          Hi there!
-          Just wondering if you have any problems with your school work.
-        </Bubble>
-        <br/>
-      </div>);
+      variations.push(
+        <div title={name} className="inline-item">
+          <Bubble direction={direction} alignment={alignment}>
+            Hi there! Just wondering if you have any problems with your school
+            work.
+          </Bubble>
+          <br />
+        </div>
+      );
     });
   });
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default BubblesPage;

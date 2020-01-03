@@ -10,16 +10,16 @@ const IconsPage = () => {
     getValues(LIMITED_SIZE, false).forEach(size => {
       const name = `Icon/${type}/${size}`;
 
-      variations.push(<div title={name} className='inline-item'>
-        <Icon type={type} size={size} color={ICON_COLOR.DARK} />
-      </div>);
+      variations.push(
+        <div title={name} className="inline-item">
+          <Icon type={type} size={size} color={ICON_COLOR.DARK} />
+        </div>
+      );
       variations.push(<br />);
     });
   });
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default IconsPage;

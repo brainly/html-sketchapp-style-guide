@@ -1,6 +1,9 @@
 import React from 'react';
 import {ICON_COLOR} from 'style-guide/src/components/icons/Icon';
-import MathSymbol, {MATH_SYMBOL_TYPE, SIZE} from 'style-guide/src/components/math-symbols/MathSymbol';
+import MathSymbol, {
+  MATH_SYMBOL_TYPE,
+  SIZE,
+} from 'style-guide/src/components/math-symbols/MathSymbol';
 import {getValues} from '../utils/getValues';
 
 const MathSymbolsPage = () => {
@@ -10,16 +13,16 @@ const MathSymbolsPage = () => {
     getValues(SIZE, false).forEach(size => {
       const name = `MathSymbol/${type}/${size}`;
 
-      variations.push(<div title={name} className='inline-item'>
-        <MathSymbol type={type} size={size} color={ICON_COLOR.DARK} />
-      </div>);
+      variations.push(
+        <div title={name} className="inline-item">
+          <MathSymbol type={type} size={size} color={ICON_COLOR.DARK} />
+        </div>
+      );
     });
     variations.push(<br />);
   });
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default MathSymbolsPage;

@@ -1,6 +1,9 @@
 import React from 'react';
 import {ICON_COLOR, TYPE} from 'style-guide/src/components/icons/Icon';
-import Label, {LABEL_TYPE, LABEL_COLORS_SET} from 'style-guide/src/components/labels/Label';
+import Label, {
+  LABEL_TYPE,
+  LABEL_COLORS_SET,
+} from 'style-guide/src/components/labels/Label';
 import Icon from 'style-guide/src/components/icons/Icon';
 
 import {getValues} from '../utils/getValues';
@@ -14,31 +17,30 @@ const LabelsPage = () => {
     getValues(LABEL_COLORS_SET, false).forEach(color => {
       [false, true].forEach(iconType => {
         [false, true].forEach(onClose => {
+          const name = `Label/${type}/${color}/${
+            iconType ? 'with icon' : '_default'
+          }/${onClose ? 'with close' : '_default'}`;
 
-          const name =
-              `Label/${type}/${color}/${iconType ? 'with icon' : '_default'}/${onClose ? 'with close' : '_default'}`;
-
-          variations.push(<div title={name} className='inline-item'>
-            <Label
-              color={color}
-              type={type}
-              iconType={iconType ? 'answer' : null}
-              onClose={onClose}
-            >
-              label
-            </Label>
-          </div>);
-
+          variations.push(
+            <div title={name} className="inline-item">
+              <Label
+                color={color}
+                type={type}
+                iconType={iconType ? 'answer' : null}
+                onClose={onClose}
+              >
+                label
+              </Label>
+            </div>
+          );
         });
 
-        variations.push(<br/>);
+        variations.push(<br />);
       });
     });
   });
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default LabelsPage;

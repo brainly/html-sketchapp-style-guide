@@ -5,17 +5,16 @@ const LogoPage = () => {
   const variations = [];
 
   Object.values(TYPE).forEach(type => {
-    const name =
-    `Logo/${type}`;
+    const name = `Logo/${type}`;
 
-    variations.push(<div title={name} className='inline-item'>
-      <Logo type={type} />
-    </div>);
+    variations.push(
+      <div title={name} className="inline-item">
+        <Logo type={type} />
+      </div>
+    );
   });
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default LogoPage;

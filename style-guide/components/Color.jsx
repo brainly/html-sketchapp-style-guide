@@ -9,15 +9,17 @@ const ColorsPage = () => {
       const name = `${category}/${color.name}`;
 
       colorComponents.push(
-        <div className='color-box inline-item' style={{backgroundColor: `#${color.hex}`}} title={name}></div>
+        <div
+          className="color-box inline-item"
+          style={{backgroundColor: `#${color.hex}`}}
+          title={name}
+        ></div>
       );
     });
-    colorComponents.push(<br/>);
+    colorComponents.push(<br />);
   });
 
-  return <div className='colors-list'>
-    {colorComponents}
-  </div>;
+  return <div className="colors-list">{colorComponents}</div>;
 };
 
 export default ColorsPage;

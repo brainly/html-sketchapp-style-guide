@@ -1,5 +1,7 @@
 import React from 'react';
-import Textarea, {SIZE} from 'style-guide/src/components/form-elements/Textarea.jsx';
+import Textarea, {
+  SIZE,
+} from 'style-guide/src/components/form-elements/Textarea.jsx';
 import {getValues} from '../utils/getValues';
 
 const TextareasPage = () => {
@@ -7,7 +9,6 @@ const TextareasPage = () => {
 
   getValues(SIZE, false).forEach(size => {
     [false, true, null].forEach(valid => {
-
       let name = `Textarea/${size}/`;
       let validationClassNameSet;
 
@@ -24,19 +25,19 @@ const TextareasPage = () => {
 
       const textareaClassName = `sg-textarea sg-textarea--${size} ${validationClassNameSet}`;
 
-      variations.push(<div title={name} className='inline-item'>
-        <div className={textareaClassName}>
-          <div className="sg-text">textarea example</div>
+      variations.push(
+        <div title={name} className="inline-item">
+          <div className={textareaClassName}>
+            <div className="sg-text">textarea example</div>
+          </div>
         </div>
-      </div>);
+      );
     });
   });
 
   variations.push(<br />);
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default TextareasPage;

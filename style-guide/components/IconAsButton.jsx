@@ -1,6 +1,8 @@
 import React from 'react';
 import Icon, {TYPE, ICON_COLOR} from 'style-guide/src/components/icons/Icon';
-import IconAsButton, {SIZE} from 'style-guide/src/components/icon-as-button/IconAsButton';
+import IconAsButton, {
+  SIZE,
+} from 'style-guide/src/components/icon-as-button/IconAsButton';
 import {getValues} from '../utils/getValues';
 
 const IconsAsButtonPage = () => {
@@ -11,20 +13,34 @@ const IconsAsButtonPage = () => {
       [false, true].forEach(action => {
         [false, true].forEach(active => {
           [false, true].forEach(transparent => {
-
-            if (border && active ||
-                  !border && !active ||
-                  action && active && transparent ||
-                  border && !active && transparent ||
-                  action && !active) {
+            if (
+              (border && active) ||
+              (!border && !active) ||
+              (action && active && transparent) ||
+              (border && !active && transparent) ||
+              (action && !active)
+            ) {
               return;
             }
 
-            const name = `IconAsButton/${size}/${border ? 'border' : 'no-border'}/${active ? 'active' : 'not-active'}/${transparent ? 'transparent' : 'not-transparent'}`;
+            const name = `IconAsButton/${size}/${
+              border ? 'border' : 'no-border'
+            }/${active ? 'active' : 'not-active'}/${
+              transparent ? 'transparent' : 'not-transparent'
+            }`;
 
-            variations.push(<div title={name} className='inline-item'>
-              <IconAsButton type={TYPE.COMMENT} size={size} border={border} action={action} active={active} transparent={transparent} />
-            </div>);
+            variations.push(
+              <div title={name} className="inline-item">
+                <IconAsButton
+                  type={TYPE.COMMENT}
+                  size={size}
+                  border={border}
+                  action={action}
+                  active={active}
+                  transparent={transparent}
+                />
+              </div>
+            );
           });
         });
       });
@@ -32,9 +48,7 @@ const IconsAsButtonPage = () => {
     variations.push(<br />);
   });
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default IconsAsButtonPage;

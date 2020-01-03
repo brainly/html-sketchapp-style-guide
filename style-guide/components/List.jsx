@@ -2,7 +2,10 @@ import React from 'react';
 import List from 'style-guide/src/components/list/List';
 import ListItem from 'style-guide/src/components/list/ListItem';
 import ListItemIcon from 'style-guide/src/components/list/ListItemIcon';
-import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from 'style-guide/src/components/icons/Icon';
+import Icon, {
+  TYPE as ICON_TYPE,
+  ICON_COLOR,
+} from 'style-guide/src/components/icons/Icon';
 import Text, {SIZE as TEXT_SIZE} from 'style-guide/src/components/text/Text';
 
 const firstString = 'One two three';
@@ -17,22 +20,26 @@ const ListsPage = () => {
     const name = `List/${spaced ? 'spaced' : '_default_'}`;
     const classNamespace = spaced ? 'sg-list--spaced-elements' : null;
 
-    variant.push(<div title={name} className='inline-item'>
-      <List className={classNamespace}>
-        {items.map((item, index) => (
-          <ListItem key={index}>
-            <ListItemIcon>
-              <Icon color={ICON_COLOR.GRAY} type={ICON_TYPE.ARROW_RIGHT} size={18} />
-            </ListItemIcon>
-            <Text>{item}</Text>
-          </ListItem>
-        ))}
-      </List>
-    </div>);
+    variant.push(
+      <div title={name} className="inline-item">
+        <List className={classNamespace}>
+          {items.map((item, index) => (
+            <ListItem key={index}>
+              <ListItemIcon>
+                <Icon
+                  color={ICON_COLOR.GRAY}
+                  type={ICON_TYPE.ARROW_RIGHT}
+                  size={18}
+                />
+              </ListItemIcon>
+              <Text>{item}</Text>
+            </ListItem>
+          ))}
+        </List>
+      </div>
+    );
   });
-  return <section>
-    {variant}
-  </section>;
+  return <section>{variant}</section>;
 };
 
 export default ListsPage;

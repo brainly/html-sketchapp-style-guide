@@ -25,9 +25,9 @@ import BubblesPage from './components/Bubble';
 import RatingPage from './components/Rating';
 import LogoPage from './components/Logo';
 
-const IndexPage = () =>
+const IndexPage = () => (
   <html>
-    <Head version={packageJSON.version}/>
+    <Head version={packageJSON.version} />
     <body>
       <ColorMasksPage />
       <IconsPage />
@@ -55,6 +55,7 @@ const IndexPage = () =>
       <TextPage />
       <ColorsPage />
     </body>
-  </html>;
+  </html>
+);
 
 export default IndexPage;

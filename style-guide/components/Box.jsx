@@ -15,19 +15,18 @@ const BoxesPage = () => {
       colorName = `${color}`;
     }
 
-    const name =
-    `Box/${colorName}`;
+    const name = `Box/${colorName}`;
 
-    variations.push(<div title={name} className='inline-item'>
-      <Box color={color} border={false} />
-    </div>);
+    variations.push(
+      <div title={name} className="inline-item">
+        <Box color={color} border={false} />
+      </div>
+    );
 
-    variations.push(<br/>);
+    variations.push(<br />);
   });
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default BoxesPage;

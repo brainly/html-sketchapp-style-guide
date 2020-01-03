@@ -30,11 +30,21 @@ puppeteer.launch({headless: false, devtools: true}).then(async browser => {
     path: './build/styleguide2asketch.bundle.js',
   });
 
-  const asketchDocumentJSONString = await page.evaluate('styleguide2asketch.getASketchDocument()');
-  const asketchPageJSONString = await page.evaluate('styleguide2asketch.getASketchPage()');
+  const asketchDocumentJSONString = await page.evaluate(
+    'styleguide2asketch.getASketchDocument()'
+  );
+  const asketchPageJSONString = await page.evaluate(
+    'styleguide2asketch.getASketchPage()'
+  );
 
-  fs.writeFileSync(path.resolve(__dirname, outputDocumentFile), JSON.stringify(asketchDocumentJSONString));
-  fs.writeFileSync(path.resolve(__dirname, outputPageFile), JSON.stringify(asketchPageJSONString));
+  fs.writeFileSync(
+    path.resolve(__dirname, outputDocumentFile),
+    JSON.stringify(asketchDocumentJSONString)
+  );
+  fs.writeFileSync(
+    path.resolve(__dirname, outputPageFile),
+    JSON.stringify(asketchPageJSONString)
+  );
 
   browser.close();
 });

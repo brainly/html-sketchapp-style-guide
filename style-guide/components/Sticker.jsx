@@ -7,16 +7,15 @@ const StickersPage = () => {
   const variations = [];
 
   getValues(TYPE, false).forEach(type => {
-    const name =
-        `Sticker/${type}`;
+    const name = `Sticker/${type}`;
 
-    variations.push(<div title={name} className='inline-item'>
-      <Sticker type={type} />
-    </div>);
+    variations.push(
+      <div title={name} className="inline-item">
+        <Sticker type={type} />
+      </div>
+    );
   });
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default StickersPage;

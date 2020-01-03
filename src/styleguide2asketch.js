@@ -1,5 +1,15 @@
-import {Document, Page, Text, SVG, SymbolMaster, nodeToSketchLayers} from '@brainly/html-sketchapp';
-import {RESIZING_CONSTRAINTS, SMART_LAYOUT} from '@brainly/html-sketchapp/html2asketch/helpers/utils';
+import {
+  Document,
+  Page,
+  Text,
+  SVG,
+  SymbolMaster,
+  nodeToSketchLayers,
+} from '@brainly/html-sketchapp';
+import {
+  RESIZING_CONSTRAINTS,
+  SMART_LAYOUT,
+} from '@brainly/html-sketchapp/html2asketch/helpers/utils';
 
 function bemClassToText(bemClass) {
   return bemClass.replace('sg-', '').replace('-', ' ');
@@ -12,7 +22,8 @@ function buildLayerNameFromBEM(classes) {
     // if node is an element (bEm)
     if (mainClass.indexOf('__') > -1) {
       return mainClass.replace(/^[a-z-]+__/, '');
-    } else { // if node is a block (Bem)
+    } else {
+      // if node is a block (Bem)
       return bemClassToText(mainClass);
     }
   }
@@ -25,13 +36,15 @@ export function getASketchPage() {
   let styleGuideVersion = '';
 
   if (stylesheet) {
-    styleGuideVersion = stylesheet.href.match(/\/([0-9]+\.[0-9]+\.[0-9]+)\//)[1];
+    styleGuideVersion = stylesheet.href.match(
+      /\/([0-9]+\.[0-9]+\.[0-9]+)\//
+    )[1];
   }
 
   const page = new Page({
     width: document.body.offsetWidth,
     // eslint-disable-next-line comma-dangle
-    height: document.body.offsetHeight
+    height: document.body.offsetHeight,
   });
 
   page.setName(`Brainly Pencil - Style Guide ${styleGuideVersion}`);
@@ -40,12 +53,19 @@ export function getASketchPage() {
   const maskColors = [];
 
   // SYMBOLS
-  Array.from(document.querySelectorAll('section > .item, section > .inline-item'))
+  Array.from(
+    document.querySelectorAll('section > .item, section > .inline-item')
+  )
     .map(metaNode => {
       const symbolNode = metaNode.firstChild;
       const name = metaNode.title;
 
-      const {left: x, top: y, width, height} = symbolNode.getBoundingClientRect();
+      const {
+        left: x,
+        top: y,
+        width,
+        height,
+      } = symbolNode.getBoundingClientRect();
       const symbol = new SymbolMaster({x, y, width, height});
 
       symbol.setId(name);
@@ -53,20 +73,29 @@ export function getASketchPage() {
 
       //symbol.setUserInfo('code', node.innerHTML);
 
-      const parentAndChildren = [symbolNode, ...symbolNode.querySelectorAll('*')];
+      const parentAndChildren = [
+        symbolNode,
+        ...symbolNode.querySelectorAll('*'),
+      ];
 
       Array.from(parentAndChildren)
         .map(node => {
           const layers = nodeToSketchLayers(node);
 
           return layers.map(layer => {
-
             // fix font name so the name matches locally installed font
-            if (layer instanceof Text && layer._style._fontFamily === 'ProximaNova') {
+            if (
+              layer instanceof Text &&
+              layer._style._fontFamily === 'ProximaNova'
+            ) {
               layer._style._fontFamily = 'Proxima Nova';
             }
 
-            if (layer instanceof SVG && node.classList.contains('sg-icon__svg') && symbol._name.startsWith('Icon/')) {
+            if (
+              layer instanceof SVG &&
+              node.classList.contains('sg-icon__svg') &&
+              symbol._name.startsWith('Icon/')
+            ) {
               layer.setHasClippingMask(true);
             }
 
@@ -85,7 +114,11 @@ export function getASketchPage() {
               });
 
               // eslint-disable-next-line max-len
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
+              layer.setResizingConstraint(
+                RESIZING_CONSTRAINTS.HEIGHT,
+                RESIZING_CONSTRAINTS.WIDTH,
+                RESIZING_CONSTRAINTS.LEFT
+              );
             }
 
             // eslint-disable-next-line max-len
@@ -99,20 +132,35 @@ export function getASketchPage() {
                 y: layer._y,
                 width: size,
                 // eslint-disable-next-line comma-dangle
-                height: size
+                height: size,
               });
               // eslint-disable-next-line max-len
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
+              layer.setResizingConstraint(
+                RESIZING_CONSTRAINTS.HEIGHT,
+                RESIZING_CONSTRAINTS.WIDTH,
+                RESIZING_CONSTRAINTS.LEFT
+              );
             }
 
-            if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/')) {
+            if (
+              layer instanceof SVG &&
+              node.classList.contains('sg-icon') &&
+              !symbol._name.startsWith('Icon/')
+            ) {
               const type = node.children[0].id;
               const color = getComputedStyle(node).fill;
               const size = node.clientHeight;
-              const icon = icons.find(icon => icon.type === type && icon.size === size);
+              const icon = icons.find(
+                icon => icon.type === type && icon.size === size
+              );
 
               if (icon) {
-                layer = icon.symbol.getSymbolInstance({x: layer._x, y: layer._y, width: size, height: size});
+                layer = icon.symbol.getSymbolInstance({
+                  x: layer._x,
+                  y: layer._y,
+                  width: size,
+                  height: size,
+                });
 
                 // CONSTRAINTS FOR ICON IN LIST
                 if (node.parentElement.classList.contains('sg-list__icon')) {
@@ -123,7 +171,7 @@ export function getASketchPage() {
                   );
                 }
 
-              /* eslint-disable no-console */
+                /* eslint-disable no-console */
               } else {
                 console.log(`no no no ${type}/${color}/${size}`);
               }
@@ -131,15 +179,29 @@ export function getASketchPage() {
             }
 
             // CONSTRAINTS FOR TEXT IN BUBBLE
-            if (layer instanceof Text && node.parentElement.classList.contains('sg-bubble')) {
+            if (
+              layer instanceof Text &&
+              node.parentElement.classList.contains('sg-bubble')
+            ) {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
             }
 
             // CONSTRAINTS FOR SVG IN SEARCH
-            if (node.parentElement.classList.contains('sg-search__icon') ||
-            layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-round-button__hole') ||
-            layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-search__icon') ||
-            layer instanceof SVG && node.parentElement.parentElement.classList.contains('custom-select__icon')) {
+            if (
+              node.parentElement.classList.contains('sg-search__icon') ||
+              (layer instanceof SVG &&
+                node.parentElement.parentElement.classList.contains(
+                  'sg-round-button__hole'
+                )) ||
+              (layer instanceof SVG &&
+                node.parentElement.parentElement.classList.contains(
+                  'sg-search__icon'
+                )) ||
+              (layer instanceof SVG &&
+                node.parentElement.parentElement.classList.contains(
+                  'custom-select__icon'
+                ))
+            ) {
               layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.RIGHT,
                 RESIZING_CONSTRAINTS.WIDTH,
@@ -156,20 +218,30 @@ export function getASketchPage() {
             }
 
             // CONSTRAINTS FOR TEXT IN INPUT
-            if (layer instanceof Text && node.parentElement.classList.contains('sg-input')) {
+            if (
+              layer instanceof Text &&
+              node.parentElement.classList.contains('sg-input')
+            ) {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
             }
 
             // CONSTRAINTS FOR TEXT IN LABEL. SELECT, TEXTAREA
-            if (layer instanceof Text &&
-                node.classList.contains('sg-label__text')
+            if (
+              layer instanceof Text &&
+              node.classList.contains('sg-label__text')
             ) {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
             }
 
             // CONSTRAINTS FOR TEXT IN LIST
-            if (layer instanceof Text && node.parentElement.classList.contains('sg-list__element')) {
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.LEFT);
+            if (
+              layer instanceof Text &&
+              node.parentElement.classList.contains('sg-list__element')
+            ) {
+              layer.setResizingConstraint(
+                RESIZING_CONSTRAINTS.HEIGHT,
+                RESIZING_CONSTRAINTS.LEFT
+              );
             }
 
             // generate better layer name from node classes
@@ -200,9 +272,12 @@ export function getASketchPage() {
         const layerSize = parseInt(size, 10);
 
         const mask = maskColors[0];
-        const maskSymbolInstance = mask.getSymbolInstance(
-          {x: symbol._x, y: symbol._y, width: layerSize, height: layerSize}
-        );
+        const maskSymbolInstance = mask.getSymbolInstance({
+          x: symbol._x,
+          y: symbol._y,
+          width: layerSize,
+          height: layerSize,
+        });
 
         symbol.addLayer(maskSymbolInstance);
 
@@ -211,7 +286,7 @@ export function getASketchPage() {
           color: getComputedStyle(symbolNode).fill,
           size: parseInt(size, 10),
           // eslint-disable-next-line comma-dangle
-          symbol
+          symbol,
         });
       }
 
@@ -228,31 +303,31 @@ export function getASketchDocument() {
   doc.setName('BrainlyPencilTextSystem}');
 
   // DOCUMENT COLORS
-  Array.from(document.querySelectorAll('.colors-list > .color-box'))
-    .forEach(box => {
+  Array.from(document.querySelectorAll('.colors-list > .color-box')).forEach(
+    box => {
       const color = getComputedStyle(box).backgroundColor;
 
       doc.addColor(color);
-    });
+    }
+  );
 
   // TEXT STYLES
-  Array.from(document.querySelectorAll('.text-styles > *'))
-    .forEach(node => {
-      const styleName = node.title;
-      const layers = nodeToSketchLayers(node.firstChild);
+  Array.from(document.querySelectorAll('.text-styles > *')).forEach(node => {
+    const styleName = node.title;
+    const layers = nodeToSketchLayers(node.firstChild);
 
-      layers
-        .filter(layer => layer instanceof Text)
-        .forEach(layer => {
-          // fix font name so the name matches localy installed font
-          if (layer._style._fontFamily === 'ProximaNova') {
-            layer._style._fontFamily = 'Proxima Nova';
-          }
+    layers
+      .filter(layer => layer instanceof Text)
+      .forEach(layer => {
+        // fix font name so the name matches localy installed font
+        if (layer._style._fontFamily === 'ProximaNova') {
+          layer._style._fontFamily = 'Proxima Nova';
+        }
 
-          layer.setName(styleName);
-          doc.addTextStyle(layer);
-        });
-    });
+        layer.setName(styleName);
+        doc.addTextStyle(layer);
+      });
+  });
 
   return doc.toJSON();
 }

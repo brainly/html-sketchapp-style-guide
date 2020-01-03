@@ -7,17 +7,22 @@ const RatingPage = () => {
   const variations = [];
 
   getValues(RATING_SIZE, false).forEach(size => {
-    const name =
-    `Rating/${size}`;
+    const name = `Rating/${size}`;
 
-    variations.push(<div title={name} className='inline-item'>
-      <Rating size={size} counter={34} rate={3} active counterText="Hover to rate" />
-    </div>);
+    variations.push(
+      <div title={name} className="inline-item">
+        <Rating
+          size={size}
+          counter={34}
+          rate={3}
+          active
+          counterText="Hover to rate"
+        />
+      </div>
+    );
   });
 
-  return <section>
-    {variations}
-  </section>;
+  return <section>{variations}</section>;
 };
 
 export default RatingPage;

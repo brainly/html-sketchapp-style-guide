@@ -1,5 +1,8 @@
 import React from 'react';
-import Input, {COLOR, SIZE} from 'style-guide/src/components/form-elements/Input';
+import Input, {
+  COLOR,
+  SIZE,
+} from 'style-guide/src/components/form-elements/Input';
 import {getValues} from '../utils/getValues';
 
 const InputsPage = () => {
@@ -27,20 +30,21 @@ const InputsPage = () => {
 
         const placeholderSize = size !== 'large' ? 'sg-text--small' : '';
 
-        InputVariations.push(<div title={name} className='inline-item'>
-          <div className={`sg-input ${inputSizeClass} ${inputColorClass} ${selectValidationClass}`}>
-            <div className={`sg-text ${placeholderSize}`}>input text</div>
+        InputVariations.push(
+          <div title={name} className="inline-item">
+            <div
+              className={`sg-input ${inputSizeClass} ${inputColorClass} ${selectValidationClass}`}
+            >
+              <div className={`sg-text ${placeholderSize}`}>input text</div>
+            </div>
           </div>
-        </div>);
-
+        );
       });
     });
-    InputVariations.push(<br/>);
+    InputVariations.push(<br />);
   });
 
-  return <section>
-    {InputVariations}
-  </section>;
+  return <section>{InputVariations}</section>;
 };
 
 export default InputsPage;

@@ -15,9 +15,16 @@
   },
   "homepage": "https://github.com/brainly/html-sketchapp-example#readme",
   "devDependencies": {
-    "eslint": "^4.4.1",
-    "eslint-plugin-import": "^2.18.2",
-    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git"
+    "eslint": "^5.16.0",
+    "eslint-config-brainly-react": "^2.7.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flowtype": "^3.6.1",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-json": "^1.3.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0"
   },
   "dependencies": {
     "@babel/core": "^7.6.4",
@@ -30,6 +37,7 @@
     "@babel/preset-react": "^7.6.3",
     "@brainly/html-sketchapp": "git+https://github.com/html-sketchapp/html-sketchapp.git#master",
     "babel-loader": "^8.0.6",
+    "prettier": "^1.19.1",
     "puppeteer": "1.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
