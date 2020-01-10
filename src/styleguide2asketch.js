@@ -70,6 +70,10 @@ export function getASketchPage() {
               layer.setHasClippingMask(true);
             }
 
+            if (symbol._name.startsWith('Label/')) {
+              symbol.setGroupLayout(SMART_LAYOUT.HORIZONTALLY_CENTER);
+            }
+
             // eslint-disable-next-line max-len
             if (symbol._name.startsWith('Label/') && layer instanceof SVG) {
               const type = node.children[0].id;
