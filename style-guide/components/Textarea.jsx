@@ -23,10 +23,11 @@ const TextareasPage = () => {
       }
 
       const textareaClassName = `sg-textarea sg-textarea--${size} ${validationClassNameSet}`;
+      const placeholderColor = 'gray-secondary';
 
       variations.push(<div title={name} className='inline-item'>
         <div className={textareaClassName}>
-          <div className="sg-text">textarea example</div>
+          <div className={`sg-text sg-text--${placeholderColor}`}>textarea example</div>
         </div>
       </div>);
     });

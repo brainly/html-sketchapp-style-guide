@@ -19,6 +19,7 @@ const SearchPage = () => {
         const searchInputClass =
           `sg-input sg-input--${size} ${searchInputColorClass} sg-input--with-icon sg-search__input`;
         const placeholderSize = size !== 'large' ? 'sg-text--small' : '';
+        const placeholderColor = 'gray-secondary';
 
         variations.push(<div title={name} className='inline-item'>
           <div className={searchSizeClass}>
@@ -33,7 +34,7 @@ const SearchPage = () => {
 
                 </button>
               }
-              <div className={`sg-text ${placeholderSize}`}>Find all the answers...</div>
+              <div className={`sg-text sg-text--${placeholderColor} ${placeholderSize}`}>Find all the answers...</div>
             </div>
           </div>
         </div>);

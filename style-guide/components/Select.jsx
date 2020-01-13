@@ -29,11 +29,12 @@ const SelectsPage = () => {
         }
 
         const placeholderSize = size !== 'large' ? 'sg-text--small' : '';
+        const placeholderColor = 'gray-secondary';
 
         SelectVariations.push(<div title={name} className='inline-item'>
           <div className={`sg-select ${selectSizeClass} ${selectColorClass} ${selectValidationClass}`}>
             {/* <div className="sg-select__element"> */}
-            <div className={`sg-text ${placeholderSize}`}>Option 1</div>
+            <div className={`sg-text sg-text--${placeholderColor} ${placeholderSize}`}>Option 1</div>
 
             <div className="custom__icon custom-select__icon">
               <Icon type="arrow_down" size={size === 'large' ? 24 : 16} color="gray-secondary" />
