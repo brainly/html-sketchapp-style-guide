@@ -158,10 +158,3 @@ div.sg-avatar__image {
     width: 100%;
     justify-content: center;
 }
-
-.sg-input,
-.sg-select,
-.sg-textarea {
-    color: #687b8c;
-}
-
