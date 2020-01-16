@@ -171,7 +171,7 @@ export function getASketchPage() {
             // CONSTRAINTS FOR TEXT IN TEXTAREA
             if (layer instanceof Text && node.parentElement.classList.contains('sg-textarea')) {
               layer.setResizingConstraint(
-                RESIZING_CONSTRAINTS.LEFT,s
+                RESIZING_CONSTRAINTS.LEFT,
                 RESIZING_CONSTRAINTS.TOP,
                 RESIZING_CONSTRAINTS.BOTTOM
               );
@@ -180,7 +180,7 @@ export function getASketchPage() {
             // CONSTRAINTS FOR TEXT IN SELECTS
             if (layer instanceof Text && node.parentElement.classList.contains('sg-select')) {
               layer.setResizingConstraint(
-                RESIZING_CONSTRAINTS.LEFT,s
+                RESIZING_CONSTRAINTS.LEFT,
                 RESIZING_CONSTRAINTS.TOP,
                 RESIZING_CONSTRAINTS.BOTTOM
               );
