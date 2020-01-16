@@ -161,10 +161,32 @@ export function getASketchPage() {
 
             // CONSTRAINTS FOR TEXT IN INPUT
             if (layer instanceof Text && node.parentElement.classList.contains('sg-input')) {
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
+              layer.setResizingConstraint(
+                RESIZING_CONSTRAINTS.LEFT,
+                RESIZING_CONSTRAINTS.TOP,
+                RESIZING_CONSTRAINTS.BOTTOM
+              );
             }
 
-            // CONSTRAINTS FOR TEXT IN LABEL. SELECT, TEXTAREA
+            // CONSTRAINTS FOR TEXT IN TEXTAREA
+            if (layer instanceof Text && node.parentElement.classList.contains('sg-textarea')) {
+              layer.setResizingConstraint(
+                RESIZING_CONSTRAINTS.LEFT,
+                RESIZING_CONSTRAINTS.TOP,
+                RESIZING_CONSTRAINTS.BOTTOM
+              );
+            }
+
+            // CONSTRAINTS FOR TEXT IN SELECTS
+            if (layer instanceof Text && node.parentElement.classList.contains('sg-select')) {
+              layer.setResizingConstraint(
+                RESIZING_CONSTRAINTS.LEFT,
+                RESIZING_CONSTRAINTS.TOP,
+                RESIZING_CONSTRAINTS.BOTTOM
+              );
+            }
+
+            // CONSTRAINTS FOR TEXT IN LABEL
             if (layer instanceof Text &&
                 node.classList.contains('sg-label__text')
             ) {
