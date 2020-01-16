@@ -25,12 +25,11 @@ const InputsPage = () => {
           selectValidationClass = '';
         }
 
-        const placeholderSize = size !== 'large' ? 'sg-text--small' : '';
         const placeholderColor = 'gray-secondary';
 
         InputVariations.push(<div title={name} className='inline-item'>
           <div className={`sg-input ${inputSizeClass} ${inputColorClass} ${selectValidationClass}`}>
-            <div className={`sg-text sg-text--${placeholderColor} ${placeholderSize}`}>input text</div>
+            <div className={`sg-text sg-text--${placeholderColor}`} style={size !== 'large' ? {fontSize: '16px'} : undefined}>input text</div>
           </div>
         </div>);
 

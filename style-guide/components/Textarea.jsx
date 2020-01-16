@@ -27,7 +27,7 @@ const TextareasPage = () => {
 
       variations.push(<div title={name} className='inline-item'>
         <div className={textareaClassName}>
-          <div className={`sg-text sg-text--${placeholderColor}`}>textarea example</div>
+          <div className={`sg-text  sg-text--${placeholderColor}`} style={{fontSize: '16px'}}>textarea example</div>
         </div>
       </div>);
     });
