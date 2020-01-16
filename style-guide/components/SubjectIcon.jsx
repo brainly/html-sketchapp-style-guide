@@ -1,5 +1,5 @@
 import React from 'react';
-import SubjectIcon, {TYPE, SIZE, ICON_COLOR} from 'style-guide/src/components/subject-icons/SubjectIcon';
+import SubjectIcon, {TYPE, SIZE, ICON_COLOR} from 'brainly-style-guide/src/components/subject-icons/SubjectIcon';
 import {getValues} from '../utils/getValues';
 
 const SubjectIconsPage = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import Sticker from 'style-guide/src/components/stickers/Sticker';
-import {TYPE} from 'style-guide/src/components/icons/Icon';
+import Sticker from 'brainly-style-guide/src/components/stickers/Sticker';
+import {TYPE} from 'brainly-style-guide/src/components/icons/Icon';
 import {getValues} from '../utils/getValues';
 
 const StickersPage = () => {

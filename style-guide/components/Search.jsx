@@ -1,9 +1,9 @@
 import React from 'react';
 import {getValues} from '../utils/getValues';
 
-import Search, {SIZE, COLOR} from 'style-guide/src/components/search/Search';
-import Icon, {ICON_COLOR, TYPE} from 'style-guide/src/components/icons/Icon';
-import RoundButton from 'style-guide/src/components/round-buttons/RoundButton';
+import Search, {SIZE, COLOR} from 'brainly-style-guide/src/components/search/Search';
+import Icon, {ICON_COLOR, TYPE} from 'brainly-style-guide/src/components/icons/Icon';
+import RoundButton from 'brainly-style-guide/src/components/round-buttons/RoundButton';
 
 const SearchPage = () => {
   const variations = [];

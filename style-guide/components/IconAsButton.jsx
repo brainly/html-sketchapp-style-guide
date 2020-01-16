@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon, {TYPE, ICON_COLOR} from 'style-guide/src/components/icons/Icon';
-import IconAsButton, {SIZE} from 'style-guide/src/components/icon-as-button/IconAsButton';
+import Icon, {TYPE, ICON_COLOR} from 'brainly-style-guide/src/components/icons/Icon';
+import IconAsButton, {SIZE} from 'brainly-style-guide/src/components/icon-as-button/IconAsButton';
 import {getValues} from '../utils/getValues';
 
 const IconsAsButtonPage = () => {

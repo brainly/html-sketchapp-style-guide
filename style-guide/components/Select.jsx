@@ -1,8 +1,8 @@
 import React from 'react';
 import {getValues} from '../utils/getValues';
 
-import Select, {SIZE, COLOR} from 'style-guide/src/components/form-elements/Select';
-import Icon from 'style-guide/src/components/icons/Icon';
+import Select, {SIZE, COLOR} from 'brainly-style-guide/src/components/form-elements/Select';
+import Icon from 'brainly-style-guide/src/components/icons/Icon';
 
 // TODO export invalid also?
 const SelectsPage = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Bubble, {DIRECTION, ALIGNMENT} from 'style-guide/src/components/bubble/Bubble';
+import Bubble, {DIRECTION, ALIGNMENT} from 'brainly-style-guide/src/components/bubble/Bubble';
 import {getValues} from '../utils/getValues';
 
 const ORDERD_DIRECTION = [DIRECTION.TOP, DIRECTION.RIGHT, DIRECTION.BOTTOM, DIRECTION.LEFT];

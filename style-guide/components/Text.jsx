@@ -1,8 +1,8 @@
 import React from 'react';
-import Text, {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'style-guide/src/components/text/Text';
-import Headline, {HEADLINE_SIZE, HEADLINE_COLOR} from 'style-guide/src/components/text/Headline';
-import Link, {LINK_SIZE, LINK_COLOR, LINK_WEIGHT} from 'style-guide/src/components/text/Link';
-import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from 'style-guide/src/components/text/TextBit';
+import Text, {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'brainly-style-guide/src/components/text/Text';
+import Headline, {HEADLINE_SIZE, HEADLINE_COLOR} from 'brainly-style-guide/src/components/text/Headline';
+import Link, {LINK_SIZE, LINK_COLOR, LINK_WEIGHT} from 'brainly-style-guide/src/components/text/Link';
+import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from 'brainly-style-guide/src/components/text/TextBit';
 
 // setup for texts will be removed as soon as we cleanup SG
 const textWeight = {

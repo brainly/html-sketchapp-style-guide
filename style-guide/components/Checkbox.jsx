@@ -1,5 +1,5 @@
 import React from 'react';
-import Checkbox from 'style-guide/src/components/form-elements/Checkbox';
+import Checkbox from 'brainly-style-guide/src/components/form-elements/Checkbox';
 import {getValues} from '../utils/getValues';
 
 const CheckboxesPage = () => {

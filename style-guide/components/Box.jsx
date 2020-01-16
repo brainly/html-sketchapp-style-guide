@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, {COLOR} from 'style-guide/src/components/box/Box';
+import Box, {COLOR} from 'brainly-style-guide/src/components/box/Box';
 import {getValues} from '../utils/getValues';
 
 // TODO check if padding is needed

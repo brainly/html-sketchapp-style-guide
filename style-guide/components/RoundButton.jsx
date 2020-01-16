@@ -3,7 +3,7 @@ import RoundButton, {
   ROUND_BUTTON_SIZE,
   ROUND_BUTTON_COLOR,
   ROUND_BUTTON_ICON_TYPE,
-} from 'style-guide/src/components/round-buttons/RoundButton';
+} from 'brainly-style-guide/src/components/round-buttons/RoundButton';
 import {getValues} from '../utils/getValues';
 
 const RoundButtonsPage = () => {

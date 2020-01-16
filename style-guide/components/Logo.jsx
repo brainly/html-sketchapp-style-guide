@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo, {TYPE} from 'style-guide/src/components/logo/Logo';
+import Logo, {TYPE} from 'brainly-style-guide/src/components/logo/Logo';
 
 const LogoPage = () => {
   const variations = [];

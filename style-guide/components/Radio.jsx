@@ -1,5 +1,5 @@
 import React from 'react';
-import Radio from 'style-guide/src/components/form-elements/Radio';
+import Radio from 'brainly-style-guide/src/components/form-elements/Radio';
 import {getValues} from '../utils/getValues';
 
 const RadioPage = () => {

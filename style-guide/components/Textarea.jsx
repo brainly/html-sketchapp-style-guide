@@ -1,5 +1,5 @@
 import React from 'react';
-import Textarea, {SIZE} from 'style-guide/src/components/form-elements/Textarea.jsx';
+import Textarea, {SIZE} from 'brainly-style-guide/src/components/form-elements/Textarea.jsx';
 import {getValues} from '../utils/getValues';
 
 const TextareasPage = () => {
