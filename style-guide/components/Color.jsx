@@ -1,5 +1,5 @@
 import React from 'react';
-import colors from 'style-guide/src/components/colors/colors';
+import colors from 'brainly-style-guide/src/components/colors/colors';
 
 const ColorsPage = () => {
   const colorComponents = [];

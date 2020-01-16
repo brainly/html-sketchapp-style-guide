@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from './partials/Head.jsx';
-import packageJSON from 'style-guide/package.json';
+import packageJSON from 'brainly-style-guide/package.json';
 import ColorMasksPage from './components/ColorMasks.jsx';
 import TextPage from './components/Text.jsx';
 import AvatarsPage from './components/Avatar.jsx';

@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar, {SIZE} from 'style-guide/src/components/avatar/Avatar';
+import Avatar, {SIZE} from 'brainly-style-guide/src/components/avatar/Avatar';
 import {getValues} from '../utils/getValues';
 
 const AvatarsPage = () => {

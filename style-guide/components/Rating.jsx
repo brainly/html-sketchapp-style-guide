@@ -1,5 +1,5 @@
 import React from 'react';
-import Rating, {RATING_SIZE} from 'style-guide/src/components/rating/Rating';
+import Rating, {RATING_SIZE} from 'brainly-style-guide/src/components/rating/Rating';
 import {getValues} from '../utils/getValues';
 
 // TODO check if padding is needed

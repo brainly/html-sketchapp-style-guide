@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Counter, {COUNTER_SIZE} from 'style-guide/src/components/counters/Counter';
-import Text from 'style-guide/src/components/text/Text';
+import Counter, {COUNTER_SIZE} from 'brainly-style-guide/src/components/counters/Counter';
+import Text from 'brainly-style-guide/src/components/text/Text';
 import {getValues} from '../utils/getValues';
 
 const CountersPage = () => {

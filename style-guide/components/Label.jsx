@@ -1,7 +1,7 @@
 import React from 'react';
-import {ICON_COLOR, TYPE} from 'style-guide/src/components/icons/Icon';
-import Label, {LABEL_TYPE, LABEL_COLORS_SET} from 'style-guide/src/components/labels/Label';
-import Icon from 'style-guide/src/components/icons/Icon';
+import {ICON_COLOR, TYPE} from 'brainly-style-guide/src/components/icons/Icon';
+import Label, {LABEL_TYPE, LABEL_COLORS_SET} from 'brainly-style-guide/src/components/labels/Label';
+import Icon from 'brainly-style-guide/src/components/icons/Icon';
 
 import {getValues} from '../utils/getValues';
 

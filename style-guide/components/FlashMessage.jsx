@@ -1,5 +1,5 @@
 import React from 'react';
-import FlashMessage, {TYPE} from 'style-guide/src/components/flash-messages/FlashMessage';
+import FlashMessage, {TYPE} from 'brainly-style-guide/src/components/flash-messages/FlashMessage';
 import {getValues} from '../utils/getValues';
 
 const FlashMessagesPage = () => {

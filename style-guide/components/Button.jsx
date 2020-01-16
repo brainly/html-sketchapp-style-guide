@@ -1,6 +1,6 @@
 import React from 'react';
-import Button, {BUTTON_TYPE, BUTTON_SIZE} from 'style-guide/src/components/buttons/Button';
-import Icon from 'style-guide/src/components/icons/Icon';
+import Button, {BUTTON_TYPE, BUTTON_SIZE} from 'brainly-style-guide/src/components/buttons/Button';
+import Icon from 'brainly-style-guide/src/components/icons/Icon';
 import {getValues} from '../utils/getValues';
 
 const ButtonsPage = () => {

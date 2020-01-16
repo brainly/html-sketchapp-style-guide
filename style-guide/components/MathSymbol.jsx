@@ -1,6 +1,6 @@
 import React from 'react';
-import {ICON_COLOR} from 'style-guide/src/components/icons/Icon';
-import MathSymbol, {MATH_SYMBOL_TYPE, SIZE} from 'style-guide/src/components/math-symbols/MathSymbol';
+import {ICON_COLOR} from 'brainly-style-guide/src/components/icons/Icon';
+import MathSymbol, {MATH_SYMBOL_TYPE, SIZE} from 'brainly-style-guide/src/components/math-symbols/MathSymbol';
 import {getValues} from '../utils/getValues';
 
 const MathSymbolsPage = () => {
