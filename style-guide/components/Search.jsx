@@ -33,7 +33,12 @@ const SearchPage = () => {
 
                 </button>
               }
-              <div className={`sg-text sg-text--${placeholderColor}`} style={size !== 'large' ? {fontSize: '16px'} : undefined}>Find all the answers...</div>
+              <div
+                className={`sg-text sg-text--${placeholderColor}`}
+                style={size !== 'large' ? {fontSize: '16px'} : undefined}
+              >
+                Find all the answers...
+              </div>
             </div>
           </div>
         </div>);
