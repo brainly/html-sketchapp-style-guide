@@ -39,7 +39,7 @@ const IndexPage = () =>
       <BubblesPage />
       <ButtonsPage />
       <CheckboxesPage />
-      <CountersPage />
+      <CountersPage /> */}
       {/* <DropdownsPage /> */}
       <FlashMessagesPage />
       <InputsPage />
