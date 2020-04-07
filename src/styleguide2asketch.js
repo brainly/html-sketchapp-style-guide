@@ -71,6 +71,7 @@ export function getASketchPage() {
               layer.setHasClippingMask(true);
             }
 
+            // eslint-disable-next-line max-len
             if (layer instanceof SVG && node.classList.contains('sg-mobile-icon') && symbol._name.startsWith('MobileIcon/')) {
               layer.setHasClippingMask(true);
             }
