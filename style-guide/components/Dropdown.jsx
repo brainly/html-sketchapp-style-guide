@@ -1,6 +1,5 @@
 import React from 'react';
 import {ICON_COLOR, TYPE} from 'brainly-style-guide/src/components/icons/Icon';
-import DropdownContainer from 'brainly-style-guide/src/components/dropdowns/DropdownContainer';
 import {getValues} from '../utils/getValues';
 
 const DropdownsPage = () => {

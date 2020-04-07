@@ -13,11 +13,12 @@ import CountersPage from './components/Counter.jsx';
 import RadioPage from './components/Radio.jsx';
 import ColorsPage from './components/Color.jsx';
 import IconsPage from './components/Icon.jsx';
+import MobileIconsPage from './components/MobileIcon.jsx';
 import LabelsPage from './components/Label.jsx';
 import SubjectIconsPage from './components/SubjectIcon.jsx';
 import MathSymbolsPage from './components/MathSymbol.jsx';
 import ListsPage from './components/List';
-import DropdownsPage from './components/Dropdown';
+// import DropdownsPage from './components/Dropdown';
 import FlashMessagesPage from './components/FlashMessage';
 import SearchPage from './components/Search';
 import BoxesPage from './components/Box';
@@ -31,6 +32,7 @@ const IndexPage = () =>
     <body>
       <ColorMasksPage />
       <IconsPage />
+      <MobileIconsPage />
       <LogoPage />
       <AvatarsPage />
       <BoxesPage />
@@ -38,7 +40,7 @@ const IndexPage = () =>
       <ButtonsPage />
       <CheckboxesPage />
       <CountersPage />
-      <DropdownsPage />
+      {/* <DropdownsPage /> */}
       <FlashMessagesPage />
       <InputsPage />
       <ListsPage />

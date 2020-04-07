@@ -37,6 +37,7 @@ export function getASketchPage() {
   page.setName(`Brainly Pencil - Style Guide ${styleGuideVersion}`);
 
   const icons = [];
+  const mobileIcons = [];
   const maskColors = [];
 
   // SYMBOLS
@@ -67,6 +68,11 @@ export function getASketchPage() {
             }
 
             if (layer instanceof SVG && node.classList.contains('sg-icon__svg') && symbol._name.startsWith('Icon/')) {
+              layer.setHasClippingMask(true);
+            }
+
+            // eslint-disable-next-line max-len
+            if (layer instanceof SVG && node.classList.contains('sg-mobile-icon') && symbol._name.startsWith('MobileIcon/')) {
               layer.setHasClippingMask(true);
             }
 
@@ -236,6 +242,34 @@ export function getASketchPage() {
           type: `icon-${type}`,
           color: getComputedStyle(symbolNode).fill,
           size: parseInt(size, 10),
+          // eslint-disable-next-line comma-dangle
+          symbol
+        });
+      }
+
+      if (symbol._name.startsWith('MobileIcon/')) {
+        /* eslint-disable no-unused-vars */
+        const [, type, size] = symbol._name.split('/');
+        /* eslint-enable no-unused-vars */
+        let layerSize = 64;
+
+        if (size === 'small') {
+          layerSize = 24;
+        } else if (size === 'medium') {
+          layerSize = 32;
+        }
+
+        const mask = maskColors[0];
+        const maskSymbolInstance = mask.getSymbolInstance(
+          {x: symbol._x, y: symbol._y, width: layerSize, height: layerSize}
+        );
+
+        symbol.addLayer(maskSymbolInstance);
+
+        mobileIcons.push({
+          type: `mobile-icon-${type}`,
+          color: getComputedStyle(symbolNode).fill,
+          size: layerSize,
           // eslint-disable-next-line comma-dangle
           symbol
         });

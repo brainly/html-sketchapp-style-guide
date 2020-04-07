@@ -158,3 +158,8 @@ div.sg-avatar__image {
     width: 100%;
     justify-content: center;
 }
+
+.sg-logo[class*="-mobile"] {
+    width: 32px;
+    height: 32px;
+}
