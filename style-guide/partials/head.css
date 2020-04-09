@@ -91,18 +91,24 @@ div.sg-avatar__image {
 }
 
 .sg-select {
+    position: relative;
+}
+
+.sg-select .sg-select__element {
+    display: flex;
+    align-items: center;
     padding: 0 16px;
 }
 
-.sg-select--large {
+.sg-select--large .sg-select__element {
     padding: 0 24px;
 }
 
-.sg-select {
+.sg-select__element {
     background-color: #ebf2f7;
 }
 
-.sg-select--white {
+.sg-select--white .sg-select__element {
     background-color: #ffffff;
 }
 
