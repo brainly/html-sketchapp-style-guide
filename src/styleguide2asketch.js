@@ -149,7 +149,7 @@ export function getASketchPage() {
             if (node.parentElement.classList.contains('sg-search__icon') ||
             layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-round-button__hole') ||
             layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-search__icon') ||
-            layer instanceof SVG && node.parentElement.parentElement.classList.contains('custom-select__icon')) {
+            layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-select__icon')) {
               layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.RIGHT,
                 RESIZING_CONSTRAINTS.WIDTH,
@@ -184,7 +184,7 @@ export function getASketchPage() {
             }
 
             // CONSTRAINTS FOR TEXT IN SELECTS
-            if (layer instanceof Text && node.parentElement.classList.contains('sg-select')) {
+            if (layer instanceof Text && node.parentElement.parentElement.classList.contains('sg-select')) {
               layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.LEFT,
                 RESIZING_CONSTRAINTS.TOP,
