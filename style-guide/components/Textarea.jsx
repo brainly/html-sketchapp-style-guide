@@ -1,40 +1,42 @@
 import React from 'react';
-import Textarea, {SIZE} from 'brainly-style-guide/src/components/form-elements/Textarea.jsx';
+import Textarea, {SIZE, TEXTAREA_COLOR} from 'brainly-style-guide/src/components/form-elements/Textarea.jsx';
 import {getValues} from '../utils/getValues';
 
 const TextareasPage = () => {
   const variations = [];
 
   getValues(SIZE, false).forEach(size => {
-    [false, true, null].forEach(valid => {
+    getValues(TEXTAREA_COLOR, false).forEach(color => {
+      [false, true, null].forEach(valid => {
 
-      let name = `Textarea/${size}/`;
-      let validationClassNameSet;
+        let name = `Textarea/${color}/${size}/`;
+        let validationClassNameSet;
 
-      if (valid === true) {
-        name += 'valid';
-        validationClassNameSet = 'sg-textarea--valid';
-      } else if (valid === false) {
-        name += 'invalid';
-        validationClassNameSet = 'sg-textarea--invalid';
-      } else {
-        name += '_default_';
-        validationClassNameSet = '';
-      }
+        if (valid === true) {
+          name += 'valid';
+          validationClassNameSet = 'sg-textarea--valid';
+        } else if (valid === false) {
+          name += 'invalid';
+          validationClassNameSet = 'sg-textarea--invalid';
+        } else {
+          name += '_default_';
+          validationClassNameSet = '';
+        }
 
-      const textareaClassName = `sg-textarea sg-textarea--${size} ${validationClassNameSet}`;
-      const placeholderColor = 'gray-secondary';
+        const textareaClassName = `sg-textarea sg-textarea--${size} sg-textarea--${color} ${validationClassNameSet}`;
+        const placeholderColor = 'gray-secondary';
 
-      variations.push(<div title={name} className='inline-item'>
-        <div className={textareaClassName}>
-          <div
-            className={`sg-text  sg-text--${placeholderColor}`}
-            style={{fontSize: '16px'}}
-          >
+        variations.push(<div title={name} className='inline-item'>
+          <div className={textareaClassName}>
+            <div
+              className={`sg-text  sg-text--${placeholderColor}`}
+              style={{fontSize: '16px'}}
+            >
               textarea example
+            </div>
           </div>
-        </div>
-      </div>);
+        </div>);
+      });
     });
   });
 

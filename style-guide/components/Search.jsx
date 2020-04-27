@@ -12,7 +12,7 @@ const SearchPage = () => {
     getValues(COLOR, false).forEach(color => {
       [false, true].forEach(withRoundButton => {
         const name =
-        `Search/${size}/${color}/${withRoundButton ? 'round button' : '_default_'}`;
+        `Search/${color}/${size}/${withRoundButton ? 'round button' : '_default_'}`;
 
         const searchSizeClass = size === 'large' ? `sg-search sg-search--${size}` : 'sg-search';
         const searchInputColorClass = color === 'white' ? `sg-input--${color}` : '';
