@@ -225,6 +225,10 @@ export function getASketchPage() {
         symbol.setGroupLayout(SMART_LAYOUT.HORIZONTALLY_CENTER);
       }
 
+      if (symbol._name.startsWith('Rating/')) {
+        symbol.setGroupLayout(SMART_LAYOUT.LEFT_TO_RIGHT);
+      }
+
       if (symbol._name.startsWith('Icon/')) {
         /* eslint-disable no-unused-vars */
         const [, type, size] = symbol._name.split('/');

@@ -11,7 +11,7 @@ const SelectsPage = () => {
   getValues(SIZE, false).forEach(size => {
     getValues(COLOR, false).forEach(color => {
       [false, true, null].forEach(valid => {
-        let name = `Select/${size}/${color}/`;
+        let name = `Select/${color}/${size}/`;
         let selectValidationClass;
 
         const selectSizeClass = size === 'large' ? `sg-select--${size}` : '';
