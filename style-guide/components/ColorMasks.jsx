@@ -3,7 +3,7 @@ import colors from 'brainly-style-guide/src/components/colors/colors';
 
 const ColorMasksPage = () => {
   const colorMasksComponents = [];
-  const additionalColors = [
+  const outOfStyleGuideColors = [
     {
       name: 'Gray Dark 1100',
       hex: '1C2126'
@@ -21,7 +21,7 @@ const ColorMasksPage = () => {
     ...colors,
     gray: [
       ...colors.gray,
-      ...additionalColors,
+      ...outOfStyleGuideColors,
     ]
   };
 
