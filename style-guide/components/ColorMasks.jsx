@@ -5,15 +5,15 @@ const ColorMasksPage = () => {
   const colorMasksComponents = [];
   const outOfStyleGuideColors = [
     {
-      name: 'Gray Dark 1100',
+      name: 'Gray Dark 1100 DM',
       hex: '1C2126'
     },
     {
-      name: 'Gray Dark 1000',
+      name: 'Gray Dark 1000 DM',
       hex: '252C33'
     },
     {
-      name: 'Gray Dark 800',
+      name: 'Gray Dark 800 DM',
       hex: '46535F'
     } 
   ];
