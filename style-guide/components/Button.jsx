@@ -7,13 +7,13 @@ import Icon from 'brainly-style-guide/src/components/icons/Icon';
 import {getValues} from '../utils/getValues';
 
 const noToggleTypes = [
-                  'solid',
-                  'solid-inverted',
-                  'solid-blue',
-                  'solid-mint',
-                  'transparent-inverted',
-                  'facebook',
-                ];
+  'solid',
+  'solid-inverted',
+  'solid-blue',
+  'solid-mint',
+  'transparent-inverted',
+  'facebook',
+];
 
 const ButtonsPage = ({iconOnly = false}) => {
   const buttonsVariations = [];
