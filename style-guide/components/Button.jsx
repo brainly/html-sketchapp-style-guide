@@ -1,49 +1,101 @@
 import React from 'react';
-import Button, {BUTTON_TYPE, BUTTON_SIZE} from 'brainly-style-guide/src/components/buttons/Button';
+import Button, {
+  BUTTON_TYPE,
+  BUTTON_SIZE,
+} from 'brainly-style-guide/src/components/buttons/Button';
 import Icon from 'brainly-style-guide/src/components/icons/Icon';
 import {getValues} from '../utils/getValues';
 
-const ButtonsPage = () => {
+const noToggleTypes = [
+  'solid',
+  'solid-inverted',
+  'solid-blue',
+  'solid-mint',
+  'transparent-inverted',
+  'facebook',
+];
+
+const ButtonsPage = ({iconOnly = false}) => {
   const buttonsVariations = [];
 
   getValues(BUTTON_TYPE, false).forEach(type => {
     getValues(BUTTON_SIZE, false).forEach(size => {
+      [null, 'peach', 'mustard', 'blue', 'default'].forEach(toggle => {
+        [false, true].forEach(disabled => {
+          [false, true].forEach(icon => {
+            if (
+              (toggle &&
+                noToggleTypes.includes(type)) ||
+              (toggle === 'peach' && type === 'transparent-mustard') ||
+              (toggle === 'blue' && type === 'transparent-mustard') ||
+              (toggle === 'default' && type === 'transparent-mustard') ||
+              (toggle === 'mustard' && type === 'transparent-peach') ||
+              (toggle === 'blue' && type === 'transparent-peach') ||
+              (toggle === 'default' && type === 'transparent-peach') ||
+              (toggle === 'mustard' && type === 'transparent-blue') ||
+              (toggle === 'peach' && type === 'transparent-blue') ||
+              (toggle === 'default' && type === 'transparent-blue') ||
+              (toggle === 'default' && !icon)
+            ) {
+              return;
+            }
 
-      [false, true].forEach(disabled => {
-        [false, true].forEach(icon => {
-          let iconSize;
+            if (iconOnly && !icon) {
+              return;
+            }
 
-          if (size === 'large') {
-            iconSize = 32;
-          } else if (size === 'small') {
-            iconSize = 16;
-          } else {
-            iconSize = 24;
-          }
+            let iconSize;
 
-          const name =
-              `Button/${type}/${size}/${icon ? 'with icon' : '_default'}/ ${disabled ? 'disabled' : '_default'}`;
+            if (size === 'large') {
+              iconSize = 32;
+            } else if (size === 'small') {
+              iconSize = 16;
+            } else {
+              iconSize = 24;
+            }
 
-          buttonsVariations.push(<div title={name} className='inline-item'>
-            <Button
-              icon={icon ? <Icon type="answer" color="peach" size={iconSize} /> : null}
-              type={type}
-              size={size}
-              disabled={disabled}
-              className="fix-button"
-            >Button</Button>
+            let togglableName;
 
-          </div>);
+            if (noToggleTypes.includes(type) && !toggle) {
+              togglableName = '';
+            } else {
+              togglableName = `${toggle ? `toggle-${toggle}` : '_default'}/`;
+            }
+
+            const buttonName = `Button/${type}/${size}/${
+              icon ? 'with icon' : '_default'
+            }/${togglableName}${disabled ? 'disabled' : '_default'}`;
+            const iconButtonName = `IconButton/${type}/${size}/${togglableName}${disabled ? 'disabled' : '_default'}`;
+
+            const name = iconOnly ? iconButtonName : buttonName;
+
+            buttonsVariations.push(
+              <div title={name} className='inline-item'>
+                <Button
+                  icon={
+                    icon ? (
+                      <Icon type={toggle ? 'heart' : 'heart_outlined'} color='adaptive' size={iconSize} />
+                    ) : null
+                  }
+                  toggle={toggle}
+                  type={type}
+                  size={size}
+                  disabled={disabled}
+                  iconOnly={iconOnly}
+                >
+                  Button
+                </Button>
+              </div>
+            );
+          });
+
+          buttonsVariations.push(<br />);
         });
-
-        buttonsVariations.push(<br/>);
       });
     });
   });
 
-  return <section>
-    {buttonsVariations}
-  </section>;
+  return <section>{buttonsVariations}</section>;
 };
 
 export default ButtonsPage;

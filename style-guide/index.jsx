@@ -38,6 +38,7 @@ const IndexPage = () =>
       <BoxesPage />
       <BubblesPage />
       <ButtonsPage />
+      <ButtonsPage iconOnly />
       <CheckboxesPage />
       <CountersPage />
       {/* <DropdownsPage /> */}
