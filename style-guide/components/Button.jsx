@@ -6,6 +6,15 @@ import Button, {
 import Icon from 'brainly-style-guide/src/components/icons/Icon';
 import {getValues} from '../utils/getValues';
 
+const noToggleTypes = [
+                  'solid',
+                  'solid-inverted',
+                  'solid-blue',
+                  'solid-mint',
+                  'transparent-inverted',
+                  'facebook',
+                ];
+
 const ButtonsPage = ({iconOnly = false}) => {
   const buttonsVariations = [];
 
@@ -16,14 +25,7 @@ const ButtonsPage = ({iconOnly = false}) => {
           [false, true].forEach(icon => {
             if (
               (toggle &&
-                [
-                  'solid',
-                  'solid-inverted',
-                  'solid-blue',
-                  'solid-mint',
-                  'transparent-inverted',
-                  'facebook',
-                ].includes(type)) ||
+                noToggleTypes.includes(type)) ||
               (toggle === 'peach' && type === 'transparent-mustard') ||
               (toggle === 'blue' && type === 'transparent-mustard') ||
               (toggle === 'default' && type === 'transparent-mustard') ||
@@ -52,25 +54,18 @@ const ButtonsPage = ({iconOnly = false}) => {
               iconSize = 24;
             }
 
-            let togglable;
+            let togglableName;
 
-            if ([
-              'solid',
-              'solid-inverted',
-              'solid-blue',
-              'solid-mint',
-              'transparent-inverted',
-              'facebook',
-            ].includes(type) && !toggle) {
-              togglable = '';
+            if (noToggleTypes.includes(type) && !toggle) {
+              togglableName = '';
             } else {
-              togglable = `${toggle ? `toggle-${toggle}` : '_default'}/`;
+              togglableName = `${toggle ? `toggle-${toggle}` : '_default'}/`;
             }
 
             const buttonName = `Button/${type}/${size}/${
               icon ? 'with icon' : '_default'
-            }/${togglable}${disabled ? 'disabled' : '_default'}`;
-            const iconButtonName = `IconButton/${type}/${size}/${togglable}${disabled ? 'disabled' : '_default'}`;
+            }/${togglableName}${disabled ? 'disabled' : '_default'}`;
+            const iconButtonName = `IconButton/${type}/${size}/${togglableName}${disabled ? 'disabled' : '_default'}`;
 
             const name = iconOnly ? iconButtonName : buttonName;
 

@@ -100,17 +100,6 @@ export function getASketchPage() {
 
             // eslint-disable-next-line max-len
             if (symbol._name.startsWith('Button/') && layer instanceof SVG) {
-              // const type = node.children[0].id;
-              // const size = node.clientHeight;
-              // const icon = icons.find(icon => icon.type === type);
-
-              // layer = icon.symbol.getSymbolInstance({
-              //   x: layer._x,
-              //   y: layer._y,
-              //   width: size,
-              //   // eslint-disable-next-line comma-dangle
-              //   height: size
-              // });
               // eslint-disable-next-line max-len
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
             }
