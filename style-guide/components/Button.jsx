@@ -6,12 +6,12 @@ import Button, {
 import Icon from 'brainly-style-guide/src/components/icons/Icon';
 import {getValues} from '../utils/getValues';
 
-const ButtonsPage = () => {
+const ButtonsPage = ({iconOnly = false}) => {
   const buttonsVariations = [];
 
   getValues(BUTTON_TYPE, false).forEach(type => {
     getValues(BUTTON_SIZE, false).forEach(size => {
-      [null, 'peach', 'mustard', 'default'].forEach(toggle => {
+      [null, 'peach', 'mustard', 'blue', 'default'].forEach(toggle => {
         [false, true].forEach(disabled => {
           [false, true].forEach(icon => {
             if (
@@ -25,11 +25,20 @@ const ButtonsPage = () => {
                   'facebook',
                 ].includes(type)) ||
               (toggle === 'peach' && type === 'transparent-mustard') ||
+              (toggle === 'blue' && type === 'transparent-mustard') ||
               (toggle === 'default' && type === 'transparent-mustard') ||
               (toggle === 'mustard' && type === 'transparent-peach') ||
+              (toggle === 'blue' && type === 'transparent-peach') ||
               (toggle === 'default' && type === 'transparent-peach') ||
+              (toggle === 'mustard' && type === 'transparent-blue') ||
+              (toggle === 'peach' && type === 'transparent-blue') ||
+              (toggle === 'default' && type === 'transparent-blue') ||
               (toggle === 'default' && !icon)
             ) {
+              return;
+            }
+
+            if (iconOnly && !icon) {
               return;
             }
 
@@ -43,9 +52,27 @@ const ButtonsPage = () => {
               iconSize = 24;
             }
 
-            const name = `Button/${type}/${size}/${
+            let togglable;
+
+            if ([
+              'solid',
+              'solid-inverted',
+              'solid-blue',
+              'solid-mint',
+              'transparent-inverted',
+              'facebook',
+            ].includes(type) && !toggle) {
+              togglable = '';
+            } else {
+              togglable = `${toggle ? `toggle-${toggle}` : '_default'}/`;
+            }
+
+            const buttonName = `Button/${type}/${size}/${
               icon ? 'with icon' : '_default'
-            }/${toggle ? `toggle-${toggle}` : '_default'}/${disabled ? 'disabled' : '_default'}`;
+            }/${togglable}${disabled ? 'disabled' : '_default'}`;
+            const iconButtonName = `IconButton/${type}/${size}/${togglable}${disabled ? 'disabled' : '_default'}`;
+
+            const name = iconOnly ? iconButtonName : buttonName;
 
             buttonsVariations.push(
               <div title={name} className='inline-item'>
@@ -59,7 +86,7 @@ const ButtonsPage = () => {
                   type={type}
                   size={size}
                   disabled={disabled}
-                  className='fix-button'
+                  iconOnly={iconOnly}
                 >
                   Button
                 </Button>
