@@ -67,7 +67,10 @@ export function getASketchPage() {
               layer._style._fontFamily = 'Proxima Nova';
             }
 
-            if (layer instanceof SVG && node.classList.contains('sg-icon__svg') && symbol._name.startsWith('Icon/WebIcon/')) {
+            if (
+              layer instanceof SVG && node.classList.contains('sg-icon__svg') &&
+              symbol._name.startsWith('Icon/WebIcon/')
+            ) {
               layer.setHasClippingMask(true);
             }
 
@@ -115,7 +118,10 @@ export function getASketchPage() {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
             }
 
-            if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/WebIcon/')) {
+            if (
+              layer instanceof SVG && node.classList.contains('sg-icon') &&
+              !symbol._name.startsWith('Icon/WebIcon/')
+            ) {
               const type = node.children[0].id;
               const color = getComputedStyle(node).fill;
               const size = node.clientHeight;
