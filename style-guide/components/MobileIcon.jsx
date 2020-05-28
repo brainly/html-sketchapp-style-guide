@@ -10,7 +10,7 @@ const MobileIconsPage = () => {
 
   getValues(TYPE, false).forEach(type => {
     getValues(LIMITED_SIZE, false).forEach(size => {
-      const name = `MobileIcon/${type}/${size}`;
+      const name = `Icon/MobileIcon/${type}/${size}`;
 
       variations.push(<div title={name} className='inline-item'>
         <MobileIcon type={type} size={size} color={ICON_COLOR.DARK} />

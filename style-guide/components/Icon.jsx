@@ -8,7 +8,7 @@ const IconsPage = () => {
 
   getValues(TYPE, false).forEach(type => {
     getValues(LIMITED_SIZE, false).forEach(size => {
-      const name = `Icon/${type}/${size}`;
+      const name = `Icon/WebIcon/${type}/${size}`;
 
       variations.push(<div title={name} className='inline-item'>
         <Icon type={type} size={size} color={ICON_COLOR.DARK} />
