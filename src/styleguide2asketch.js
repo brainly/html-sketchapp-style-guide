@@ -67,12 +67,15 @@ export function getASketchPage() {
               layer._style._fontFamily = 'Proxima Nova';
             }
 
-            if (layer instanceof SVG && node.classList.contains('sg-icon__svg') && symbol._name.startsWith('Icon/')) {
+            if (
+              layer instanceof SVG && node.classList.contains('sg-icon__svg') &&
+              symbol._name.startsWith('Icon/WebIcon/')
+            ) {
               layer.setHasClippingMask(true);
             }
 
             // eslint-disable-next-line max-len
-            if (layer instanceof SVG && node.classList.contains('sg-mobile-icon') && symbol._name.startsWith('MobileIcon/')) {
+            if (layer instanceof SVG && node.classList.contains('sg-mobile-icon') && symbol._name.startsWith('Icon/MobileIcon/')) {
               layer.setHasClippingMask(true);
             }
 
@@ -99,12 +102,26 @@ export function getASketchPage() {
             }
 
             // eslint-disable-next-line max-len
-            if (symbol._name.startsWith('Button/') && layer instanceof SVG) {
+            if ((symbol._name.startsWith('Button/') || symbol._name.startsWith('IconButton/')) && layer instanceof SVG) {
+              const type = node.children[0].id;
+              const size = node.clientHeight;
+              const icon = icons.find(icon => icon.type === type);
+
+              layer = icon.symbol.getSymbolInstance({
+                x: layer._x,
+                y: layer._y,
+                width: size,
+                // eslint-disable-next-line comma-dangle
+                height: size
+              });
               // eslint-disable-next-line max-len
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
             }
 
-            if (layer instanceof SVG && node.classList.contains('sg-icon') && !symbol._name.startsWith('Icon/')) {
+            if (
+              layer instanceof SVG && node.classList.contains('sg-icon') &&
+              !symbol._name.startsWith('Icon/WebIcon/')
+            ) {
               const type = node.children[0].id;
               const color = getComputedStyle(node).fill;
               const size = node.clientHeight;
@@ -218,9 +235,9 @@ export function getASketchPage() {
         symbol.setGroupLayout(SMART_LAYOUT.LEFT_TO_RIGHT);
       }
 
-      if (symbol._name.startsWith('Icon/')) {
+      if (symbol._name.startsWith('Icon/WebIcon/')) {
         /* eslint-disable no-unused-vars */
-        const [, type, size] = symbol._name.split('/');
+        const [,, type, size] = symbol._name.split('/');
         /* eslint-enable no-unused-vars */
         const layerSize = parseInt(size, 10);
 
@@ -240,9 +257,9 @@ export function getASketchPage() {
         });
       }
 
-      if (symbol._name.startsWith('MobileIcon/')) {
+      if (symbol._name.startsWith('Icon/MobileIcon/')) {
         /* eslint-disable no-unused-vars */
-        const [, type, size] = symbol._name.split('/');
+        const [, , type, size] = symbol._name.split('/');
         /* eslint-enable no-unused-vars */
         let layerSize = 64;
 
