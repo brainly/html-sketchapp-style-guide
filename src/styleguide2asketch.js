@@ -152,10 +152,13 @@ export function getASketchPage() {
             }
 
             // CONSTRAINTS FOR SVG IN SEARCH
-            if (node.parentElement.classList.contains('sg-search__icon') ||
-            layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-round-button__hole') ||
-            layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-search__icon') ||
-            layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-select__icon')) {
+            if (
+              node.parentElement.classList.contains('sg-search__icon') ||
+              layer instanceof SVG && node.parentElement.classList.contains('sg-dropdown__icon') ||
+              layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-round-button__hole') ||
+              layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-search__icon') ||
+              layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-select__icon')
+            ) {
               layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.RIGHT,
                 RESIZING_CONSTRAINTS.WIDTH,
@@ -191,6 +194,19 @@ export function getASketchPage() {
 
             // CONSTRAINTS FOR TEXT IN SELECTS
             if (layer instanceof Text && node.parentElement.parentElement.classList.contains('sg-select')) {
+              layer.setResizingConstraint(
+                RESIZING_CONSTRAINTS.LEFT,
+                RESIZING_CONSTRAINTS.TOP,
+                RESIZING_CONSTRAINTS.BOTTOM
+              );
+            }
+
+            // CONSTRAINTS FOR TEXT IN DROPDOWNS
+            if (
+              layer instanceof Text &&
+              (node.parentElement.parentElement.classList.contains('sg-dropdown') ||
+              node.parentElement.classList.contains('sg-dropdown'))
+            ) {
               layer.setResizingConstraint(
                 RESIZING_CONSTRAINTS.LEFT,
                 RESIZING_CONSTRAINTS.TOP,
