@@ -36,5 +36,5 @@ puppeteer.launch({headless: false, devtools: true}).then(async browser => {
   fs.writeFileSync(path.resolve(__dirname, outputDocumentFile), JSON.stringify(asketchDocumentJSONString));
   fs.writeFileSync(path.resolve(__dirname, outputPageFile), JSON.stringify(asketchPageJSONString));
 
-  // browser.close();
+  browser.close();
 });
