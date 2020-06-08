@@ -4,7 +4,7 @@ import MobileIcon, {TYPE} from 'brainly-style-guide/src/components/mobile-icons/
 import {ICON_COLOR} from 'brainly-style-guide/src/components/icons/Icon';
 import {getValues} from '../utils/getValues';
 
-const LIMITED_SIZE = ['small', 'medium', 'normal'];
+const LIMITED_SIZE = [16, 24, 32, 56, 80, 104];
 const MobileIconsPage = () => {
   const variations = [];
 
