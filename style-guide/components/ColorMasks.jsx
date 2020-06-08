@@ -6,23 +6,23 @@ const ColorMasksPage = () => {
   const outOfStyleGuideColors = [
     {
       name: 'Gray Dark 1100 DM',
-      hex: '1C2126'
+      hex: '1C2126',
     },
     {
       name: 'Gray Dark 1000 DM',
-      hex: '252C33'
+      hex: '252C33',
     },
     {
       name: 'Gray Dark 800 DM',
-      hex: '46535F'
-    } 
+      hex: '46535F',
+    },
   ];
   const enhancedColors = {
     ...colors,
-    gray: [
-      ...colors.gray,
+    neutrals: [
+      ...colors.neutrals,
       ...outOfStyleGuideColors,
-    ]
+    ],
   };
 
   Object.keys(enhancedColors).forEach(category => {
