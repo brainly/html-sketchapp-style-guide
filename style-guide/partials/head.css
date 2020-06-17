@@ -100,7 +100,7 @@ div.sg-avatar__image {
     padding: 0 16px;
 }
 
-.sg-select--large .sg-select__element {
+.sg-select--l .sg-select__element {
     padding: 0 24px;
 }
 
@@ -142,13 +142,13 @@ div.sg-avatar__image {
     right: 4px;	
 }	
 
-.sg-button--large svg {	
+.sg-button--l svg {	
     position: relative;	
     bottom: 5px;	
     right: 5px;	
 }	
 
-.sg-button.sg-button--small svg {	
+.sg-button.sg-button--s svg {	
     position: relative;	
     bottom: 2px;	
     right: 3px;	
@@ -160,13 +160,13 @@ div.sg-avatar__image {
     right: 3px;	
 }	
 
-.sg-button--large.sg-button--icon-only svg {	
+.sg-button--l.sg-button--icon-only svg {	
     position: relative;	
     bottom: 5px;	
     right: 4px;	
 }	
 
-.sg-button.sg-button--small.sg-button--icon-only svg {	
+.sg-button.sg-button--s.sg-button--icon-only svg {	
     position: relative;	
     bottom: 2px;	
     right: 2px;	

@@ -14,7 +14,7 @@ const SelectsPage = () => {
         let name = `Select/${color}/${size}/`;
         let selectValidationClass;
 
-        const selectSizeClass = size === 'large' ? `sg-select--${size}` : '';
+        const selectSizeClass = size === 'l' ? `sg-select--${size}` : '';
         const selectColorClass = color === 'white' ? `sg-select--${color}` : '';
 
         if (valid === true) {
@@ -35,13 +35,13 @@ const SelectsPage = () => {
             <div className="sg-select__element">
               <div
                 className={`sg-text sg-text--${placeholderColor}`}
-                style={size !== 'large' ? {fontSize: '16px'} : undefined}
+                style={size !== 'l' ? {fontSize: '16px'} : undefined}
               >
                 Option 1
               </div>
             </div>
             <div className="sg-select__icon">
-              <Icon type="arrow_down" size={size === 'large' ? 24 : 16} color="gray-secondary" />
+              <Icon type="arrow_down" size={size === 'l' ? 24 : 16} color="gray-secondary" />
             </div>
           </div>
         </div>);

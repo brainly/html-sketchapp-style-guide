@@ -10,15 +10,19 @@ const AvatarsPage = () => {
       [null, 'https://source.unsplash.com/240x240/?cat'].forEach(src => {
         let avatarSize;
 
-        if (size === 'small') {
+        if (size === 'xxs') {
+          avatarSize = '16';
+        } else if (size === 'xs') {
           avatarSize = '24';
-        } else if (size === 'normal') {
+        } else if (size === 's') {
           avatarSize = '32';
-        } else if (size === 'large') {
+        } else if (size === 'm') {
+          avatarSize = '40';
+        } else if (size === 'l') {
           avatarSize = '56';
-        } else if (size === 'xlarge') {
+        } else if (size === 'xl') {
           avatarSize = '80';
-        } else {
+        } else if (size === 'xxl') {
           avatarSize = '104';
         }
 

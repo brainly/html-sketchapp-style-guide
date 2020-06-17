@@ -46,9 +46,9 @@ const ButtonsPage = ({iconOnly = false}) => {
 
             let iconSize;
 
-            if (size === 'large') {
+            if (size === 'l') {
               iconSize = 32;
-            } else if (size === 'small') {
+            } else if (size === 's') {
               iconSize = 16;
             } else {
               iconSize = 24;

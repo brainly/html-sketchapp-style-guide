@@ -11,7 +11,7 @@ const InputsPage = () => {
         let name = `Input/${color}/${size}/`;
         let selectValidationClass;
 
-        const inputSizeClass = size === 'large' ? `sg-input--${size}` : '';
+        const inputSizeClass = size === 'l' ? `sg-input--${size}` : '';
         const inputColorClass = color === 'white' ? `sg-input--${color}` : '';
 
         if (valid === true) {
@@ -31,7 +31,7 @@ const InputsPage = () => {
           <div className={`sg-input ${inputSizeClass} ${inputColorClass} ${selectValidationClass}`}>
             <div
               className={`sg-text sg-text--${placeholderColor}`}
-              style={size !== 'large' ? {fontSize: '16px'} : undefined}
+              style={size !== 'l' ? {fontSize: '16px'} : undefined}
             >
                 input text
             </div>
