@@ -155,7 +155,7 @@ export function getASketchPage() {
             if (
               node.parentElement.classList.contains('sg-search__icon') ||
               layer instanceof SVG && node.parentElement.classList.contains('sg-dropdown__icon') ||
-              layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-round-button__hole') ||
+              layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-button__icon') ||
               layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-search__icon') ||
               layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-select__icon')
             ) {
@@ -277,13 +277,7 @@ export function getASketchPage() {
         /* eslint-disable no-unused-vars */
         const [, , type, size] = symbol._name.split('/');
         /* eslint-enable no-unused-vars */
-        let layerSize = 64;
-
-        if (size === 'small') {
-          layerSize = 24;
-        } else if (size === 'medium') {
-          layerSize = 32;
-        }
+        const layerSize = parseInt(size, 10);
 
         const mask = maskColors[0];
         const maskSymbolInstance = mask.getSymbolInstance(
