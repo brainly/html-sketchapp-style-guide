@@ -22,7 +22,7 @@ const ButtonsPage = ({iconOnly = false}) => {
     getValues(BUTTON_SIZE, false).forEach(size => {
       [null, 'peach', 'mustard', 'blue', 'default'].forEach(toggle => {
         [false, true].forEach(disabled => {
-          [false, true].forEach(icon => {
+          [false, true, 'reversed-order'].forEach(icon => {
             if (
               (toggle &&
                 noToggleTypes.includes(type)) ||
@@ -41,6 +41,10 @@ const ButtonsPage = ({iconOnly = false}) => {
             }
 
             if (iconOnly && !icon) {
+              return;
+            }
+
+            if (iconOnly && icon && icon === 'reversed-order') {
               return;
             }
 
@@ -63,7 +67,7 @@ const ButtonsPage = ({iconOnly = false}) => {
             }
 
             const buttonName = `Button/${type}/${size}/${
-              icon ? 'with icon' : '_default'
+              icon === 'reversed-order' ? ' icon right' : icon ? 'icon left' : '_default'
             }/${togglableName}${disabled ? 'disabled' : '_default'}`;
             const iconButtonName = `IconButton/${type}/${size}/${togglableName}${disabled ? 'disabled' : '_default'}`;
 
@@ -82,6 +86,7 @@ const ButtonsPage = ({iconOnly = false}) => {
                   size={size}
                   disabled={disabled}
                   iconOnly={iconOnly}
+                  reversedOrder={icon === 'reversed-order'}
                 >
                   Button
                 </Button>
