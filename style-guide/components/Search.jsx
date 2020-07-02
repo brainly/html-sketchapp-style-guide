@@ -29,7 +29,7 @@ const SearchPage = () => {
                     type="search"
                     size={size === 'l' ? 24 : 16}
                     color="adaptive"
-                  />} size={size === 'l' ? 'm' : 's'} />
+                  />} iconOnly size={size === 'l' ? 'm' : 's'} />
                 </div> :
                 <button className="sg-search__icon">
 

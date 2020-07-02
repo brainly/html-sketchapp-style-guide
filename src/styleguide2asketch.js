@@ -161,6 +161,7 @@ export function getASketchPage() {
             if (
               node.parentElement.classList.contains('sg-search__icon') ||
               layer instanceof SVG && node.parentElement.classList.contains('sg-dropdown__icon') ||
+              layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-button__icon') ||
               layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-search__icon') ||
               layer instanceof SVG && node.parentElement.parentElement.classList.contains('sg-select__icon')
             ) {
