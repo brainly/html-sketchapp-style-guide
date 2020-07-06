@@ -114,8 +114,14 @@ export function getASketchPage() {
                 // eslint-disable-next-line comma-dangle
                 height: size
               });
-              // eslint-disable-next-line max-len
-              layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
+
+              if (symbol._name.includes('icon right')) {
+                // eslint-disable-next-line max-len
+                layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.RIGHT);
+              } else {
+                // eslint-disable-next-line max-len
+                layer.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT, RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.LEFT);
+              }
             }
 
             if (
@@ -151,7 +157,7 @@ export function getASketchPage() {
               layer.setResizingConstraint(RESIZING_CONSTRAINTS.LEFT);
             }
 
-            // CONSTRAINTS FOR SVG IN SEARCH
+            // CONSTRAINTS FOR SVG
             if (
               node.parentElement.classList.contains('sg-search__icon') ||
               layer instanceof SVG && node.parentElement.classList.contains('sg-dropdown__icon') ||

@@ -156,7 +156,7 @@ div.sg-avatar__image {
 
 .sg-button.sg-button--icon-only svg {	
     position: relative;	
-    bottom: 4px;	
+    bottom: 4px;
     right: 3px;	
 }	
 
@@ -170,6 +170,13 @@ div.sg-avatar__image {
     position: relative;	
     bottom: 2px;	
     right: 2px;	
+}
+
+.sg-search .sg-button.sg-button--icon-only svg,
+.sg-search .sg-button.sg-button--s.sg-button--icon-only svg {
+    position: static;
+    bottom: auto;
+    right: auto;
 }
 
 .sg-button {
