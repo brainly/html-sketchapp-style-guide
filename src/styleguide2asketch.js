@@ -335,8 +335,6 @@ export function getASketchDocument() {
             layer._style._fontFamily = 'Proxima Nova';
           }
 
-          console.log(layer._style);
-
           layer.setName(styleName);
           doc.addTextStyle(layer);
         });
