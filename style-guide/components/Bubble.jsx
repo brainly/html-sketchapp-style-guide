@@ -2,9 +2,6 @@ import React from 'react';
 import Bubble, {DIRECTION, ALIGNMENT} from 'brainly-style-guide/src/components/bubble/Bubble';
 import {getValues} from '../utils/getValues';
 
-const ORDERD_DIRECTION = [DIRECTION.TOP, DIRECTION.RIGHT, DIRECTION.BOTTOM, DIRECTION.LEFT];
-const ORDERD_ALIGNMENT = [ALIGNMENT.START, ALIGNMENT.CENTER, ALIGNMENT.END];
-
 // TODO check if padding is needed
 const BubblesPage = () => {
   const variations = [];
@@ -32,7 +29,7 @@ const BubblesPage = () => {
         alignmentSorted = `${alignment}`;
       }
 
-      let name =
+      const name =
       `Bubble/${directionSorted}/${alignmentSorted}`;
 
       variations.push(<div title={name} className='inline-item'>

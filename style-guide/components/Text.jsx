@@ -1,7 +1,7 @@
 import React from 'react';
-import Text, {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'brainly-style-guide/src/components/text/Text';
+import Text, {TEXT_COLOR} from 'brainly-style-guide/src/components/text/Text';
 import Headline, {HEADLINE_SIZE, HEADLINE_COLOR} from 'brainly-style-guide/src/components/text/Headline';
-import Link, {LINK_SIZE, LINK_COLOR, LINK_WEIGHT} from 'brainly-style-guide/src/components/text/Link';
+import Link, {LINK_COLOR} from 'brainly-style-guide/src/components/text/Link';
 import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from 'brainly-style-guide/src/components/text/TextBit';
 
 // setup for texts will be removed as soon as we cleanup SG
@@ -37,9 +37,18 @@ const TextPage = () => {
     getValues(LINK_COLOR, false).forEach(color => {
       [true, false].forEach(underlined => {
         getValues(linkWeight, false).forEach(weight => {
-          linkVariations.push(<div title={`Link/${size || 'medium'}/${color || 'normal'}/${weight || 'normal'}/${underlined ? 'underlined' : 'normal'}`}>
-            <Link color={color} size={size} underlined weight={weight}>Link: {size} {color} {underlined ? 'underlined' : ''}</Link>
-          </div>);
+          linkVariations.push(
+            // eslint-disable-next-line max-len
+            <div title={`Link/${size || 'medium'}/${color || 'normal'}/${weight || 'normal'}/${underlined ? 'underlined' : 'normal'}`}>
+              <Link
+                color={color}
+                size={size}
+                underlined
+                weight={weight}>
+                  Link: {size} {color} {underlined ? 'underlined' : ''}
+              </Link>
+            </div>
+          );
         });
       });
     });
@@ -62,9 +71,11 @@ const TextPage = () => {
   getValues(HEADLINE_SIZE, false).forEach(size => {
     getValues(HEADLINE_COLOR).forEach(color => {
       [true, false].forEach(extraBold => {
-        headlineVariations.push(<div title={`Headline/${size || 'medium'}/${color || 'normal'}/${extraBold ? 'black' : 'bold'}`}>
-          <Headline color={color} size={size} extraBold={extraBold}>Headline: {size} {color}</Headline>
-        </div>);
+        headlineVariations.push(
+          <div title={`Headline/${size || 'medium'}/${color || 'normal'}/${extraBold ? 'black' : 'bold'}`}>
+            <Headline color={color} size={size} extraBold={extraBold}>Headline: {size} {color}</Headline>
+          </div>
+        );
       });
     });
   });

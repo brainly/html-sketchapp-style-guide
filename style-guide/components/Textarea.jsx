@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Textarea, {SIZE, TEXTAREA_COLOR} from 'brainly-style-guide/src/components/form-elements/Textarea.jsx';
+import {SIZE, TEXTAREA_COLOR} from 'brainly-style-guide/src/components/form-elements/Textarea.jsx';
 import {getValues} from '../utils/getValues';
 
 const TextareasPage = () => {

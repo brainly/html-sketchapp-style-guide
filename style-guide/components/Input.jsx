@@ -1,5 +1,5 @@
 import React from 'react';
-import Input, {COLOR, SIZE} from 'brainly-style-guide/src/components/form-elements/Input';
+import {COLOR, SIZE} from 'brainly-style-guide/src/components/form-elements/Input';
 import {getValues} from '../utils/getValues';
 
 const InputsPage = () => {

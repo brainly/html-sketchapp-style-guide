@@ -1,6 +1,5 @@
 import React from 'react';
 import Checkbox from 'brainly-style-guide/src/components/form-elements/Checkbox';
-import {getValues} from '../utils/getValues';
 
 const CheckboxesPage = () => {
   const CheckboxVariations = [];
@@ -15,7 +14,7 @@ const CheckboxesPage = () => {
     }
 
     CheckboxVariations.push(<div title={name} className='inline-item'>
-      <Checkbox onChange={() => {}} checked={checked} />
+      <Checkbox onChange={() => ({})} checked={checked} />
     </div>);
     CheckboxVariations.push(<br/>);
   });
