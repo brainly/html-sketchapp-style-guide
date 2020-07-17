@@ -1,8 +1,8 @@
 import React from 'react';
 import {getValues} from '../utils/getValues';
 
-import Search, {SIZE, COLOR} from 'brainly-style-guide/src/components/search/Search';
-import Icon, {ICON_COLOR, TYPE} from 'brainly-style-guide/src/components/icons/Icon';
+import {SIZE, COLOR} from 'brainly-style-guide/src/components/search/Search';
+import Icon from 'brainly-style-guide/src/components/icons/Icon';
 import Button from 'brainly-style-guide/src/components/buttons/Button';
 
 const SearchPage = () => {

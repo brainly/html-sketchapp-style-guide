@@ -1,7 +1,5 @@
 import React from 'react';
 import Dropdown from 'brainly-style-guide/src/components/dropdowns/Dropdown';
-import {ICON_COLOR, TYPE} from 'brainly-style-guide/src/components/icons/Icon';
-import {getValues} from '../utils/getValues';
 
 const DropdownsPage = () => {
   const variations = [];

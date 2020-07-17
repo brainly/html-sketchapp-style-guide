@@ -3,7 +3,7 @@ import List from 'brainly-style-guide/src/components/list/List';
 import ListItem from 'brainly-style-guide/src/components/list/ListItem';
 import ListItemIcon from 'brainly-style-guide/src/components/list/ListItemIcon';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from 'brainly-style-guide/src/components/icons/Icon';
-import Text, {SIZE as TEXT_SIZE} from 'brainly-style-guide/src/components/text/Text';
+import Text from 'brainly-style-guide/src/components/text/Text';
 
 const firstString = 'One two three';
 const secondString = 'Two three four';

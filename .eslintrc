@@ -1,6 +1,7 @@
 {
   "extends": [
-    "./node_modules/frontend-tools-configs/packages/eslint-config-brainly/rules/main.js"
+    "./node_modules/frontend-tools-configs/packages/eslint-config-brainly/rules/main.js",
+    "plugin:react/recommended"
   ],
   "rules": {
     "no-async-promise-executor": 0,
