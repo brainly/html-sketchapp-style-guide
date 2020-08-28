@@ -56,7 +56,7 @@ export function getASketchPage() {
   Array.from(
     document.querySelectorAll('section > .item, section > .inline-item')
   )
-    .map((metaNode) => {
+    .map(metaNode => {
       const symbolNode = metaNode.firstChild;
       const name = metaNode.title;
 
@@ -66,7 +66,7 @@ export function getASketchPage() {
         width,
         height,
       } = symbolNode.getBoundingClientRect();
-      const symbol = new SymbolMaster({ x, y, width, height });
+      const symbol = new SymbolMaster({x, y, width, height});
 
       symbol.setId(name);
       symbol.setName(name);
@@ -79,10 +79,10 @@ export function getASketchPage() {
       ];
 
       Array.from(parentAndChildren)
-        .map((node) => {
+        .map(node => {
           const layers = nodeToSketchLayers(node);
 
-          return layers.map((layer) => {
+          return layers.map(layer => {
             // fix font name so the name matches locally installed font
             if (
               layer instanceof Text &&
@@ -116,7 +116,7 @@ export function getASketchPage() {
             if (symbol._name.startsWith('Label/') && layer instanceof SVG) {
               const type = node.children[0].id;
               const size = node.clientHeight;
-              const icon = icons.find((icon) => icon.type === type);
+              const icon = icons.find(icon => icon.type === type);
 
               layer = icon.symbol.getSymbolInstance({
                 x: layer._x - 2.5,
@@ -142,7 +142,7 @@ export function getASketchPage() {
             ) {
               const type = node.children[0].id;
               const size = node.clientHeight;
-              const icon = icons.find((icon) => icon.type === type);
+              const icon = icons.find(icon => icon.type === type);
 
               layer = icon.symbol.getSymbolInstance({
                 x: layer._x,
@@ -178,7 +178,7 @@ export function getASketchPage() {
               const color = getComputedStyle(node).fill;
               const size = node.clientHeight;
               const icon = icons.find(
-                (icon) => icon.type === type && icon.size === size
+                icon => icon.type === type && icon.size === size
               );
 
               if (icon) {
@@ -322,8 +322,8 @@ export function getASketchPage() {
           });
         })
         .reduce((prev, current) => prev.concat(current), [])
-        .filter((layer) => layer !== null)
-        .forEach((layer) => symbol.addLayer(layer));
+        .filter(layer => layer !== null)
+        .forEach(layer => symbol.addLayer(layer));
 
       if (symbol._name.startsWith('ColorMask/')) {
         maskColors.push(symbol);
@@ -368,7 +368,7 @@ export function getASketchPage() {
 
       return symbol;
     })
-    .forEach((obj) => page.addLayer(obj));
+    .forEach(obj => page.addLayer(obj));
 
   return page.toJSON();
 }
@@ -380,7 +380,7 @@ export function getASketchDocument() {
 
   // DOCUMENT COLORS
   Array.from(document.querySelectorAll('.colors-list > .color-box')).forEach(
-    (box) => {
+    box => {
       const color = getComputedStyle(box).backgroundColor;
 
       doc.addColor(color);
@@ -388,13 +388,13 @@ export function getASketchDocument() {
   );
 
   // TEXT STYLES
-  Array.from(document.querySelectorAll('.text-styles > *')).forEach((node) => {
+  Array.from(document.querySelectorAll('.text-styles > *')).forEach(node => {
     const styleName = node.title;
     const layers = nodeToSketchLayers(node.firstChild);
 
     layers
-      .filter((layer) => layer instanceof Text)
-      .forEach((layer) => {
+      .filter(layer => layer instanceof Text)
+      .forEach(layer => {
         // fix font name so the name matches localy installed font
         if (layer._style._fontFamily === 'ProximaNova') {
           layer._style._fontFamily = 'Proxima Nova';
