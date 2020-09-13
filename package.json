@@ -5,7 +5,8 @@
   "scripts": {
     "test": "eslint src/ style-guide/components/ style-guide/partials/",
     "build": "webpack && cd style-guide && webpack && node build/buildHTML.bundle.js",
-    "inject": "node ./src/inject.js"
+    "inject": "node ./src/inject.js",
+    "clean": "trash {page,document}.asketch.json build style-guide/build"
   },
   "repository": "brainly/html-sketchapp-example",
   "author": "Konrad Dzwinel <konrad.dzwinel@brainly.com>",
@@ -18,7 +19,8 @@
     "eslint": "^4.4.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.20.3",
-    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git"
+    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git",
+    "trash-cli": "^3.1.0"
   },
   "dependencies": {
     "@babel/core": "^7.6.4",
