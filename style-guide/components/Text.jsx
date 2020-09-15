@@ -1,29 +1,8 @@
 import React from 'react';
-import Text, {TEXT_COLOR} from 'brainly-style-guide/src/components/text/Text';
+import Text, {TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT} from 'brainly-style-guide/src/components/text/Text';
 import Headline, {HEADLINE_SIZE, HEADLINE_COLOR} from 'brainly-style-guide/src/components/text/Headline';
 import Link, {LINK_COLOR} from 'brainly-style-guide/src/components/text/Link';
 import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from 'brainly-style-guide/src/components/text/TextBit';
-
-// setup for texts will be removed as soon as we cleanup SG
-const textWeight = {
-  bold: 'bold',
-  regular: 'regular',
-};
-
-const linkWeight = {
-  REGULAR: 'regular',
-  BOLD: 'bold',
-};
-
-const textSizes = {
-  XXSMALL: 'xxsmall',
-  XSMALL: 'xsmall',
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
-  XLARGE: 'xlarge',
-  XXLARGE: 'xxlarge',
-};
 
 function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
@@ -33,10 +12,10 @@ const TextPage = () => {
 
   const linkVariations = [];
 
-  getValues(textSizes, false).forEach(size => {
+  getValues(TEXT_SIZE, false).forEach(size => {
     getValues(LINK_COLOR, false).forEach(color => {
       [true, false].forEach(underlined => {
-        getValues(linkWeight, false).forEach(weight => {
+        getValues(TEXT_WEIGHT, false).forEach(weight => {
           linkVariations.push(
             // eslint-disable-next-line max-len
             <div title={`Link/${size || 'medium'}/${color || 'normal'}/${weight || 'normal'}/${underlined ? 'underlined' : 'normal'}`}>
@@ -56,9 +35,9 @@ const TextPage = () => {
 
   const textVariations = [];
 
-  getValues(textSizes, false).forEach(size => {
+  getValues(TEXT_SIZE, false).forEach(size => {
     getValues(TEXT_COLOR, false).forEach(color => {
-      getValues(textWeight, false).forEach(weight => {
+      getValues(TEXT_WEIGHT, false).forEach(weight => {
         textVariations.push(<div title={`Text/${size || 'medium'}/${color || 'normal'}/${weight || 'normal'}`}>
           <Text color={color} size={size} weight={weight}>Text: {size} {color} </Text>
         </div>);
