@@ -15,14 +15,14 @@ const noToggleTypes = [
   'facebook',
 ];
 
-const ButtonsPage = ({iconOnly = false}) => {
+const ButtonsPage = () => {
   const buttonsVariations = [];
 
   getValues(BUTTON_TYPE, false).forEach(type => {
     getValues(BUTTON_SIZE, false).forEach(size => {
       [null, 'peach', 'mustard', 'blue', 'default'].forEach(toggle => {
         [false, true].forEach(disabled => {
-          [false, true, 'reversed-order'].forEach(icon => {
+          [false, true, 'reversed-order', 'icon-only'].forEach(icon => {
             if (
               (toggle &&
                 noToggleTypes.includes(type)) ||
@@ -40,11 +40,7 @@ const ButtonsPage = ({iconOnly = false}) => {
               return;
             }
 
-            if (iconOnly && !icon) {
-              return;
-            }
-
-            if (iconOnly && icon && icon === 'reversed-order') {
+            if (icon === 'iconOnly' && !icon) {
               return;
             }
 
@@ -66,26 +62,33 @@ const ButtonsPage = ({iconOnly = false}) => {
               togglableName = `${toggle ? `toggle-${toggle}` : '_default'}/`;
             }
 
-            const buttonName = `Button/${type}/${size}/${
-              icon === 'reversed-order' ? ' icon right' : icon ? 'icon left' : '_default'
-            }/${togglableName}${disabled ? 'disabled' : '_default'}`;
-            const iconButtonName = `IconButton/${type}/${size}/${togglableName}${disabled ? 'disabled' : '_default'}`;
+            let iconVariant;
 
-            const name = iconOnly ? iconButtonName : buttonName;
+            if (icon === 'reversed-order') {
+              iconVariant = 'icon right';
+            } else if (icon === 'icon-only') {
+              iconVariant = 'icon only';
+            } else if (icon) {
+              iconVariant = 'icon left';
+            } else {
+              iconVariant = '_default';
+            }
+
+            const name = `Button/${type}/${size}/${iconVariant}/${togglableName}${disabled ? 'disabled' : '_default'}`;
 
             buttonsVariations.push(
               <div title={name} className='inline-item'>
                 <Button
                   icon={
-                    icon ? (
-                      <Icon type={toggle ? 'heart' : 'heart_outlined'} color='adaptive' size={iconSize} />
-                    ) : null
+                    icon ?
+                      <Icon type={toggle ? 'heart' : 'heart_outlined'} color='adaptive' size={iconSize} /> :
+                      null
                   }
                   toggle={toggle}
                   type={type}
                   size={size}
                   disabled={disabled}
-                  iconOnly={iconOnly}
+                  iconOnly={icon === 'icon-only'}
                   reversedOrder={icon === 'reversed-order'}
                 >
                   Button
