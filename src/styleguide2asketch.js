@@ -384,6 +384,7 @@ export function getASketchDocument() {
       const color = getComputedStyle(box).backgroundColor;
 
       doc.addColor(color);
+      doc.addSwatch(box.title, color);
     }
   );
 
