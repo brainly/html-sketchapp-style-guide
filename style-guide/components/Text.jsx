@@ -38,7 +38,7 @@ const TextPage = () => {
   getValues(TEXT_SIZE, false).forEach(size => {
     getValues(TEXT_COLOR, false).forEach(color => {
       getValues(TEXT_WEIGHT, false).forEach(weight => {
-        textVariations.push(<div title={`Text/${size || 'medium'}/${color || 'normal'}/${weight || 'normal'}`}>
+        textVariations.push(<div title={`Text/${size || 'medium'}/${color !== 'default' ? color : 'black' || 'normal'}/${weight || 'normal'}`}>
           <Text color={color} size={size} weight={weight}>Text: {size} {color} </Text>
         </div>);
       });
@@ -48,10 +48,10 @@ const TextPage = () => {
   const headlineVariations = [];
 
   getValues(HEADLINE_SIZE, false).forEach(size => {
-    getValues(HEADLINE_COLOR).forEach(color => {
+    getValues(HEADLINE_COLOR, false).forEach(color => {
       [true, false].forEach(extraBold => {
         headlineVariations.push(
-          <div title={`Headline/${size || 'medium'}/${color || 'normal'}/${extraBold ? 'black' : 'bold'}`}>
+          <div title={`Headline/${size || 'medium'}/${color !== 'default' ? color : 'black' || 'normal'}/${extraBold ? 'black' : 'bold'}`}>
             <Headline color={color} size={size} extraBold={extraBold}>Headline: {size} {color}</Headline>
           </div>
         );
@@ -62,7 +62,7 @@ const TextPage = () => {
   const textBitVariations = [];
 
   getValues(TEXT_BIT_SIZE).forEach(size => {
-    getValues(TEXT_BIT_COLOR).forEach(color => {
+    getValues(TEXT_BIT_COLOR, false).forEach(color => {
       if (size === TEXT_BIT_SIZE.MEDIUM) {
         return;
       }
