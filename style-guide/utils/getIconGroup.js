@@ -1,4 +1,4 @@
-const groups = {
+const iconMap = {
   essential: [
     'academic_cap',
     'all_questions',
@@ -141,6 +141,8 @@ const groups = {
   ],
 };
 
-export function getIconGroups() {
-  return groups;
+const groups = Object.keys(iconMap);
+
+export function getIconGroup(iconName) {
+  return groups.find(el => el.includes(iconName)) || 'misc';
 }
