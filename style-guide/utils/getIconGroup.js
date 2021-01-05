@@ -131,7 +131,7 @@ const iconMap = {
     'sent',
     'filters',
   ],
-  'social media': [
+  'Social Media': [
     'facebook',
     'instagram',
     'linkedin',
