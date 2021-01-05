@@ -1,5 +1,5 @@
 const iconMap = {
-  essential: [
+  Essential: [
     'academic_cap',
     'all_questions',
     'answer',
@@ -27,7 +27,7 @@ const iconMap = {
     'chapter',
     'info',
   ],
-  social: [
+  Social: [
     'ask_parent_to_pay',
     'bell_checked',
     'bell_outlined',
@@ -62,7 +62,7 @@ const iconMap = {
     'heart_outlined',
     'share_on_ios',
   ],
-  'editor and media': [
+  'Editor and Media': [
     'attachment',
     'bold',
     'bulleted_list',
@@ -109,7 +109,7 @@ const iconMap = {
     'replay',
     'time_speed',
   ],
-  navigation: [
+  Navigation: [
     'arrow_double_down',
     'arrow_down',
     'arrow_left',
@@ -144,5 +144,5 @@ const iconMap = {
 const groups = Object.keys(iconMap);
 
 export function getIconGroup(iconName) {
-  return groups.find(group => iconMap[group].includes(iconName)) || 'misc';
+  return groups.find(group => iconMap[group].includes(iconName)) || 'Misc';
 }
