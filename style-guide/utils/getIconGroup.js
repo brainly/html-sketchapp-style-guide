@@ -144,5 +144,5 @@ const iconMap = {
 const groups = Object.keys(iconMap);
 
 export function getIconGroup(iconName) {
-  return groups.find(el => el.includes(iconName)) || 'misc';
+  return groups.find(group => iconMap[group].includes(iconName)) || 'misc';
 }
