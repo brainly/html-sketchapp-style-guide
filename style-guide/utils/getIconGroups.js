@@ -103,6 +103,11 @@ const groups = {
     'flashlight_on',
     'keyboard',
     'text',
+    'backward_5s',
+    'backward_end',
+    'forward_5s',
+    'replay',
+    'time_speed',
   ],
   navigation: [
     'arrow_double_down',
@@ -124,6 +129,7 @@ const groups = {
     'clear',
     'options',
     'sent',
+    'filters',
   ],
   'social media': [
     'facebook',
