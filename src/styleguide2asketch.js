@@ -343,7 +343,7 @@ export function getASketchPage() {
 
       if (symbol._name.startsWith('Icon/')) {
         /* eslint-disable no-unused-vars */
-        const [, type, size] = symbol._name.split('/');
+        const [, group, type, size] = symbol._name.split('/');
         /* eslint-enable no-unused-vars */
         const layerSize = parseInt(size, 10);
 
