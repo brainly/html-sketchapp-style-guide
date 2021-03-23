@@ -110,6 +110,7 @@ const iconMap = {
     'time_speed',
   ],
   Navigation: [
+    'arrow',
     'arrow_double_down',
     'arrow_down',
     'arrow_left',
@@ -128,7 +129,7 @@ const iconMap = {
     'more',
     'clear',
     'options',
-    'sent',
+    'send',
     'filters',
   ],
   'Social Media': [
