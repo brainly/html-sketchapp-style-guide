@@ -17,6 +17,7 @@ const iconMap = {
     'question',
     'recent_questions',
     'seen',
+    'send',
     'settings',
     'sms',
     'toughest_questions',
@@ -110,6 +111,7 @@ const iconMap = {
     'time_speed',
   ],
   Navigation: [
+    'arrow',
     'arrow_double_down',
     'arrow_down',
     'arrow_left',
@@ -128,7 +130,6 @@ const iconMap = {
     'more',
     'clear',
     'options',
-    'sent',
     'filters',
   ],
   'Social Media': [

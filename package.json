@@ -36,7 +36,7 @@
     "puppeteer": "1.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "brainly-style-guide": "^185.1.0",
+    "brainly-style-guide": "^186.0.0",
     "webpack": "^3.12.0"
   }
 }
