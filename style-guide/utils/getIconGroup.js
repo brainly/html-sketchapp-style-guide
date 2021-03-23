@@ -17,6 +17,7 @@ const iconMap = {
     'question',
     'recent_questions',
     'seen',
+    'send',
     'settings',
     'sms',
     'toughest_questions',
@@ -129,7 +130,6 @@ const iconMap = {
     'more',
     'clear',
     'options',
-    'send',
     'filters',
   ],
   'Social Media': [
