@@ -27,6 +27,9 @@ const iconMap = {
     'dot',
     'chapter',
     'info',
+    'funnel',
+    'textbook',
+    'shield',
   ],
   Social: [
     'ask_parent_to_pay',
